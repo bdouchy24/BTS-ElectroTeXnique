@@ -112,7 +112,7 @@ le préambule une fois la programmation appelée dans le document maître
 - classement des références **dans l'ordre alphabétique** des clés :
     - si il s'agit de plusieurs référénces d'un site même site internet (wikipedia, cours en ligne, Guide de l'électrotechnique...à) sont identiques comme suit : `@PremièreSlettreSdusite:acronymedutitre` (ex. : `@wiki:TPE`pour l'article sur le tableau périodique des éléments de Wikipédia)
 	- Pour les cours et polycopiés, clé d'appel de la référence comme suit : `@Etablissementcoursannée` ou si l'intitulé du cours est trop long pour une clé compacte, utiliser son acronyme)
-    - Pour les livres et similaires, clé d'appel de la référence comme suit : `@Nomdel'auteurannée`
+    - Pour les livres et similaires, clé d'appel de la référence comme suit (si plusieurs auteurs, mettre chaque nom dans l'ordre alphabétique) : `@Nomdel'auteurannée`
     - Si l'auteur et l'année sont identiques comme suit : 
 
 ```

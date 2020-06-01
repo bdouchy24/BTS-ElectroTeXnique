@@ -1,0 +1,367 @@
+%--------------------------------------
+%PREAMBULE COMMUN A TOUS LES COURS - A MODIFIER AVEC PRUDENCE
+%--------------------------------------
+
+	%--------------------------------------
+	%Packages pour le document
+	%--------------------------------------
+
+	\usepackage[french]{babel}
+	\usepackage{lmodern, marvosym, microtype} %gestion fine des police de caractère
+	\usepackage[table, svgnames, dvipsnames, x11names]{xcolor} %gestion des couleurs
+	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référencage
+	\usepackage{varioref, memhfixc, url} % amélioration du référencage
+	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig}
+	\usepackage{callouts, circledsteps} %annotation d'image
+	\usepackage[absolute]{textpos}  % disposition d'images
+	\usepackage{authblk, tocbibind, calc} %gestion mise en page
+	\usepackage{xifthen, multido, etoolbox, ifpdf} %appel de fonction conditionnelles
+	\usepackage{mathtools, amsfonts, amssymb, mathrsfs} %écriture des mathématiques avec référénces
+	\usepackage{chemfig, bohr, tikzorbital, chemgreek, expl3, xparse, l3keys2e, xargs, verbatim} %gestion de l'écriture en chimie
+	\usepackage{modiagram} %orbitale atomique
+	\usepackage{cancel, colortbl, csquotes, mathpazo, soul, caption} %packages nécessaires pour le chargement du package SIunitx
+	\usepackage{siunitx} %gestion des unités de physique
+	\usepackage[export]{adjustbox}
+	\usepackage{animate} %animation d'image
+	\usepackage{subcaption, capt-of} %gestion des sous-figures et des légendes communes
+	\usepackage{enumitem} %mise en page type code informatique et listes
+	\usepackage{verbatim} %mise en page type code informatique et listes
+	\usepackage{rotating, mdframed} %rotation
+	\usepackage[scale=1,angle=0,opacity=1,contents={}]{background} %gestion de l'arrière-plan 
+	\usepackage{xspace, xpatch} %espace après les macros
+	\usepackage{pgf, tikz, tikz-qtree, pgfplots, pgfplotstable, schemabloc} %création de figures et schémas
+	\usepackage{smartdiagram}
+	\usesmartdiagramlibrary{additions}
+	\usepackage[siunitx, europeanvoltages, europeancurrents, europeanresistors, americaninductors, europeanports, europeangfsurgearrester, compatibility]{circuitikz}%création de schémas électriques
+	\usepackage{pdfpages, scrbase} %inclusion des PDF
+	\usepackage{xstring, multirow, booktabs, longtable, makecell, arydshln, cellspace, tabu} %gestion fine des tableaux (sans \ltablex !)
+	\usepackage{threeparttable} %notes dans tableaux
+	\usepackage[section]{placeins} %force les figures à rester dans leur section
+	\usepackage{impnattypo} %règle de typographie française
+	\let\newfloat\undefined\usepackage{floatrow} %nouvel environnement flottant
+
+		%--------------------------------------
+		%packages aidant à la rédaction
+		%--------------------------------------
+
+		\usepackage{lipsum} %insertion LIPSUM
+		%\usepackage{showframe} %montre la structure du document
+		\usepackage{comment} %commentaire de code sur plusieurs lignes
+
+	%--------------------------------------
+	%Packages pour la bibliographie
+	%--------------------------------------
+
+	\usepackage[backend=biber, style=numeric, hyperref=auto, citestyle=numeric-comp, autopunct=false]{biblatex}
+	\usepackage{biblatex-anonymous}
+	\usepackage{csquotes}
+	
+	%--------------------------------------
+	%Pramètrage de la bibliographie
+	%--------------------------------------
+	
+	%\DefineBibliographyStrings{french}{in={dans},inseries={dans}}
+
+	\NewBibliographyString{chapitre}
+	\DefineBibliographyStrings{french}{chapitre = {Chap.},}
+
+%--------------------------------------
+%paramétrage des packages pour le document
+%--------------------------------------
+
+\hypersetup{colorlinks = true, urlcolor = Blue, linkcolor = ForestGreen, citecolor = Red} %paramètrage des couleurs des liens
+
+%\frenchbsetup{StandardLists=true} %liste au format français
+
+\sisetup{%
+	locale=FR, %règles de typo française
+	detect-all, %on prend la font du document
+	group-digits=integer, %le regroupement par 3 chiffres n’a lieu qu’en partie gauche
+	free-standing-units, %macro pour les unités existants en dehors des arguments \si et \SI
+	group-minimum-digits=5, %groupe si au moins 5 chiffres
+	load-configurations=abbreviations % charge les abréviations avec l'argument \SI
+	}
+
+	%--------------------------------------
+	%paramétrage Tikz-PGF
+	%--------------------------------------
+
+	\usetikzlibrary{arrows.meta, pgfplots.dateplot, arrows, shapes.misc, positioning, mindmap, plotmarks, shapes.callouts, fit, matrix, intersections, decorations, decorations.pathmorphing, decorations.pathreplacing, decorations.shapes, decorations.text, decorations.markings, decorations.fractals, decorations.footprints} 
+		
+	\tikzset{mynode/.style={draw=black, solid, circle, fill=white, inner sep=2pt, thick, text=black}} %pastille d'annotation
+	
+	\usesmartdiagramlibrary{additions}
+
+	\usepgfplotslibrary{dateplot} %insertion de dates en coordonnées dans les graphiques
+	\pgfplotsset{compat=1.16}
+	
+	\tikzstyle{element}=[rectangle, draw, minimum width=3cm, text centered, text width=2.5cm] %bloc de texte utilisé dans les schémas fléchés
+
+		%--------------------------------------
+		%grille d'aide au placement des éléments
+		%--------------------------------------
+	
+		\makeatletter
+		\newif\ifmygrid@coordinates
+			\tikzset{/mygrid/step line/.style={line width=0.80pt,draw=gray!80},
+         		/mygrid/steplet line/.style={line width=0.25pt,draw=gray!80}}
+			\pgfkeys{/mygrid/.cd,
+         		step/.store in=\mygrid@step,
+        			steplet/.store in=\mygrid@steplet,
+         		coordinates/.is if=mygrid@coordinates}
+			\def\mygrid@def@coordinates(#1,#2)(#3,#4){%
+   				\def\mygrid@xlo{#1}%
+    				\def\mygrid@xhi{#3}%
+    				\def\mygrid@ylo{#2}%
+    				\def\mygrid@yhi{#4}%
+			}
+		\newcommand\DrawGrid[3][]{%
+    			\pgfkeys{/mygrid/.cd,coordinates=true,step=1,steplet=0.2,#1}%
+    			\draw[/mygrid/steplet line] #2 grid[step=\mygrid@steplet] #3;
+    			\draw[/mygrid/step line] #2 grid[step=\mygrid@step] #3;
+    			\mygrid@def@coordinates#2#3%
+    			\ifmygrid@coordinates%
+       			\draw[/mygrid/step line]
+        			\foreach \xpos in {\mygrid@xlo,...,\mygrid@xhi} {%
+         			(\xpos,\mygrid@ylo) -- ++(0,-3pt)
+         			node[anchor=north] {$\xpos$}
+        			}
+        			\foreach \ypos in {\mygrid@ylo,...,\mygrid@yhi} {%
+          			(\mygrid@xlo,\ypos) -- ++(-3pt,0)
+					node[anchor=east] {$\ypos$}
+        			};
+    			\fi%
+		}
+		\makeatother
+
+%--------------------------------------
+%macros
+%--------------------------------------
+
+\newcommand*{\superref}[1]{\hyperref[{#1}]{\autoref*{#1} \autopageref*{#1}}} %liens avec page et titre
+
+\definecolor{orangelogo}{RGB}{249,125,0} %couleur orange du logo
+\definecolor{bleulogo}{RGB}{11,92,180} %couleur bleue du logo
+
+\newcommand{\circref}[1]{\CircledText{\small\textbf{\ref{#1}}} : } %référence des pastilles
+
+	%--------------------------------------
+	%redéfinition des noms
+	%--------------------------------------
+
+	\addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures}} %remplacement des titres automatiques
+	\addto\captionsfrench{\renewcommand{\appendixtocname}{Annexes}}
+	\addto\captionsfrench{\renewcommand{\appendixpagename}{Annexes}}
+ 
+ 	\addto\extrasfrench{%traduction des références automatiques
+	\def\sectionautorefname{section}%
+    \def\subsectionautorefname{sous-section}%
+    \def\figureautorefname{figure}%
+    \def\tableautorefname{tableau}%
+    \def\exempleautorefname{exemple}%
+    \def\exerciceautorefname{exercice}%
+    \def\appendixautorefname{annexe}%
+	}
+  
+	\def\frenchfigurename{{\scshape Fig.}} %style des légendes
+	\def\frenchtablename{{\scshape Tab.}}
+	
+	%--------------------------------------
+	%paramètres des tableaux
+	%--------------------------------------
+
+	\renewcommand\theadfont{\bfseries\small} %style de caractère des en-têtes des tableaux
+	\renewcommand\theadalign{cc} %position des en-têtes des tableaux
+	\renewcommand\theadgape{} %espacement des en-têtes des tableaux
+
+	\newcommand{\middashrule}{\hdashline\addlinespace} %ligne pointillée de milieu de tableau
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} %ligne fine
+
+	%--------------------------------------
+	%paramétrage mathématique
+	%--------------------------------------
+
+	\newlength{\conditionwd} %environnement de description "muibene" pour les équations et les formules
+	\newenvironment{variables}[1][avec\quad] 
+  		{#1\tabularx{\textwidth-\widthof{#1}}[t]{
+			>{$}l<{$} @{${}:\enspace{}$}l >{ en }l >{(~}l<{~)} l@{}}}	%preambule du tableau à 5 colonnes
+		{\endtabularx\\[\belowdisplayskip]}
+	
+	\newcommand{\pc}[1]{\SI{#1}{\percent}} %nouvelle commande pour afficher les pourcents dans SIunitx
+
+		%--------------------------------------
+		%Liste des équations
+		%--------------------------------------
+
+		\DeclareNewFloatType{equa}{placement=tbh,fileext=loe} %fileext=extension
+		\floatname{equa}{\textsc{\'Eq}} 
+
+		\newcommand{\listofequations}{%
+		\listof{equa}{Liste des équations}\addcontentsline{toc}{chapter}{Liste des équations}%
+		}
+
+	%--------------------------------------
+	%macros pour les listes
+	%--------------------------------------
+
+	\newlist{tabdescription}{description}{2} %liste utilisée pour les descriptions dans les tableaux (alignement sur les cellules contenant du texte)
+	\setlist[tabdescription, 1]{leftmargin=*, %
+	topsep=0ex, %
+	parsep=0pt, %
+	after=\vspace{-\baselineskip}, %
+	before=\vspace{-0.75\baselineskip}}
+	
+	\setlist[tabdescription, 2]{nosep, %
+	leftmargin=*}
+
+	\newlist{tabitemize}{itemize}{1} %liste utilisée dans les tableaux (alignement sur les cellules contenant du texte)
+	\setlist[tabitemize]{label=$-$, %
+	nosep, %
+	leftmargin=*, %
+	 topsep=0ex, %
+	 parsep=0pt, %
+	 after=\vspace{-\baselineskip}, %
+	 before=\vspace{-0.75\baselineskip}}
+
+	\newlist{compactitemize}{itemize}{1} %liste compacte et sans marge
+	\setlist[compactitemize]{%
+	label=$-$, %
+	nosep, %
+	leftmargin=*}
+
+%--------------------------------------
+%Mise en page du document
+%--------------------------------------
+
+	%--------------------------------------
+	%Marges
+	%--------------------------------------
+
+	\setlrmarginsandblock{25mm}{20mm}{*} %réglage marge gauche-droite
+	\setulmarginsandblock{20mm}{20mm}{*} %réglage marge haut-bas
+	\setheadfoot{\baselineskip}{3\baselineskip} %reglage en hauteur des en-têtes et pied-de-page
+	\checkandfixthelayout
+
+	%--------------------------------------
+	%En-tête et pied-de-page
+	%--------------------------------------
+
+	\newif\ifInvnum\Invnumtrue %énorme prise de tête pour que les numéros de page de l'introduction soient disposés inversement au restant du document
+
+	\pagestyle{plain}{} %réglage de la présence d'en-tête et de pied-de-page 
+	\makeevenhead{plain}{}{}{} %en-tête page paire 
+	\makeoddhead{plain}{}{}{} %en-tête page impaire 
+	\makeevenfoot{plain}{%
+		\ifInvnum %instruction conditionelle selon la booleenne Invnum
+		\else %si Invnum faux
+			{\ifFrame %instruction conditionelle selon la booleenne Frame
+				\begin{tikzpicture}
+					\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
+				\end{tikzpicture}
+			\else
+				\sffamily\textbf{\thepage}
+			\fi}
+		\fi}
+	{\includegraphics[scale=0.03]{logo_compagnons}}
+	{%
+		\ifInvnum %instruction conditionelle selon la booleenne Invnum
+			\sffamily\textbf{\thepage} %si Invnumtrue
+		\else
+		\fi} %pied-de-page page paire
+
+	\makeoddfoot{plain}{%
+		\ifInvnum 
+			\sffamily\textbf{\thepage} %si Invnumtrue
+		\else
+		\fi}
+	{\includegraphics[scale=0.03]{logo_compagnons}}
+	{%
+		\ifInvnum %instruction conditionelle selon la booleenne Invnum
+		\else %si Invnum faux
+			{\ifFrame %instruction conditionelle selon la booleenne Frame
+				\begin{tikzpicture}
+					\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
+				\end{tikzpicture}
+			\else
+				\sffamily\textbf{\thepage}
+			\fi}
+		\fi} %pied-de-page page impaire
+
+	%--------------------------------------
+	%macros générales
+	%--------------------------------------
+
+	\maxsecnumdepth{subsubsection}\setsecnumdepth{subsubsection} %numérotation des sous-sous-sections
+	\setcounter{tocdepth}{3} %affichage des sous-sous-sections dans la table des matières
+	\setcounter{secnumdepth}{3} %affichage de la numérotation des sous-sous-sections dans la table des matières
+
+	\makeatletter %nouvelle commande conditionnelle interne pour différencier un chapitre en corps de texte et en annexes
+		\newcommand{\inappendix}{\fi\expandafter\ifx\@chapapp\appendixname}
+	\makeatother
+
+	%--------------------------------------
+	%Chapitre
+	%--------------------------------------
+	
+		\makeatletter
+	\makechapterstyle{douchy}{%
+	
+		\setlength{\beforechapskip}{-1cm}
+		\setlength{\afterchapskip}{2cm}
+		\renewcommand*{\chapnamefont}{\bfseries\sffamily\scriptsize\MakeUppercase}
+		\renewcommand*{\chapnumfont}{\mdseries\sffamily}
+		\renewcommand*{\chaptitlefont}{\raggedright\Huge\sffamily\bfseries}
+
+		\renewcommand*{\printchaptername}{\raisebox{-\height}{\chapnamefont\@chapapp}}
+		\renewcommand*{\chapternamenum}{\hspace{0.3cm}}
+		\renewcommand*{\printchapternum}{\raisebox{-\height}{%
+			\if\inappendix %instruction conditionelle pour savoir si on se situe dans les annexes ou pas (grosse prise de tête)
+				\resizebox{33pt}{!}{\chapnumfont\thechapter} 
+			\else
+				\resizebox{27pt}{!}{\chapnumfont\thechapter}
+			\fi}
+		\hspace{0.2cm}}
+
+		\settowidth{\chapindent}{%
+		{\printchaptername}\chapternamenum{\printchapternum}\hspace{0.2cm}}
+
+		\renewcommand*{\afterchapternum}{\vspace{-44.5pt}}
+
+		\renewcommand*{\printchaptertitle}[1]{
+			\if@mainmatter
+				\flushright{\parbox[t]{\linewidth-\chapindent}%
+				{\hrule depth 1pt\vspace{3ex}\chaptitlefont ##1}}%
+				\vspace{2.75ex}%
+				\hrule depth 1pt
+			\else
+				\parbox[t]{\textwidth}%
+				{\hrule depth 1pt\vspace{3ex}\chaptitlefont ##1%
+				\vspace{1.25ex}%
+				\hrule depth 1pt}
+			\fi}
+
+		\renewcommand*{\afterchaptertitle}{\vskip\afterchapskip}
+	}
+	\makeatother
+	\chapterstyle{douchy}
+	
+	%--------------------------------------
+	%Section
+	%--------------------------------------
+	
+	\setsecheadstyle{\huge\sffamily\bfseries\color{black}}
+
+	%--------------------------------------
+	%Sous-section
+	%--------------------------------------
+		
+	\renewcommand{\thesubsection}{\arabic{section}. \arabic{subsection}.}
+	\setsubsecheadstyle{\Large\sffamily\bfseries\color{black!75}}
+
+	%--------------------------------------
+	%Sous-sous-section
+	%--------------------------------------
+
+	\setcounter{secnumdepth}{4}
+	\renewcommand{\thesubsubsection}{\arabic{section}. \arabic{subsection}. \arabic{subsubsection}.}
+	\setsubsubsecheadstyle{\large\sffamily\bfseries\color{gray}}

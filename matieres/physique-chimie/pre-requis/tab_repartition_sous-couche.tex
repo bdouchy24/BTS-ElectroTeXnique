@@ -1,0 +1,68 @@
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+
+
+\begin{wrapfigure}{r}{0pt} %insertion figure dans texte
+\begin{tikzpicture}[font=\sffamily] 
+\matrix (mat) [matrix of nodes,column sep=0.2cm,row sep=2mm,
+ nodes={align=left},nodes in empty cells,
+ row 1/.append style={nodes={font=\footnotesize\sffamily}},
+ ]{
+ & 2 & 6 & 10 & 14 \\
+ & 1s & & & \\
+ & 2s & 2p & & \\
+ & 3s & 3p & 3d & \\
+ & 4s & 4p & 4d & 4f\\
+ & 5s & 5p & 5d & 5f\\
+ & 6s & 6p & 6d & \\
+ & 7s & 7p & 7d & \\
+ };
+ \path[name path=boundary] (mat-1-1.south) -- (mat-1-3.south)
+ to[bend right] (mat-2-4.south) to[bend left] ([xshift=6mm]mat-5-5.south)
+  -- (mat.south east);
+ \foreach \X [remember=\X as \LastX] in {2,...,10}
+ {\ifnum\X<8
+    \path[overlay,name path=\X-line] 
+    ($(mat-\X-2.south west)-0.1*($(mat-2-5.south west)- (mat-6-1.south west)$)$) coordinate(\X-start) 
+    -- ++ ($5*($(mat-2-5.south west)- (mat-6-1.south west)$)$);
+  \else
+    \pgfmathtruncatemacro{\Xprime}{\X-6}
+    \path[overlay,name path=\X-line] 
+    ($(mat-8-\Xprime.south west)-0.1*($(mat-2-5.south west)- (mat-6-1.south west)$)$) 
+    coordinate(\X-start) -- ++ ($5*($(mat-2-5.south west)- (mat-6-1.south west)$)$);
+  \fi   
+  \draw[blue!50,latex-,shorten <=2pt,name intersections={of=\X-line and boundary,by=i-\X}]
+  (\X-start)--(i-\X);
+  \ifnum\X>2
+   \draw[blue!50,dashed,overlay] 
+   let \p1=($(mat-2-5.south west)- (mat-6-1.south west)$),\n1={atan2(\y1,\x1)} in
+   (i-\X) to[out=\n1,in=180+\n1] (\LastX-start);
+  \fi
+  }
+\end{tikzpicture}
+\caption{Ordre de répartition des sous-couches électroniques}
+\label{fig:repartition_sous-couche}
+\end{wrapfigure}
+
+%\end{document} %corps du document

@@ -1,0 +1,72 @@
+%--------------------------------------
+%PRE-REQUIS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{table}[!h]
+\begin{center}
+\caption{Distribution des électrons dans les orbitales atomiques par sous-couche électronique\label{tab:exception_hund}}
+
+\begin{threeparttable} %note dans tableau
+\begin{tabular}{r c l l l l} \\ %tableau de plusieurs à 5 colonnes
+\toprule %filet de haut de tableau
+\multicolumn{3}{c}{\thead{\'Elément chimique}} & \thead{Famille} & \multicolumn{2}{c}{\thead{Configuration électronique}} \\
+\midrule
+$24$ & Cr & Chrome & Métal de transition & [Ar] & $\mathbf{4s^1 3d^5}$ \\
+$28$ & Ni	& Nickel & Métal de transition & [Ar] & $\mathbf{4s^1 3d^9}$ \tnote{(*)} \\
+$29$ & Cu	& Cuivre & Métal de transition & [Ar] & $\mathbf{4s^1 3d^{10}}$ \\
+$41$ & Nb &Niobium & Métal de transition & [Kr] & $\mathbf{5s^1 4d^4}$ \\
+$42$ & Mo & Molybdène & Métal de transition & [Kr] & $\mathbf{5s^1 4d^5}$ \\
+$44$ &Ru & Ruthénium & Métal de transition & [Kr] & $\mathbf{5s^1 4d^7}$ \\
+$45$	& Rh & Rhodium & Métal de transition	 & [Kr] & $\mathbf{5s^1 4d^8}$ \\
+$46$ & Pd & Palladium & Métal de transition & [Kr] & $\mathbf{4d^{10}}$ \\
+$47$ & Ag & Argent & Métal de transition & [Kr] & $\mathbf{5s^1 4d^{10}}$ \\
+$57$	 & La & Lanthane & Lanthanide & [Xe] & $6s^2 \mathbf{5d^1}$ \\
+$58$ & Ce & Cérium & Lanthanide & [Xe] & $6s^2 \mathbf{4f^1 5d^1}$ \\
+$64$	 & Gd & Gadolinium & Lanthanide & [Xe] & $6s^2 \mathbf{4f^7 5d^1}$ \\
+$78$ & Pt & Platine & Métal de transition & [Xe] & $\mathbf{6s^1} 4f^14 \mathbf{5d^9}$ \\
+$79$ & Au & Or & Métal de transition & [Xe] & $\mathbf{6s^1} 4f^{14} \mathbf{5d^{10}}$ \\
+$89$  & Ac & Actinium & Actinide & [Rn] & $7s^2 \mathbf{6d^1}$ \\
+$90$ & 	Th & Thorium & Actinide & [Rn] & $7s^2 \mathbf{6d^2} $ \\
+$91$ & Pa & Protactinium & Actinide & [Rn] & $7s^2 \mathbf{5f^2 6d^1}$ \\
+$92$	& U & Uranium & Actinide & [Rn] & $7s^2 \mathbf{5f^3 6d^1}$ \\
+$96$ & Cm & Curium & Actinide & [Rn] & $7s2 \mathbf{5f^7 6d^1}$ \\
+$103$ & Lr & Lawrencium & Actinide & [Rn] & $7s^2 \mathbf{5f^{14} 7p^1}$ \\
+
+\bottomrule
+
+\end{tabular}
+\begin{tablenotes}
+    \item[(*)] Le nickel présente deux configurations électroniques :
+    \begin{compactitemize}
+    		\item Une configuration régulière [Ar] $4s^2 3d^8$ présentant le niveau d'énergie le plus bas expérimentalement\,;
+    		\item Une configuration irrégulière [Ar] $4s^1 3d^9$ présentant le niveau d'énergie moyen le plus bas. C'est cette configuration qui sera utilisée dans les calculs. 
+	\end{compactitemize}
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+%\end{document}

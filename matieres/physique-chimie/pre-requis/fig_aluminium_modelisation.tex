@@ -1,0 +1,110 @@
+\documentclass[tikz,border=20pt]{standalone}
+\usepackage{tikz,graphicx}
+\usetikzlibrary{decorations.markings,calc}
+
+\definecolor{myyellow}{RGB}{254,241,24}
+\definecolor{myorange}{RGB}{234,125,1}
+
+	
+	\def\proton(#1,#2){\shade[ball color=yellow, opacity=.8] ({rnd*#1},{rnd*#2}) circle (7pt) node {\texttt{+}};}
+	\def\neutron(#1,#2){\shade[ball color=orange, opacity=.8] ({rnd*#1},{rnd*#2}) circle (7pt) node {\texttt{0}};}
+	\def\electron{\shade[ball color=gray!30] (0,0) circle (7pt); \node at (0,0) {\texttt{\color{black}-}};}
+
+	\def\ones2orbit(#1,#2,#3){
+ 		\draw[
+ 	 		color=green,
+  			rotate=#1,
+ 	 		postaction=decorate,
+ 	 		decoration={markings,pre=moveto,pre length=#3,
+ 			 mark=at position #2 with {\electron},}]
+  		(0,0) ellipse (0.9 and 1.8);}
+		
+	\def\twos2orbit(#1,#2,#3){
+  		\draw[
+  			color=blue,
+ 			rotate=#1,
+			postaction=decorate,
+			decoration={markings,pre=moveto,pre length=#3,
+			mark=at position #2 with {\electron},}]
+		(0,0) ellipse (2 and 4.1);}
+
+	\def\twop6orbit(#1,#2,#3){
+ 		\draw[
+			color=violet,
+			rotate=#1,
+			postaction=decorate,
+			decoration={markings,pre=moveto,pre length=#3,
+			mark=at position #2 with {\electron},}]
+  		(0,0) ellipse (2.2 and 4.4);}
+	
+	\def\threes2orbit(#1,#2,#3){
+		\draw[
+ 			color=orange,
+  			rotate=#1,
+  			postaction=decorate,
+  			decoration={markings,pre=moveto,pre length=#3,
+  			mark=at position #2 with {\electron},}]
+		(0,0) ellipse (4.5 and 8);}
+
+	\def\threep1orbit(#1,#2,#3){
+  		\draw[
+  			color=red,
+  			rotate=#1,
+  			postaction=decorate,
+  			decoration={markings,pre=moveto,pre length=#3,
+  			mark=at position #2 with {\electron},}]
+  		(0,0) ellipse (4.7 and 9);}
+  		
+\begin{document}
+
+\begin{tikzpicture}
+
+	\neutron(0.4,0.4)
+	\proton(0.4,-0.4)
+	\neutron(-0.4,-0.4)
+	\neutron(0.4,0.4)
+	\proton(-0.4,-0.4)
+	\proton(0.4,0.4)
+	\proton(-0.4,-0.4)
+	\proton(0.4,-0.4)
+	\neutron(-0.4,0.4)
+	\neutron(-0.4,0.4)
+	\neutron(0.4,-0.4)
+	\proton(-0.4,0.4)
+	\neutron(0.4,0.4)
+	\proton(0.4,-0.4)
+	\neutron(-0.4,-0.4)
+	\neutron(0.4,0.4)
+	\proton(-0.4,-0.4)
+	\proton(0.4,0.4)
+	\proton(-0.4,-0.4)
+	\neutron(-0.4,0.4)
+	\neutron(-0.4,0.4)
+	\neutron(0.4,-0.4)
+	\neutron(-0.4,0.4)
+	\proton(-0.4,0.4)
+	\neutron(0.4,0.4)
+	\proton(-0.4,0.4)
+	\proton(0.4,-0.4)
+
+
+	\ones2orbit(-260,\pos{0.72},0cm)
+	\ones2orbit(340,\pos{0.34},0cm)
+
+	\twos2orbit(90,\pos,0cm)
+	\twos2orbit(135,\pos{0.78},0cm)
+
+	\twop6orbit(0,\pos{0.26},0cm)
+	\twop6orbit(-22.5,\pos{0.50},0cm)
+	\twop6orbit(45,\pos{0.92},0cm)
+	\twop6orbit(-67.5,\pos{0.06},0cm)
+	\twop6orbit(-112.5,\pos{0.60},0cm)
+	\twop6orbit(-157.5,\pos{0.12},0cm)
+
+	\threes2orbit(0,\pos{0.48},0cm)
+	\threes2orbit(60,\pos{0.98},0cm)
+
+	\threep1orbit(100,\pos{0.58},0cm)
+	
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,62 @@
+%--------------------------------------
+%PRE-REQUIS
+%--------------------------------------
+
+\newcommand\BoxColor{\ifcase\thechapshift blue!30\or brown!30\or pink!30\or cyan!30\or green!30\or teal!30\or purple!30\or red!30\or olive!30\or orange!30\or lime!30\or gray!\or magenta!30\else yellow!30\fi} %définition de la couleur des marqueurs de chapitre
+
+\newcounter{chapshift} %compteur de chapitre du marqueur de chapitre
+\addtocounter{chapshift}{-1}
+	
+\newif\ifFrame %instruction conditionnelle pour les couleurs des pages
+\Frametrue
+
+\pagestyle{plain}
+
+% the main command; the mandatory argument sets the color of the vertical box
+\newcommand\ChapFrame{%
+\AddEverypageHook{%
+\ifFrame
+\ifthenelse{\isodd{\value{page}}}
+  {\backgroundsetup{contents={%
+  \begin{tikzpicture}[overlay,remember picture]
+  \node[
+  	rounded corners=3pt,
+    fill=\BoxColor,
+    inner sep=0pt,
+    rectangle,
+    text width=1.3cm,
+    text height=4.5cm,
+    align=center,
+    anchor=north east
+  ] 
+  at ($ (current page.north east) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
+    {\rotatebox{90}{\hspace*{.3cm}%
+      \parbox[c][0.9cm][t]{4cm}{%
+        \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
+  \end{tikzpicture}}}%
+  }
+  {\backgroundsetup{contents={%
+  \begin{tikzpicture}[overlay,remember picture]
+  \node[
+  	rounded corners=3pt,
+    fill=\BoxColor,
+    inner sep=0pt,
+    rectangle,
+    text width=1.3cm,
+    text height=4.5cm,
+    align=center,
+    anchor=north west
+  ] 
+  at ($ (current page.north west) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
+    {\rotatebox{90}{\hspace*{.3cm}%
+      \parbox[c][0.9cm][t]{4cm}{%
+        \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
+  \end{tikzpicture}}}
+  }
+  \BgMaterial%
+  \fi%
+}%
+  \stepcounter{chapshift}
+}
+
+\renewcommand\chaptermark[1]{\markboth{\thechapter.~#1}{}} %redéfinition du marqueur de chapitre pour ne contenir que le titre du chapitre

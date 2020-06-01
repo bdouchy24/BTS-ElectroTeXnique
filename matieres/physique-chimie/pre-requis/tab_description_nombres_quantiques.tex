@@ -1,0 +1,151 @@
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{longtable}{p{2cm} p{5.7cm} p{7.5cm}}
+	\caption{Description des nombres quantiques \label{tab:description_nombres_quantiques}} \\
+	\toprule %filet de milieu de tableau
+	\thead{Nombre\\quantique} & \thead{Valeurs} & \thead{Description} \\
+	\midrule %filet de milieu de tableau
+\endfirsthead %en-tête de la première page du tableau  
+
+	\caption{Description des nombres quantiques} \\
+	\toprule 
+	\thead{Nombre\\quantique} & \thead{Valeurs} & \thead{Description}\\
+	\midrule
+\endhead %en-tête de toutes les pages du tableau
+
+	\midrule %filet de milieu de tableau
+	\multicolumn{3}{r}{\small\textit{Page suivante}}
+\endfoot %pied de page de toutes les pages du tableau
+\endlastfoot %pied de page de la dernièredu tableau
+
+\multicolumn{3}{l}{\textit{Nombre quantique principal $n$}} \\ 
+\middashrule %filet de milieu de tableau pointillé
+
+&
+\begin{tabdescription} %appel d'une liste de description pour le tableau
+ 	\item[$n\ge1$ :] Entier positif non nul
+ 	\item[Exemple :]\hfill %suppression de la première ligne
+		\begin{compactitemize} %appel d'une liste compacte
+ 			\item $n=1$\,;
+			\item $n=2$\,;
+ 			\item $n=3$\,;
+			\item ...
+		\end{compactitemize}
+\end{tabdescription} 
+&
+\begin{tabdescription}
+	\item[Définition de la couche électronique :] distance entre le noyau et l'électron.  
+	\item[Exemple :]\hfill
+		\begin{compactitemize}
+			\item $n=1$ pour la couche K\,;
+ 			\item $n=2$ pour la couche L\,;
+ 			\item $n=3$ pour la couche M\,;
+ 			\item ...
+		\end{compactitemize}
+\end{tabdescription} \\ 
+
+\addlinespace %ajout d'un espace avant la partie suivante
+\multicolumn{3}{l}{\textit{Nombre quantique secondaire/azumital $\ell$}} \\
+\middashrule %filet de milieu de tableau pointillé
+& 
+\begin{tabdescription}
+	\item[$0\ge \ell<n-1$ :] Entier positif à $n$ valeur(s)
+ 	\item[Exemple :]\hfill
+ 		\begin{compactitemize}
+ 			\item $\ell=0$\,;
+			\item $\ell=1$\,;
+ 			\item $\ell=2$\,;
+ 			\item Jusqu'à $\ell=(n-1)$\,.
+		\end{compactitemize}
+\end{tabdescription} 
+&
+\begin{tabdescription}
+	\item[Définition de la sous-couche électronique :] forme et symétrie de l'orbitale atomique.  
+	\item[Valeurs :]\hfill
+		\begin{compactitemize}
+			\item $\ell=0$ pour la sous-couche s (\textbf{s}harp)\,;
+			\item $\ell=1$ pour la sous-couche p (\textbf{p}rincipal)\,;
+			\item $\ell=2$ pour la sous-couche d (\textbf{d}iffuse)\,;
+			\item $\ell=3$ pour la sous-couche f  (\textbf{f}ondamental).
+		\end{compactitemize}
+	\item[Forme :]\hfill
+		\begin{tabdescription}
+			\item[$\ell=0$ :] 1 lobe\,;
+			\item[$\ell=1$ :] 2 lobes\,;
+			\item[$\ell=2$ :] 4 lobes\,;
+			\item[$\ell=3$ :] 8 lobes.
+		\end{tabdescription}
+\end{tabdescription} \\
+%\noalign{\break} %impose le saut de page au tableau tout en répartissant verticalement le tableau
+
+\addlinespace %ajout d'un espace avant la partie suivante
+\multicolumn{3}{l}{\textit{Nombre quantique tertiaire/magnétique $m_\ell$}} \\ 
+\middashrule %filet de milieu de tableau pointillé
+&
+\begin{tabdescription}
+	\item[$-\ell\ge m_l<+l$ :] Entier positif à $(2\ell+n)$ valeur(s)
+ 	\item[Exemple :]\hfill
+ 		\begin{compactitemize}
+			\item $-\ell$\,;
+ 			\item $(-\ell+1)$\,;
+			\item $(-\ell+2)$\,;
+ 			\item ...
+ 			\item $0$\,;
+ 			\item ...
+ 			\item $(\ell-2)$\,;
+ 			\item $(\ell-1)$\,;
+ 			\item $+\ell$.
+		\end{compactitemize}
+\end{tabdescription} 
+& 
+\begin{tabdescription}
+	\item[Définition de l'orientation :] orientation de l'orbitale dans l'espaces selon les axes.  
+	\item[Exemple si $\ell=2$ :]\hfill
+		\begin{compactitemize}
+ 			\item Forme d'haltères croisées;
+ 			\item $m_\ell=$ \numlist[list-separator = {; }, list-final-separator = {; }]{-2; -1;0;1;2}. %liste de nombre
+		\end{compactitemize}
+\end{tabdescription} \\ 
+
+\addlinespace %ajout d'un espace avant la partie suivante
+\multicolumn{3}{l}{\textit{Nombre quantique du spin $S$}} \\ 
+\middashrule %filet de milieu de tableau pointillé
+
+& 
+$S=1/2$
+& 
+Moment magnétique dû à la rotation de l'électron sur lui-même.\\ 
+
+\addlinespace %ajout d'un espace avant la partie suivante
+\multicolumn{3}{l}{\textit{Nombre quantique magnétique du spin $m_S$}} \\ 
+\middashrule %filet de milieu de tableau pointillé
+& 
+$m_S=$ \numlist[list-pair-separator = {; }]{-1/2;1/2}
+& 
+Sens de rotation de l'électron sur lui-même.\\ 
+
+\bottomrule %filet de fin de tableau
+\end{longtable}
+
+%\end{document}

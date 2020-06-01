@@ -1,0 +1,228 @@
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+%\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+%\end{comment}
+
+\begin{longtable}{c r r r c p{7,2cm}} \\ %tableau de plusieurs à 6 colonnes, si usage itemize, indiquer la lagueur de la colonne dans les appels des colonnes
+	\caption{Récapitulatif des trois premières couches électroniques\label{tab:recap_nombre_quantique}} \\
+	\toprule 
+	\thead{Couche} & \thead[r]{$n$} & \thead[r]{$l$} & \thead[r]{$m_l$} & \thead{Cases\\quantiques} & \thead{Forme orbitale} \\
+	\midrule 
+\endfirsthead %en-tête de la première page du tableau  
+
+	\toprule 
+	\thead{Couche} & \thead{$n$} & \thead{$l$} & \thead{$m_l$} & \thead{Cases\\quantiques} & \thead{Forme orbitale} \\
+	\midrule 	
+	\multicolumn{6}{l}{\textit{Couche L}} \\
+\middashrule  %filet de milieu de tableau pointillé
+\endhead %en-tête de toutes les pages du tableau
+
+	\midrule %filet de milieu de tableau
+	\multicolumn{3}{r}{\small\textit{Page suivante}}
+\endfoot %pied de page de toutes les pages du tableau
+\endlastfoot %pied de page de la dernièredu tableau
+
+\multicolumn{6}{l}{\textit{Couche K}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{2}{*}{$1$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+		\atom{left}{1s}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+\multicolumn{6}{l}{\textit{Couche L}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{2}{*}{$2$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+		\atom{left}{2s}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+& \multirow[t]{4}{*}{$2$} & \multirow[t]{4}{*}{$1$} & $-1$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{4}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+\begin{MOdiagram}[style=square, labels]
+	\atom[2p]{left}{2p}
+\end{MOdiagram}}}
+&
+\multirow[t]{3}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 3 orientations dans l'espace $P_x; P_y; P_z$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}}\\
+
+& & & $0$ & & \\
+
+& & & +$1$ & & 
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,3)}]{px}
+		\node[above] at (0,4) {p$_x$};
+		\orbital[pos = {(2,3)}]{py}
+		\node[above] at (2,4) {p$_y$};
+		\orbital[pos = {(4,3)}]{pz}
+		\node[above] at (4,4) {p$_z$};
+	\end{tikzpicture}
+\end{center}\\
+
+\multicolumn{6}{l}{\textit{Couche M}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{12}{*}{$3$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+     	\AO(0cm){s}[label={$3s$}]{0}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte dans la dernière colonne
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+& & \multirow[t]{4}{*}{$1$} & $-1$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{4}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+        \AO(0cm){s}[label={$3p_{x}$}]{0}
+        \AO(0,7cm){s}[label={$3p_{y}$}]{0}
+        \AO(1,4cm){s}[label={$3p_{z}$}]{0}
+	\end{MOdiagram}}}
+&
+\multirow[t]{3}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 3 orientations dans l'espace $P_x; P_y; P_z$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}}\\
+
+& & & $0$ & & \\
+
+& & & $+1$ & & 
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,3)}]{px}
+		\node[above] at (0,4) {p$_x$};
+		\orbital[pos = {(2,3)}]{py}
+		\node[above] at (2,4) {p$_y$};
+		\orbital[pos = {(4,3)}]{pz}
+		\node[above] at (4,4) {p$_z$};
+	\end{tikzpicture}
+\end{center}\\
+
+& & \multirow[t]{6}{*}{$2$} & $-2$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{6}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+\begin{MOdiagram}[style=square, labels]
+        \AO(0cm){s}[label={$3d_{xz}$}]{0}
+        \AO(1cm){s}[label={$3d_{x^2}$}]{0}
+        \AO(2cm){s}[label={$3d_{x^2-z^2}$}]{0}
+        \AO(3cm){s}[label={$3d_{xy}$}]{0}
+        \AO(4cm){s}[label={$3d_{yz}$}]{0}
+\end{MOdiagram}}}
+&
+\multirow[t]{5}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères croisées \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 5 orientations dans l'espace $d_xz; d_{x^2}; d_{x^2-z^2}; d_{xy}; d_{yz}$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}} \\
+
+& & & $-1$ & & \\
+
+& & & $0$ & & \\
+
+& & & $+1$ & & \\
+
+& & & $+2$ & &
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,-3)}]{dxy}
+		\node[above] at (0,-2.1) {d$_{xy}$};
+		\orbital[pos = {(2,-3)}]{dxz}
+		\node[above] at (2,-2.1) {d$_{xz}$};
+		\orbital[pos = {(4,-3)}]{dyz}
+		\node[above] at (4,-2) {d$_{yz}$};
+		\orbital[pos = {(0,-5)}]{dx2y2}
+		\node[below] at (0,-5.9) {d$_{x^2-y^2}$};
+		\orbital[pos = {(2,-5)}]{dz2}
+		\node[below] at (2,-5.9) {d$_{z^2}$};
+	\end{tikzpicture}
+\end{center} \\
+
+\bottomrule
+\end{longtable}
+
+\end{document}

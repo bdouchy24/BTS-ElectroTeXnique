@@ -1,0 +1,635 @@
+%--------------------------------------
+%exemple de tableau similaire avec mise en forme complexe en fin de code
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{table}
+\caption{Distribution des électrons dans les orbitales atomiques par sous-couche électronique\label{tab:distribution_electronique}}
+
+\resizebox{\linewidth}{!}{ %adapte le tableau à la largeur de ligne en gardant les proportions (ne fonctionne pas avec tabularx)
+\begin{threeparttable} %note dans tableau
+
+\begin{tabular}{l c c c c c c c c c c r r} \\ %tableau de plusieurs à 13 colonnes
+%\noalign{\break} %impose le saut de page au tableau tout en répartissant verticalement le tableau
+\toprule %filet de haut de tableau
+
+\multirow[c]{2}{*}{\thead{Période\tnote{1}}} & \multirow[c]{2}{*}{\thead{Sous-couche}} & \multicolumn{2}{c}{\thead{Nombres quantiques}} & \multicolumn{7}{c}{\thead{Nombre quantique magnétique}} & \multicolumn{2}{c}{\thead{Nombre d'électrons}} \\
+
+\cmidrule(lr){3-4} \cmidrule(lr){5-11} \cmidrule(lr){12-13}
+
+& & \thead{Principal} & \thead{Azimutal} & \thead{$-3$} & \thead{$-2$} & \thead{$-1$} & \thead{$0$} & \thead{$+1$} & \thead{$+2$} & \thead{$+3$}  & \thead{Sous-couche} & \thead{Couche} \\
+
+	\midrule %filet de milieu de tableau
+
+\multicolumn{13}{l}{\textit{Couche K}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $1s$ & $n=1$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & $2$ \\
+ 
+\multicolumn{13}{l}{\textit{Couche L}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $2s$ & $n=2$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{2}{*}{$2$} \\
+
+& $2p$ & $n=2$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\multicolumn{13}{l}{\textit{Couche M}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $3s$ & $n=3$ & $\ell=1$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{2}{*}{$2$} \\
+
+& $3p$ & $n=3$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\multicolumn{13}{l}{\textit{Couche N}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $4s$ & $n=4$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{3}{*}{$18$} \\
+
+& $3d$ & $n=3$ & $\ell=2$ & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & $10$ & \\
+
+& $4p$ & $n=4$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\multicolumn{13}{l}{\textit{Couche O}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $5s$ & $n=5$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{3}{*}{$18$} \\
+
+& $4d$ & $n=4$ & $\ell=2$ & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & $10$ & \\
+
+& $5p$ & $n=5$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\multicolumn{13}{l}{\textit{Couche 0}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $6s$ & $n=6$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{4}{*}{$32$} \\
+
+& $4f$ & $n=4$ & $\ell=3$ & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& $14$ & \\
+
+& $5d$ & $n=5$ & $\ell=2$ & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & $10$ & \\
+
+& $6p$ & $n=6$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\multicolumn{13}{l}{\textit{Couche P}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& $7s$ & $n=7$ & $\ell=0$ & & & & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & & $2$ & \multirow[c]{4}{*}{$32$} \\
+
+& $5f$ & $n=5$ & $\ell=3$ & 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& $14$ & \\
+
+& $6d$ & $n=6$ & $\ell=2$ & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & $10$ & \\
+
+& $7p$ & $n=7$ & $\ell=1$ & & &
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square]
+		\atom{left}{1s}
+	\end{MOdiagram}}
+& & & $6$ & \\
+
+\bottomrule
+
+\end{tabular}
+\begin{tablenotes}
+    \item[1] Une \emph{période} est une ligne du tableau périodique (même nombre de couches électroniques) tandis qu'une \emph{couche électronique} désigne l'ensemble des orbitales atomiques partageant un même \emph{nombre quantique principal $n$}.
+\end{tablenotes}
+\end{threeparttable}}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+
+%--------------------------------------
+%exemple de tableau complexe similaire
+%--------------------------------------
+
+\begin{longtable}{c r r r c p{7,2cm}} \\ %tableau de plusieurs à 6 colonnes
+	\caption{Récapitulatif des trois premières couches électroniques\label{tab:recap_nombre_quantique}} \\
+	\toprule 
+	\thead{Couche} & \thead[r]{$n$} & \thead[r]{$l$} & \thead[r]{$m_l$} & \thead{Cases\\quantiques} & \thead{Forme orbitale} \\
+	\midrule 
+\endfirsthead %en-tête de la première page du tableau  
+
+	\toprule 
+	\thead{Couche} & \thead{$n$} & \thead{$l$} & \thead{$m_l$} & \thead{Cases\\quantiques} & \thead{Forme orbitale} \\
+	\midrule 	
+	\multicolumn{6}{l}{\textit{Couche L}} \\
+\middashrule  %filet de milieu de tableau pointillé
+\endhead %en-tête de toutes les pages suivantes du tableau
+
+	\midrule %filet de milieu de tableau
+	\multicolumn{3}{r}{\small\textit{Page suivante}}
+\endfoot %pied de page de toutes les pages du tableau
+\endlastfoot %pied de page de la dernièredu tableau
+
+\multicolumn{6}{l}{\textit{Couche K}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{2}{*}{$1$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+		\atom{left}{1s}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+\multicolumn{6}{l}{\textit{Couche L}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{2}{*}{$2$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+		\atom{left}{2s}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+& \multirow[t]{4}{*}{$2$} & \multirow[t]{4}{*}{$1$} & $-1$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{4}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+\begin{MOdiagram}[style=square, labels]
+	\atom[2p]{left}{2p}
+\end{MOdiagram}}}
+&
+\multirow[t]{3}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 3 orientations dans l'espace $P_x; P_y; P_z$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}}\\
+
+& & & $0$ & & \\
+
+& & & +$1$ & & 
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,3)}]{px}
+		\node[above] at (0,4) {p$_x$};
+		\orbital[pos = {(2,3)}]{py}
+		\node[above] at (2,4) {p$_y$};
+		\orbital[pos = {(4,3)}]{pz}
+		\node[above] at (4,4) {p$_z$};
+	\end{tikzpicture}
+\end{center}\\
+
+\multicolumn{6}{l}{\textit{Couche M}} \\
+\middashrule %filet de milieu de tableau pointillé
+
+& \multirow[t]{12}{*}{$3$} & \multirow[t]{2}{*}{$0$} & \multirow[t]{2}{*}{$0$} & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{2}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+     	\AO(0cm){s}[label={$3s$}]{0}
+	\end{MOdiagram}}}
+&
+\begin{tabdescription}
+	\item[Sphère :]\hfill
+	\begin{compactitemize}
+		\item 1 seule orientation
+		\item Représentation :
+	\end{compactitemize}
+\end{tabdescription} \\
+
+& & & & & %multiligne pour séparer l'image du texte dans la dernière colonne
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,5.5)}]{s}
+		\node[above] at (0,6) {s};
+	\end{tikzpicture}
+\end{center}\\ 
+
+& & \multirow[t]{4}{*}{$1$} & $-1$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{4}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{MOdiagram}[style=square, labels]
+        \AO(0cm){s}[label={$3p_{x}$}]{0}
+        \AO(0,7cm){s}[label={$3p_{y}$}]{0}
+        \AO(1,4cm){s}[label={$3p_{z}$}]{0}
+	\end{MOdiagram}}}
+&
+\multirow[t]{3}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 3 orientations dans l'espace $P_x; P_y; P_z$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}}\\
+
+& & & $0$ & & \\
+
+& & & $+1$ & & 
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,3)}]{px}
+		\node[above] at (0,4) {p$_x$};
+		\orbital[pos = {(2,3)}]{py}
+		\node[above] at (2,4) {p$_y$};
+		\orbital[pos = {(4,3)}]{pz}
+		\node[above] at (4,4) {p$_z$};
+	\end{tikzpicture}
+\end{center}\\
+
+& & \multirow[t]{6}{*}{$2$} & $-2$ & %multiligne pour séparer l'image du texte de la dernière colonne
+\multirow[t]{6}{*}{
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+\begin{MOdiagram}[style=square, labels]
+        \AO(0cm){s}[label={$3d_{xz}$}]{0}
+        \AO(1cm){s}[label={$3d_{x^2}$}]{0}
+        \AO(2cm){s}[label={$3d_{x^2-z^2}$}]{0}
+        \AO(3cm){s}[label={$3d_{xy}$}]{0}
+        \AO(4cm){s}[label={$3d_{yz}$}]{0}
+\end{MOdiagram}}}
+&
+\multirow[t]{5}{7,2cm}{
+\begin{tabdescription}
+	\item[\og Haltères croisées \fg{} :]\hfill
+		\begin{compactitemize}
+			\item 5 orientations dans l'espace $d_xz; d_{x^2}; d_{x^2-z^2}; d_{xy}; d_{yz}$
+			\item Représentations :
+		\end{compactitemize}
+\end{tabdescription}} \\
+
+& & & $-1$ & & \\
+
+& & & $0$ & & \\
+
+& & & $+1$ & & \\
+
+& & & $+2$ & &
+\begin{center}
+	\begin{tikzpicture}
+		\orbital[pos = {(0,-3)}]{dxy}
+		\node[above] at (0,-2.1) {d$_{xy}$};
+		\orbital[pos = {(2,-3)}]{dxz}
+		\node[above] at (2,-2.1) {d$_{xz}$};
+		\orbital[pos = {(4,-3)}]{dyz}
+		\node[above] at (4,-2) {d$_{yz}$};
+		\orbital[pos = {(0,-5)}]{dx2y2}
+		\node[below] at (0,-5.9) {d$_{x^2-y^2}$};
+		\orbital[pos = {(2,-5)}]{dz2}
+		\node[below] at (2,-5.9) {d$_{z^2}$};
+	\end{tikzpicture}
+\end{center} \\
+
+\bottomrule
+\end{longtable}
+
+\end{comment}
+
+%\end{document}

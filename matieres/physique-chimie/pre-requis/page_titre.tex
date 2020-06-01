@@ -1,0 +1,104 @@
+%--------------------------------------
+%PRE-REQUIS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begingroup
+
+%--------------------------------------
+%logo Compagnon
+%--------------------------------------
+ 
+\begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[shift={(current page.north west)}]
+		\draw (1,-1)
+		node [below right]{\includegraphics[scale=0.1]{logo_compagnons_nom.png}};
+	\end{scope}
+\end{tikzpicture}
+
+~\\[5cm] %espace insécable pour marquer le début du texte sur l'environnement et situer d'autres éléments de texte sur la page
+
+%--------------------------------------
+%titre de la page
+%--------------------------------------
+
+\begin{flushleft}
+	\HUGE\sffamily\textbf{Physique -- chimie}\\
+\end{flushleft}
+\HRule
+\begin{flushright}
+	\huge\sffamily\textbf{Pré-requis}\\[0.4cm]
+\end{flushright}
+~\\[2cm]
+
+%--------------------------------------
+%auteur et logo MTA
+%--------------------------------------
+
+\begin{minipage}{0.3\textwidth}
+	\begin{flushleft} \large
+		\rmfamily Bruno \textsc{Douchy}
+		%\\
+		%\rmfamily Prénom2 \textsc{Nom2}
+	\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\centering
+	\includegraphics[scale=0.25]{logo_metier.png}
+\end{minipage}
+
+\begin{comment}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\begin{flushright} \large
+		\rmfamily Prénom3 \textsc{Nom3} %auteur supplémentaires à rajouter en mettant en commentaire l'environnement comment
+		\\
+ 		\rmfamily Prénom4 \textsc{Nom4}
+	\end{flushright}
+\end{minipage}
+\end{comment}
+
+\vfill
+\begin{flushleft}
+	\sffamily\bfseries\large\ Édition \the\year.\the\month
+\end{flushleft}
+\vfill
+
+%--------------------------------------
+%pied de page Compagnon
+%--------------------------------------
+
+\begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[shift={(current page.south west)}]
+		\draw (1,0)
+		node [above right]{\includegraphics{pied_page_compagnons.png}};
+	\end{scope}
+\end{tikzpicture}
+
+\endgroup
+\null\clearpage
+
+%\end{document}

@@ -1,0 +1,61 @@
+%--------------------------------------
+%chap_2_chimie_conduction_electrique
+%--------------------------------------
+
+%\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+%--------------------------------------
+%préambule
+%--------------------------------------
+
+\input{preambule}
+
+\input{marqueur_chapitre_couleur}
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le fichier maître
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+	\Frametrue %défini la booléenne Frame comme vrai -> marqueurs de chapitre
+
+%\end{comment}
+
+
+\chapter{Chimie de la conduction électrique}
+\ChapFrame %appel du marqueur de chapitre
+
+\section{Dernière couche électronique}
+
+\subsection{\'Electron-volt}
+
+Les couches électroniques $K, L, M\ldots$ répartissent les électrons autour du noyau atomique :
+\begin{itemize}
+\item Plus un électron est proche du noyau atomique, plus l'énergie nécessaire pour arracher l'électron du champ électrique du noyau sera grande\,;
+\item \'Energie quantifiée en \emph{électron-volt} \si{\electronvolt}.
+\end{itemize}
+Un \emph{électron-volt} est la mesure physique de l'énergie cinétique d'un électron accéléré sous l'action d'une \emph{différence de potentiel} d'$\SI{1}{\volt}$. Il est égal à : %environnement avec plusieurs équations alignées sur le signe =
+
+
+\begin{equa} %environnement pour créer des équations référencées avec légendes 
+	\begin{align}
+		1\electronvolt &= \SI{1,602176634e-19}{\joule} \\
+		&= \sqrt{\frac{2h\alpha}{\mu_{0}\clight}}\frac{\joule}{\coulomb}
+	\end{align}
+\caption{ma première équation}
+\label{eq:1}
+\end{equa}
+
+\begin{variables}
+\si\electronvolt & électron-volt & joule & \si\joule & cacagrkydjfk qfsgfjdhfd,gf;iykudjyfxhtfd,ujyh \\
+\si\electronvolt & électron-volt & joule & \si\joule & cacagrkydjfk qfsgfjdhfd,gf;iykudjyfxhtfd,ujyh \\
+\si\electronvolt & électron-volt & joule & \si\joule & cacagrkydjfk qfsgfjdhfd,gf;iykudjyfxhtfd,ujyh
+\end{variables}
+
+\end{document}
+

@@ -4,7 +4,7 @@
 
 ## Pour commencer
 
-Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyé à l'AOCDTF.
+Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF.
 
 
 | Page de couverture  | Page de titre |

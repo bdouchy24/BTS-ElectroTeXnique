@@ -22,7 +22,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
   <img src="parametres/github/set3.png" width="200" />
 </p>
 
-3. Ajouter les packages manquant lors de la compilation
+5. Pour tout ajout et mise à jour de packages, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database et de le préciser)
 
 4. Eplucher les documentations sur LaTeX (entre autre) :
     - `base_de_donnees/latex/masson-fiches_latex/...`
@@ -38,38 +38,38 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 %INTITULE DU COURS 
 %--------------------------------------
 ```
+
 3. Ajouter les informations relatives au cours en question dans les page de titre, couverture et autres informations 
 
 4. **Rectifier l'arborescence des fichiers.bib (en s'aide du fichier `INDICATEUR_ARBORESCENCE.tex`) et du préambule car celle du canevas n'est pas la même que celle pour les cours !**
 
-5. Pour tout ajout et mise à jour de packages, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database)
-
-6. Si des modifications sont à ajouter au préambule ou au canevas, **consulter** le Teams pour qu'on puisse ajouter ces modifications au préambule du canevas si c'est pertinent
+5. Si des modifications sont à ajouter au préambule ou au canevas, **consulter** le Teams pour qu'on puisse ajouter ces modifications au préambule du canevas si c'est pertinent
 
 ## Rédaction de la programmation d'un nouveau cours
 
-1. Utiliser la programmation "document_maitre" seulement pour accueillir les appels de sous-programmation (chapitres, préambules, tableaux et figures complexes...)
+1. Utiliser la programmation "document_maitre" seulement pour accueillir les appels de sous-programmation (chapitres, préambules, sous-programmation de mise en page...)
 
-2. Pour la rédaction de nouveaux chapitres, créer une sous-programmation :
+2. Pour la rédaction de nouveaux chapitres ou de figure/tableaux complexes, créer une sous-programmation :
     - en exécutant `fichier -> nouveau à partir d'un document existant` et sélectionner `MWE.tex` (Minimal Work Environnement) **ne pas oublier de rectifier l'arborescence du préambule !**
     - en enregistrant la sous-programmation dans le même dossier que le document maître du cours
 
 3. pour nommer le nouveau chapitre, tableau, figure... , il faut respecter une nomenclature pour faciliter le classement de fichier :
     - objet_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis) avec objet =
-        - chap_x_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)    => chapitre
+        
+        - chap_x_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => chapitre
         - chap_A_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => annexe
         - sec_xx_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => section
-        - tab_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => tableau
-        - fig_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => figure
-        - eq_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => équation
+        - tab_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => tableau
+        - fig_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => figure
+        - eq_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)         => équation
 
-4. Si une sous-programmation demande des fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier mais pas la sous-programmation en elle-même pour regrouper toutes les programmations et sous-programmations dans un seul dossier et éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres
+4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier mais pas la sous-programmation en elle-même pour regrouper toutes les programmations et sous-programmations dans un seul dossier et éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres
     - se référer au cours de pré-requis pour les sous-programmations-types à suivre (tableau, figure, graphe...)
     - pour structurer son texte et les listes, se référer au cours de pré-requis et à la nomenclature approuvée tous ensemble avec entre autre :
 
-        - `\\` sans espace (retour à la ligne sans saut de ligne) : nouveau sujet dans le même paragraphe
-        - `\\ ` avec espace (retour à la ligne avec saut de ligne) : nouveau paragraphe dans la même division
-        - `\description` et `\itemize` : les listes et les définitions 
+        - `\\` un seul retour à la ligne : nouveau sujet dans le même paragraphe
+        - `\\ deux retour à la ligne (saut de ligne) : nouveau paragraphe dans la même division
+        - `\description` et `\itemize` : les listes et les définitions
         - `\compactitemize` `\tabdescription` : liste compacte pour les listes et descriptions dans les tableaux (voir commentaire de code en préambule)
         - respecter les règles de typographie française (voir `/bases_de_donnees/latex/goulet-redaction_latex.pdf` et `/bases_de_donnees/latex/hufflen-typographie_conventions_latex.pdf`)
     - grands classiques de typographie avec entre autre :
@@ -82,16 +82,20 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
                 
 5. Labeliser les sous-programmations avec le même intitulé que les noms de fichier de ces sous-programmations (quand c'est le cas) :
     - \label{objet:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)} avec objet =
-        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label chapitre
-        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label annexe
-        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)    => label section
-        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     =>label figure
-        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label tableau
-        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label pastille d'annotation                - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label équation
+        
+        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label chapitre
+        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label annexe
+        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label section
+        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       =>label figure
+        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label tableau
+        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label pastille d'annotation                
+        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => label équation
 
 6. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels
 
-7. Une fois la rédaction de la sous-programmation effectuée, l'appeler sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}`
+7. Vérifier dans préambule toutes les macros qui ont pu y être ajoutées (bien souvent précédées d'une instruction type `\newcommand{nouvelleinstruction}{cequecette instructionexecute}`
+
+7. Une fois la rédaction de la sous-programmation effectuée, l'appeler dans sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}`
 
 ``` bash
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire 
@@ -105,19 +109,22 @@ le préambule une fois la programmation appelée dans le document maître
 
 - Référencer les documents et sites utilisés dans les fichiers de bibliographie correspondants en n'ajoutant pas trop de métadonnées et en choisissant le bon type de références(book, incollection, report...)
  
-- classement des références dans l'ordre alphabétique des clés :
-    - Pour les cours et polycopiés, clé d'appel de la référence comme suit : `@Etablissementmatièreannée`
+- classement des références **dans l'ordre alphabétique** des clés :
+    - si il s'agit de plusieurs référénces d'un site même site internet (wikipedia, cours en ligne, Guide de l'électrotechnique...à) sont identiques comme suit : `@PremièreSlettreSdusite:acronymedutitre` (ex. : `@wiki:TPE`pour l'article sur le tableau périodique des éléments de Wikipédia)
+	- Pour les cours et polycopiés, clé d'appel de la référence comme suit : `@Etablissementcoursannée` ou si l'intitulé du cours est trop long pour une clé compacte, utiliser son acronyme)
     - Pour les livres et similaires, clé d'appel de la référence comme suit : `@Nomdel'auteurannée`
+    - Si l'auteur et l'année sont identiques comme suit : 
 
-    - si l'auteur et l'année sont identiques comme suit : 
-``` bash
+```
 @Nomdel'auteurannéeA 
 @Nomdel'auteurannéeB
-```
+``` 
 
-- Si citation ou référence à un passage spécifique du document, référencer les page/chapitre/section, exemple instruction :
-``` bash
-\pages = {1-2, 8}, avec \bookpagination = {chapitre}
+- Si citation ou référence à un passage spécifique d'un ouvrage, référencer les page/chapitre/section, exemple instruction :
+
+```
+\bookpagination = {chapitre},
+\pages = {1-2, 8},
 ```
 
 - Se référer aux documents présents dans la base de donnée (entre autre) pour plus d'informations
@@ -126,13 +133,15 @@ base_de_donnees/latex/masson-fiches_latex/biblatexmichu.pdf
 base_de_donnees/latex/gaborit-latex_bibliograhie.pdf
 ```
 
+- Vérifier, ne sait-on jamais, jamais que deux références identiques n'ont pas été ajoutées à la même bibliographie
+
 - Pour ajouter une nouvelle bibliographie à un document maître d'un cours, s'aider de l'instruction `\include{INDICATEUR_ARBORESCENCE}` pour indiquer l'arborescence du fichier.bib à ajouter
 
 - Pour la faire apparaitre dans le pdf final, compiler le fichier .bib avec le compilateur BibTeX avant de faire une compilation rapide sur le document maître
 
 ## Base de données
 
-- Déposer dans le dossier `/base_de_données` située dans le Onedrive partagé tous les documents utilisés pour la rédaction des cours, à inclure également dans la bibliographie
+- Déposer dans le dossier `/base_de_données`, situé dans le Onedrive partagé, tous les documents utilisés pour la rédaction des cours, à inclure également dans la bibliographie
 
 - Règle de rédaction des documents :
 
@@ -151,17 +160,19 @@ Etablissement-Titre du document(-année-auteur)
 
 ## Conseils
 
+- Pour ne pas se oublier de refermer une accolade ou un crochet, aligner les deux verticalement dans le code
+- S'aider de la structure pour naviguer entre les sous-programmation du document maître mais aussi pour vérifier que les \input{sous-programmation.tex} aboutit bien à la sous-programmation souhaitée
 - Google est ton meilleur ami (vraiment), il y a plein de forums en tout genre (erreur, solution, nouvelles idées...)
 - Ne pas désespérer si il y a une erreur insolvable
 - Programme pas forcément stable du coup enregistrer régulièrement
 - Ne pas oublier `\chapframe` et réarranger le document à la fin de la rédaction
 - Etre sur de la structure de son tableau avant de le programmer et de l'échelle de son image avant de l'annoter
-- Utiliser ctrl+f pour naviguer au mot-clé dans le code et commenter à balle le code avec `%commentaire` pour que les autres puissent s'inspirer des fonctions appelées
+- Utiliser `ctrl+f` pour naviguer au mot-clé dans le code et commenter à balle le code avec `%commentaire` pour que les autres puissent s'inspirer des fonctions appelées
 - Bien aérer son code en n'oubliant de mettre des `%` avant un retour à la ligne pour éviter que le code l'interprète comme un espace
 - Utiliser les raccourcis claviers, et deux écrans avec l'afficheur pdf en deuxième écran si possible
 - Filtrer les dossier pour n'afficher que les .tex, .bib et les images importées
-- Utiliser l'option source viewer pour avoir un deuxième code à la place de l'afficheur et la colonne de navigation pour jongler entre les sous-programmations
-- Bien s'assurer de l'orthographe
+- Utiliser l'option `affichage -> source viewer` pour avoir un deuxième code à la place de l'afficheur et la colonne de navigation et ainsi jongler entre les sous-programmations
+- Bien s'assurer de l'orthographe avec le dictionnaire en préférences
 - Ne pas oublier les {} après certaines options de style de texte dans un paragraphe
 - Ne pas oublier `\hfill` pour placer deux objets sur le même alignement horizontal ou passer une première ligne dans certaines listes
 - `~` (ctrl+n ?) appelle un espace insécable, ça peut aider dans certains cas

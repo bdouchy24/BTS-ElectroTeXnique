@@ -83,13 +83,15 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 5. Labeliser les sous-programmations avec le même intitulé que les noms de fichier de ces sous-programmations (quand c'est le cas) :
     - \label{objet:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)} avec objet =
         
-        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label chapitre
-        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label annexe
-        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label section
-        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       =>label figure
-        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label tableau
-        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label pastille d'annotation                
-        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => label équation
+        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label chapitre
+        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label annexe
+        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label section
+		- subsec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label subsection
+        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      =>label figure
+        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label tableau
+        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label pastille d'annotation                
+        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label équation
+		- def:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label définition
 
 6. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels
 

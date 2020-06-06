@@ -77,7 +77,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
         - Accent même pour les majuscule `\’E` ou `\È` ou `\À`
         - Guillemets français `\og \fg{}`
         - Liste d’éléments se terminant par l'instruction `\,;` quand ce sont des phrases (sauf la dernière)
-        - Bien faire attention à `\oe{}`,  `\iere{}`, `Dr`, les points de suspensions `\ldots...`
+        - Bien faire attention à `\oe{}`,  `\iere{}`, `\Dr`, les points de suspensions `\ldots...`
         - Voir le `package{SIunitx}` pour l’écriture de unités de physique
                 
 5. Labeliser les sous-programmations avec le même intitulé que les noms de fichier de ces sous-programmations (quand c'est le cas) :

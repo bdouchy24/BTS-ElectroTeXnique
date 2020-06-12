@@ -4,7 +4,7 @@
 
 ## Pour commencer
 
-Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyé à l'AOCDTF.
+Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF.
 
 
 | Page de couverture  | Page de titre |
@@ -77,19 +77,21 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
         - Accent même pour les majuscule `\’E` ou `\È` ou `\À`
         - Guillemets français `\og \fg{}`
         - Liste d’éléments se terminant par l'instruction `\,;` quand ce sont des phrases (sauf la dernière)
-        - Bien faire attention à `\oe{}`,  `\iere{}`, `Dr`, les points de suspensions `\ldots...`
+        - Bien faire attention à `\oe{}`,  `\iere{}`, `\Dr`, les points de suspensions `\ldots...`
         - Voir le `package{SIunitx}` pour l’écriture de unités de physique
                 
 5. Labeliser les sous-programmations avec le même intitulé que les noms de fichier de ces sous-programmations (quand c'est le cas) :
     - \label{objet:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)} avec objet =
         
-        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label chapitre
-        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label annexe
-        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label section
-        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       =>label figure
-        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label tableau
-        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label pastille d'annotation                
-        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => label équation
+        - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label chapitre
+        - ann:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label annexe
+        - sec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label section
+		- subsec:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label subsection
+        - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      =>label figure
+        - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label tableau
+        - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label pastille d'annotation                
+        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label équation
+		- def:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label définition
 
 6. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels
 
@@ -111,8 +113,11 @@ le préambule une fois la programmation appelée dans le document maître
  
 - classement des références **dans l'ordre alphabétique** des clés :
     - si il s'agit de plusieurs référénces d'un site même site internet (wikipedia, cours en ligne, Guide de l'électrotechnique...à) sont identiques comme suit : `@PremièreSlettreSdusite:acronymedutitre` (ex. : `@wiki:TPE`pour l'article sur le tableau périodique des éléments de Wikipédia)
+    - Pour les normes, utiliser la classe @manual et la clé d'appel de la référence comme suit : 
+    `@typedenorme:numérodenorme-année`
+    - si il s'agit de plusieurs référénces d'un site même site internet (wikipedia, cours en ligne, Guide de l'électrotechnique...à) sont identiques comme suit : `@PremièreSlettreSdusite:acronymedutitre` (ex. : `@wiki:TPE`pour l'article sur le tableau périodique des éléments de Wikipédia)
 	- Pour les cours et polycopiés, clé d'appel de la référence comme suit : `@Etablissementcoursannée` ou si l'intitulé du cours est trop long pour une clé compacte, utiliser son acronyme)
-    - Pour les livres et similaires, clé d'appel de la référence comme suit : `@Nomdel'auteurannée`
+    - Pour les livres et similaires, clé d'appel de la référence comme suit (si plusieurs auteurs, mettre chaque nom dans l'ordre alphabétique) : `@Nomdel'auteurannée`
     - Si l'auteur et l'année sont identiques comme suit : 
 
 ```

@@ -7,20 +7,22 @@
 	%--------------------------------------
 
 	\usepackage[french]{babel}
-	\usepackage{lmodern, marvosym, microtype} %gestion fine des police de caractère
+	\usepackage[T1]{fontenc}
+	\usepackage{lmodern, marvosym, microtype, expl3} %gestion fine des police de caractère
 	\usepackage[table, svgnames, dvipsnames, x11names]{xcolor} %gestion des couleurs
-	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référencage
+	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référençage
 	\usepackage{varioref, memhfixc, url} % amélioration du référencage
-	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig}
+	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig, }
 	\usepackage{callouts, circledsteps} %annotation d'image
 	\usepackage[absolute]{textpos}  % disposition d'images
 	\usepackage{authblk, tocbibind, calc} %gestion mise en page
 	\usepackage{xifthen, multido, etoolbox, ifpdf} %appel de fonction conditionnelles
-	\usepackage{mathtools, amsfonts, amssymb, mathrsfs} %écriture des mathématiques avec référénces
+	\usepackage{newtxmath, mathtools, amsfonts, amssymb, mathrsfs} %écriture des mathématiques avec référénces
 	\usepackage{chemfig, bohr, tikzorbital, chemgreek, expl3, xparse, l3keys2e, xargs, verbatim} %gestion de l'écriture en chimie
+	\usepackage[version=4]{mhchem}
 	\usepackage{modiagram} %orbitale atomique
-	\usepackage{cancel, colortbl, csquotes, mathpazo, soul, caption} %packages nécessaires pour le chargement du package SIunitx
-	\usepackage{siunitx} %gestion des unités de physique
+	\usepackage{cancel, colortbl, soul} %packages nécessaires pour le chargement du package SIunitx
+	\usepackage{siunitx, xfrac} %gestion des unités de physique
 	\usepackage[export]{adjustbox}
 	\usepackage{animate} %animation d'image
 	\usepackage{subcaption, capt-of} %gestion des sous-figures et des légendes communes
@@ -28,13 +30,11 @@
 	\usepackage{verbatim} %mise en page type code informatique et listes
 	\usepackage{rotating, mdframed} %rotation
 	\usepackage[scale=1,angle=0,opacity=1,contents={}]{background} %gestion de l'arrière-plan 
-	\usepackage{xspace, xpatch} %espace après les macros
+	\usepackage{xspace, xpatch, letltxmacro} %macros de luxe
 	\usepackage{pgf, tikz, tikz-qtree, pgfplots, pgfplotstable, schemabloc} %création de figures et schémas
-	\usepackage{smartdiagram}
-	\usesmartdiagramlibrary{additions}
 	\usepackage[siunitx, europeanvoltages, europeancurrents, europeanresistors, americaninductors, europeanports, europeangfsurgearrester, compatibility]{circuitikz}%création de schémas électriques
 	\usepackage{pdfpages, scrbase} %inclusion des PDF
-	\usepackage{xstring, multirow, booktabs, longtable, makecell, arydshln, cellspace, tabu} %gestion fine des tableaux (sans \ltablex !)
+	\usepackage{xstring, multirow, booktabs, makecell, longtable, arydshln, xltabular} %gestion fine des tableaux (sans \ltablex !)
 	\usepackage{threeparttable} %notes dans tableaux
 	\usepackage[section]{placeins} %force les figures à rester dans leur section
 	\usepackage{impnattypo} %règle de typographie française
@@ -76,11 +76,14 @@
 \sisetup{%
 	locale=FR, %règles de typo française
 	detect-all, %on prend la font du document
-	group-digits=integer, %le regroupement par 3 chiffres n’a lieu qu’en partie gauche
-	free-standing-units, %macro pour les unités existants en dehors des arguments \si et \SI
+	group-minimum-digits = 3,	 %nombre de chiffre entre chaque séparation
+	free-standing-units=true, %macro pour les unités existants en dehors des arguments \si et \SI
 	group-minimum-digits=5, %groupe si au moins 5 chiffres
 	load-configurations=abbreviations % charge les abréviations avec l'argument \SI
+	number-unit-separator
 	}
+	
+\floatsetup[table]{capposition=top}
 
 	%--------------------------------------
 	%paramétrage Tikz-PGF
@@ -90,8 +93,6 @@
 		
 	\tikzset{mynode/.style={draw=black, solid, circle, fill=white, inner sep=2pt, thick, text=black}} %pastille d'annotation
 	
-	\usesmartdiagramlibrary{additions}
-
 	\usepgfplotslibrary{dateplot} %insertion de dates en coordonnées dans les graphiques
 	\pgfplotsset{compat=1.16}
 	
@@ -138,6 +139,16 @@
 %macros
 %--------------------------------------
 
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
 \newcommand*{\superref}[1]{\hyperref[{#1}]{\autoref*{#1} \autopageref*{#1}}} %liens avec page et titre
 
 \definecolor{orangelogo}{RGB}{249,125,0} %couleur orange du logo
@@ -173,6 +184,20 @@
 	\renewcommand\theadfont{\bfseries\small} %style de caractère des en-têtes des tableaux
 	\renewcommand\theadalign{cc} %position des en-têtes des tableaux
 	\renewcommand\theadgape{} %espacement des en-têtes des tableaux
+	
+	\newcolumntype{C}{>{\centering\arraybackslash}X} %nouvelle colonne de type C avec largeur automatique au centre
+	\newcolumntype{R}{>{\raggedleft\arraybackslash}X} %nouvelle colonne de type R avec largeur automatique à droite
+	
+	\newcolumntype{i}{>{$}l<{$}} %nouvelle colonne de type w qui insère automatiquement un environnement mathématique à gauche
+	\newcolumntype{j}{>{$}c<{$}}	%nouvelle colonne de type y qui insère automatiquement un environnement mathématique centré
+	\newcolumntype{k}{>{$}r<{$}} %nouvelle colonne de type z qui insère automatiquement un environnement mathématique à droite
+	
+	\newcolumntype{I}{>{$}X<{$}} %nouvelle colonne de type W qui insère automatiquement un environnement mathématique à gauche avec largeur automatique
+	\newcolumntype{J}{>{$}C<{$}}	%nouvelle colonne de type Y qui insère automatiquement un environnement mathématique au centre avec largeur automatique
+	\newcolumntype{K}{>{$}R<{$}} %nouvelle colonne de type Z qui insère automatiquement un environnement mathématique à droite avec largeur automatique
+	
+	\newcolumntype{M}{k@{${}={}$}i} %nouvelle colonne de type M qui combine deux colonnes (d et g) pour pouvoir aligner le signe = dans un tableau
+
 
 	\newcommand{\middashrule}{\hdashline\addlinespace} %ligne pointillée de milieu de tableau
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} %ligne fine
@@ -180,11 +205,20 @@
 	%--------------------------------------
 	%paramétrage mathématique
 	%--------------------------------------
+	
+	\renewcommand*{\overrightarrow}[1]{\vbox{\halign{##\cr %écriture des vecteurs sans que la flèche touche les lettres
+ 	\tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
+  	$#1\mskip2mu$\cr}}}
+  	
+  	\LetLtxMacro{\OldSqrt}{\sqrt} %grosse prise de tête pour que la nième racine de trucmuche s'aligne correctement suite à un clash avec le package newtxmath
+	\RenewDocumentCommand{\sqrt}{O{} O{1} O{2} m}{\OldSqrt[\leftroot{#2}\uproot{#3}#1]{#4}}%
 
 	\newlength{\conditionwd} %environnement de description "muibene" pour les équations et les formules
-	\newenvironment{variables}[1][avec\quad] 
-  		{#1\tabularx{\textwidth-\widthof{#1}}[t]{
-			>{$}l<{$} @{${}:\enspace{}$}l >{ en }l >{(~}l<{~)} l@{}}}	%preambule du tableau à 5 colonnes
+	\newenvironment{variables}
+  		{Avec :\newline\newline\tabularx{\textwidth}[t]{
+			>{$}l<{$} @{${}:\enspace{}$}X l >{$(\enspace{}}l<{\enspace{})$} M}
+			\multicolumn{2}{c}{\thead{Grandeur dans l'ISQ}} & \multicolumn{2}{c}{\thead{Unité SI de mesure}} & \multicolumn{2}{c}{\thead{Valeur}} \\
+			\midrule}	%preambule du tableau à 5 colonnes
 		{\endtabularx\\[\belowdisplayskip]}
 	
 	\newcommand{\pc}[1]{\SI{#1}{\percent}} %nouvelle commande pour afficher les pourcents dans SIunitx
@@ -205,7 +239,7 @@
 	%--------------------------------------
 
 	\newlist{tabdescription}{description}{2} %liste utilisée pour les descriptions dans les tableaux (alignement sur les cellules contenant du texte)
-	\setlist[tabdescription, 1]{leftmargin=*, %
+	\setlist[tabdescription, 1]{leftmargin=*, % 
 	topsep=0ex, %
 	parsep=0pt, %
 	after=\vspace{-\baselineskip}, %
@@ -288,9 +322,11 @@
 		\fi} %pied-de-page page impaire
 
 	%--------------------------------------
-	%macros générales
+	%macros de mise en page
 	%--------------------------------------
 
+	\setlength{\parindent}{0pt}
+	
 	\maxsecnumdepth{subsubsection}\setsecnumdepth{subsubsection} %numérotation des sous-sous-sections
 	\setcounter{tocdepth}{3} %affichage des sous-sous-sections dans la table des matières
 	\setcounter{secnumdepth}{3} %affichage de la numérotation des sous-sous-sections dans la table des matières

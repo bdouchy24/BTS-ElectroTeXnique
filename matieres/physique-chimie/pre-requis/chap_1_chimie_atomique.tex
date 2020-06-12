@@ -53,8 +53,8 @@ Comme explicité par la \superref{fig:decomposition_matiere}{} %appel du label p
 		\draw[->,>=stealth, thick, rounded corners=4pt] (Ma) -- (Mo); %insertion de flèche reliant les blocs
 		\draw[->,>=stealth, thick, rounded corners=4pt] (Mo) -- (A);
 		\draw[->,>=stealth, thick, rounded corners=4pt] (A) -- (P);
-		\draw[->,>=stealth, thick, rounded corners=4pt] (-4,0) |- (-2,-1);
-		\draw[>=stealth, thick, rounded corners=4pt] (-3,-1) -| (0,0);
+		\draw[->,>=stealth, thick, rounded corners=4pt] (-4,0) |- (-2,-0.5);
+		\draw[>=stealth, thick, rounded corners=4pt] (-3,-0.5) -| (0,0);
 		
 	\end{tikzpicture}
 	\caption{Décomposition de la matière} %insertion d'une légende référencée
@@ -164,6 +164,10 @@ La valence d'un atome est égale au nombre d'électrons célibataire situés sur
 Un électron libre est un électron de valence qui a été excité par une énergie suffisante et qui va permettre la conduction électrique par le transfert de sa charge électrique négative $\ominus$\,;
 	\item[Ion]
 Un ion est un atome ou une molécule dont un -- ou plusieurs -- électron(s) ont été arrachés ou captés. Il est porteur d'une charge électrique positive -- \emph{cation} -- ou négative -- \emph{anion} -- et la manifestation chimique de l'énergie électrique.
+	\item[Nucléide]
+Un nucléide est la dénomination d'un noyau atomique caractérisé par son nombre de protons et de neutrons.
+	\item[\'Etat fondamental]
+Notion de physique caractérisant l'état de plus basse énergie pour un électron, ou à l'état de plus grande neutralité électrique pour un atome.
 \end{description}
 
 \subsection{Nombres quantiques}
@@ -188,6 +192,39 @@ Les électrons gravitant autour d'un noyau sont répartis en couches électroniq
 	\item L'énergie contenue dans les sous-couches électroniques augmente lorsque la somme des nombres quantiques principal et azimutal $n + \ell$ augmente. Si celle-ci est identique pour deux sous-couches, celle de plus basse énergie sera celle pour laquelle $n$ sera le plus petit.
 	\item Les électrons se répartissent de façon à obtenir la configuration présentant un minimum d'énergie. La répartition s'effectue par ordre croissant d'énergie en commençant par la sous-couche de plus basse énergie (valeurs de $n + \ell$ puis $n$ croissantes).
 \end{itemize}
+Un \emph{état de valence} est un état excité de l'atome, noté \og * \fg{}, de plus haute énergie. Cet état apparait quand l'atome participe à la formation d'une liaison, les électrons de valences se répartissant dès lors dans le nombre maximal de cases quantiques qu'ils peuvent occuper :
+
+\begin{table}[h!]
+\caption{Cases quantiques en état de valence}
+\begin{tabular}{l j c c l c c}
+Carbone C		& 2s^{2}2p^{2}		& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+     	\AO(0cm){s}{0}
+	\end{modiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+        \AO(0cm){s}{0;up}
+        \AO(0,7cm){s}{0;up}
+        \AO(1,4cm){s}{0;}
+	\end{modiagram}}
+& *C		&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+     	\AO(0cm){s}{0;up}
+	\end{modiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+        \AO(0cm){s}{0;up}
+        \AO(0,7cm){s}{0;up}
+        \AO(1,4cm){s}{0;up}
+\end{modiagram}}
+
+\end{tabular}
+\end{table}
+
 
 Comme cité dans le \superref{tab:distribution_electronique}, toutes les sous-couches d'une période n'appartiennent pas nécessairement à la même couche électronique : à partir de la troisième période, des sous-couches appartenant à des couches différentes se remplissent à la même période.\\L'ordre précis des sous-couches électroniques est donné la la règle de Kleckowski, en \superref{fig:repartition_sous-couche}.\\
 Cela donne l'ordre de répartition suivant, applicable à plus de 80\% du tableau périodique : 
@@ -321,7 +358,7 @@ Dans cette section est détaillée la description complète du 13\up{ème} élé
 \end{figure}
 \end{center}
 
-L'atome d'aluminium possède trois électrons de valence sur sa dernière couche électronique $3s^{\Circled{2}}\overset{\overset{+}{~}}{~}3p^{\Circled{1}}$. %symbole + au-dessus
+\`A l'état fondamental, l'atome d'aluminium possède trois électrons de valence sur sa dernière couche électronique $3s^{\Circled{2}}\overset{\overset{+}{~}}{~}3p^{\Circled{1}}$. %symbole + au-dessus
 
 
 %\end{document}

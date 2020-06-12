@@ -21,7 +21,7 @@
 
 \end{comment}
 
-\begin{longtable}{p{2cm} p{5.7cm} p{7.5cm}}
+\begin{xltabular}{\textwidth}{X p{5.5cm} p{7.5cm}} %tableau sur plusieurs pages avec des colonnes contenant des \item donc la largeur doit être déclarée
 	\caption{Description des nombres quantiques \label{tab:description_nombres_quantiques}} \\
 	\toprule %filet de milieu de tableau
 	\thead{Nombre\\quantique} & \thead{Valeurs} & \thead{Description} \\
@@ -97,6 +97,7 @@
 			\item[$\ell=3$ :] 8 lobes.
 		\end{tabdescription}
 \end{tabdescription} \\
+
 %\noalign{\break} %impose le saut de page au tableau tout en répartissant verticalement le tableau
 
 \addlinespace %ajout d'un espace avant la partie suivante
@@ -146,6 +147,6 @@ $m_S=$ \numlist[list-pair-separator = {; }]{-1/2;1/2}
 Sens de rotation de l'électron sur lui-même.\\ 
 
 \bottomrule %filet de fin de tableau
-\end{longtable}
+\end{xltabular}
 
 %\end{document}

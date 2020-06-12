@@ -32,6 +32,8 @@
 \input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
 
 \addbibresource{../../../parametres/bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\addbibresource{../../../parametres/bibliographies/bib_sciences_naturelles.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\addbibresource{../../../parametres/bibliographies/bib_electrotechnique.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
 
 %--------------------------------------
 %corps du document
@@ -93,6 +95,7 @@
 	%--------------------------------------
 
 	\include{chap_1_chimie_atomique}
+	%\include{chap_2_chimie_conduction_electrique}
 
 	%--------------------------------------
 	%style des annexes
@@ -127,7 +130,7 @@
 	%bibliographie
 	%--------------------------------------
 
-	\nocite{Coarer2003, Wiki:TPE, Wiki:OA} %appel les références utilisées pour la construction du document mais non citées (clés insensibles à la casse)
+	\nocite{Coarer2003} %appel les références utilisées pour la construction du document mais non citées (clés insensibles à la casse)
 	
 	\printbibliography %ajout des références bibliographiques
 

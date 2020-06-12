@@ -10,7 +10,7 @@
 %préambule
 %--------------------------------------
 
-\input{preambule}
+\input{../../../parametres/preambule/preambule}
 
 \input{marqueur_chapitre_couleur}
 
@@ -42,18 +42,28 @@ Les couches électroniques $K, L, M\ldots$ répartissent les électrons autour d
 Un \emph{électron-volt} est la mesure physique de l'énergie cinétique d'un électron accéléré sous l'action d'une \emph{différence de potentiel} d'$\SI{1}{\volt}$. Il est égal à : %environnement avec plusieurs équations alignées sur le signe =
 
 
-\begin{equa} %environnement pour créer des équations référencées avec légendes 
-	\begin{align}
-		1\electronvolt &= \SI{1,602176634e-19}{\joule} \\
-		&= \sqrt{\frac{2h\alpha}{\mu_{0}\clight}}\frac{\joule}{\coulomb}
+\begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
+	\begin{align} 
+		U &= \frac{W}{Q} \\
+		\electronvolt &= \sqrt{\frac{2h\alpha}{\mu\clight}}\frac{W}{Q} \\
+		&=\SI{1,602176634e-19}{\joule} \nonumber
 	\end{align}
-\caption{ma première équation}
+\caption{Valeur expérimentale de l'\electronvolt}
 \label{eq:1}
 \end{equa}
 
 \begin{variables}
-\si\electronvolt & électron-volt & joule & \si\joule & cacagrkydjfk qfsgfjdhfd,gf;iykudjyfxhtfd,ujyh \\
+U						& différence de potentiel					&	volt						& \volt								& \volt  				& \si{\kilogram\square\meter\per\cubic\second\per\ampere} \\
+W						& énergie											& joule						& \joule								& \joule				& \si{kg.m^{2}/s^{2}} \\
+Q						& charge électrique							& coulomb					& \coulomb						& \coulomb		& \si{\ampere\second} \\
+\electronvolt 		& électron-volt 									& joule 						& \si\joule 							& \electronvolt	& \SI{1,602176634e-19}{\joule} \\
+h 						& constante de Planck 						& joule seconde 		& \si{\joule\second	}			& h					& \SI{6,62607015e-34}{\joule\second} \\
+\alpha				& constante de structure fine 				& sans dimension 		&										& \alpha			& \num{7,2973525564e-3} \\
+\mu					& perméabilité magnétique du vide	& henry par mètre		& \si{\henry\per\meter}		& \mu				& \SI{4\pi e-7}{\henry\per\meter} \\
+\clight				& vitesse de la lumière dans le vide	& mètre par seconde & \si{\meter\per\second}	& \clight			& \SI{2,99792458e8}{\meter\per\second}	
 \end{variables}
+
+
 
 \end{document}
 

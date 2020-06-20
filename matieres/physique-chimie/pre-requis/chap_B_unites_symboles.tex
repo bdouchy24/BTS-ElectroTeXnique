@@ -80,7 +80,7 @@ Il convient de faire attention lorsque le symbole d'une unité est le même que 
 
 \begin{table}[h!]
 \caption{Alphabet grec}
-\begin{tabularx}{\textwidth}[t]{l X X X X l X X X X}
+\begin{tabularx}{\textwidth}[t]{l C C C C l C C C C}
 \cmidrule[\heavyrulewidth](lr){1-5} \cmidrule[\heavyrulewidth](lr){6-10}
 \thead{Nom} 		& \multicolumn{2}{c}{\thead{Caractère\\romain}} 	& \multicolumn{2}{c}{\thead{Caractère\\italique}} & \thead{Nom} 		& \multicolumn{2}{c}{\thead{Caractère\\romain}} 	& \multicolumn{2}{c}{\thead{Caractère\\italique}} \\
 \cmidrule[\lightrulewidth](lr){1-5} \cmidrule[\lightrulewidth](lr){6-10}
@@ -106,7 +106,7 @@ mu						& M						& $\muup$											& \textit{M}							& $\mu$								& oméga	
 
 \subsubsection{Généralités}
 
-Le Système International d'unités est un système cohérent d'unités dans l'\emph{ISQ}. Il est toujours \emph{SI} dans toutes les langues et est formé de :
+Le Système International d'unités est un système cohérent d'unités dans l'\emph{ISQ}. Il est abrégé \emph{SI} dans toutes les langues et est formé de :
 \begin{itemize}
 \item Sept unités de base\,;
 \item Des unités dérivées de ces unités de base.
@@ -135,14 +135,14 @@ Intensité lumineuse					& $J$				& candela			& \candela \\
 
 \begin{table}[!h]
 \caption{Préfixes des unités SI \label{tab:prefixes_unites_SI}}
-\begin{tabularx}{\textwidth}{C X R C X R}
+\begin{tabularx}{\textwidth}{C X r C X r}
 \cmidrule[\heavyrulewidth](lr){1-3} \cmidrule[\heavyrulewidth](lr){4-6} 
 
 \multirow[c]{2}{*}{\thead{Facteur}} 	& \multicolumn{2}{c}{\thead{Préfixe}} 	& \multirow[c]{2}{*}{\thead{Facteur}} 	& \multicolumn{2}{c}{\thead{Préfixe}} \\
 
 \cmidrule(lr){2-3} \cmidrule(lr){5-6} 
 
-															& \thead{Nom} 		& \thead{Symbole}	& 																& \thead{Nom} 		& \thead{Symbole} \\
+															& \thead[l]{Nom} 		& \thead[r]{Symbole}	& 									& \thead[l]{Nom} 		& \thead[r]{Symbole} \\
 \cmidrule[\lightrulewidth](lr){1-3} \cmidrule[\lightrulewidth](lr){4-6} 
 $10^{24}$											& yotta 						& Y		& $10^{-1}$											& déci 						& d  \\
 $10^{21}$											& zetta 						& Z  		& $10^{-2}$											& centi 						& c  \\ 
@@ -245,74 +245,132 @@ Longueur		& $L$			& unité astronomique			& \multicolumn{2}{p{8cm}}{Valeur conve
 
 \section{Mathématique}
 
-Le tableau suivant est extrait de l'ouvrage \citetitle{BourgeoisCogniel2005}, il référence les notations mathématiques utilisées en électrotechnique.
+Les tableaux suivants sont extraits de l'ouvrage \citetitle{BourgeoisCogniel2005}, ils référencent les notations mathématiques utilisées en électrotechnique.
 
 \begin{table}[!h]
-\caption{Signe et symbole mathématique\label{tab:signes_mathematiques}}
-\renewcommand{\tabularxcolumn}[1]{m{#1}} %centre verticalement toutes les cellules
-\begin{tabularx}{\textwidth}{j j X j j X}
-\cmidrule[\heavyrulewidth](lr){1-3} \cmidrule[\heavyrulewidth](lr){4-6}
-\multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}} 		& \multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
-\cmidrule[\lightrulewidth](lr){1-3} \cmidrule[\lightrulewidth](lr){4-6} 
-=					& a=b				& $a$ égal $b$											& +					& a+b														& $a$ plus $b$ \\
-\neq				& a\neq b			& $a$ est différent de $b$ 							& -					& a-b															& $a$ moins $b$ \\
-\triangleq		& a\triangleq b	& $a$ correspond à $b$								& \times			& a\times b												& $a$ multiplié par $b$ \\
-\simeq			& a\simeq b		& $a$ est approximativement égal à $b$ 	& \cdot				& a\cdot  b												& \\
-<					& a < b				& $a$ est strictement inférieur à $b$ 			&						& a\ b														& \\
->					& a > b				& $a$ est strictement supérieur à $b$ 		& \frac\				& \frac{a}{b}											& $a$ divisé par $b$ \\
-\leq				& a\leq b			& $a$ est inférieur ou égal à $b$				& /					& a/b															& \\
-\geq				& a\geq b			& $a$ est supérieur ou égal à $b$				& \sum				& {\displaystyle\sum_{i=1}^{n} a_{i}} 	& $a_{1} + a_{2} + a_{3} \ldots a_{n}$ \\
-\ll					& a\ll b				& $a$ est très inférieur ou égal à $b$			& \prod				& {\displaystyle\prod_{i=1}^{n} a_{i}}	& $a_{1} \times a_{2} \times a_{3} \ldots a_{n}$ \\
-\gg				& a\gg b			& $a$ est très supérieur ou égal à $b$		& !					& n!															& $1 \times 2 \times 3 \ldots n$ \\
-\infty				&						& infini														& 						& a^{n}													& $a$ puissance $n$ \\
-\pm				& a\pm b			& $a$ plus ou moins $b$ 							& 						& \sqrt{a}													& racine carrée de $a$ \\
-\in					& x\in A				& $x$ appartient à $a$								& 						& \sqrt[n]{a}												& racine n\ieme de $a$ \\
-\notin			& x\notin A 		& $x$ n'appartient pas à $a$						& 						& a^{1/n}													& \\
-\vert\ \vert\	& \vert a \vert	& valeur absolue de $a$ 							&						& 																& \\
-\cmidrule[\heavyrulewidth](lr){1-3} \cmidrule[\heavyrulewidth](lr){4-6}
+\caption{Signes mathématiques\label{tab:signes_mathematiques}}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{j j X}
+\toprule
+\multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}}	\\
+\midrule
+=																& a=b																& $a$ égal $b$ \\	
+\neq															& a\neq b															& $a$ est différent de $b$	\\
+\triangleq													& a\triangleq b													& $a$ correspond à $b$	\\
+\simeq														& a\simeq b														& $a$ est approximativement égal à $b$	\\
+<																& a < b																& $a$ est strictement inférieur à $b$	\\
+>																& a > b																& $a$ est strictement supérieur à $b$		\\
+\leq															& a\leq b															& $a$ est inférieur ou égal à $b$	\\
+\geq															& a\geq b															& $a$ est supérieur ou égal à $b$	\\
+\ll																& a\ll b																& $a$ est très inférieur ou égal à $b$	\\
+\gg															& a\gg b															& $a$ est très supérieur ou égal à $b$	\\
+\addlinespace
+\infty															&																		& infini	\\
+\addlinespace
+\pm															& a\pm b															& $a$ plus ou moins $b$	\\
+\in																& x\in A																& $x$ appartient à $a$	\\
+\notin														& x\notin A 														& $x$ n'appartient pas à $a$	\\
+\bottomrule
 \end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{j j X}
+\toprule
+\multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}}	\\
+\midrule
++					& a+b														& $a$ plus $b$ \\
+-					& a-b															& $a$ moins $b$ \\
+\addlinespace
+\times			& a\times b												& $a$ multiplié par $b$ \\
+\cdot				& a\cdot  b												& \\
+					& a\ b														& \\
+\addlinespace
+\frac\				& \frac{a}{b}											& $a$ divisé par $b$ \\
+/					& a/b															& \\
+\addlinespace
+\sum				& {\displaystyle\sum_{i=1}^{n} a_{i}} 	& $a_{1} + a_{2} + a_{3} \ldots a_{n}$ \\
+\addlinespace
+\prod				& {\displaystyle\prod_{i=1}^{n} a_{i}}	& $a_{1} \times a_{2} \times a_{3} \ldots a_{n}$ \\
+\addlinespace
+!					& n!															& $1 \times 2 \times 3 \ldots n$ \\
+					& a^{n}													& $a$ puissance $n$ \\
+					& \sqrt{a}													& racine carrée de $a$ \\
+\addlinespace
+					& \sqrt[n]{a}												& racine n\ieme de $a$ \\
+					& a^{1/n}													& \\
+\addlinespace
+\vert\ \vert\	& \vert a \vert											& valeur absolue de $a$	\\
+\bottomrule
+\end{tabularx}
+\end{minipage}
 \end{table}
 
-\begin{xltabular}{\textwidth}{i X i X}
-\caption{Signe et symbole mathématique\label{tab:symbole_mathematiques}} \\
-\cmidrule[\heavyrulewidth](lr){1-2} \cmidrule[\heavyrulewidth](lr){3-4} 
-\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}}		& \multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
-\cmidrule[\lightrulewidth](lr){1-2} \cmidrule[\lightrulewidth](lr){3-4}
+\newsavebox\ltmcbox
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+
+\begin{xltabular}{\textwidth}{i X}
+\toprule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
 \endfirsthead
-\multicolumn{4}{l}{\small\textit{Page précédente}} \\
-\cmidrule[\lightrulewidth](lr){1-2} \cmidrule[\lightrulewidth](lr){3-4}
-\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}}		& \multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
-\cmidrule[\lightrulewidth](lr){1-2} \cmidrule[\lightrulewidth](lr){3-4}
+\multicolumn{2}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
 \endhead
-\cmidrule[\lightrulewidth](lr){1-2} \cmidrule[\lightrulewidth](lr){3-4}
-\multicolumn{4}{r}{\small\textit{Page suivante}} \\
+\midrule
+\multicolumn{2}{r}{\small\textit{Page suivante}} \\
 \endfoot
-\cmidrule[\heavyrulewidth](lr){1-2} \cmidrule[\heavyrulewidth](lr){3-4} 
+\bottomrule
 \endlastfoot
-f													& fonction ou application 																& \cos x						&	cosinus de $x$ \\
-f(x)												& valeur de la fonction $f$ respectivement en $x$ 							& \sin x						&	sinus de $x$ \\
-\left[ f(x) \right] ^{a} _{b}				& $f(b)-f(a)$																					& \tan x						&	tangente de $x$ \\
-f(x)\ | ^{a} _{b} 							& 																									& \cot x						&	cotangente de $x$ \\
-\lim\limits_{x \rightarrow a} f(x)		& limite de $f(x)$ quand $x$ tend vers $a$ 									& \arccos x				& réciproque du cosinus de $x$ \\
-f\prime											& dérivée (première) de la fonction $f$											& \arcsin x					& inverse du sinus de $x$ \\
-f^{(k)}(x)										& dérivée d'ordre $k$ de la fonction $f$ 											& \arctan x				& inverse de la tangente de $x$ \\
-\Delta f											& dérivée totale globale de la fonction $f$\supercite{Wiki:NDS} 		& e = 2,7182818		& base des logarithmes népériens \\
-\frac{df}{dx}								& dérivée totale locale de la fonction $f$ par rapport à $x$ 				& \exp x					& exponentielle de base $e$ de $x$ \\
-\frac{\partial f}{\partial x}				& dérivée partielle locale de la fonction $f$ par rapport à $x$			& \ln x						& logarithme népérien de $x$ \\
-\frac{\delta f}{\delta x}					& variation élémentaire de la fonction $f$ par rapport à $x$				& \lg x 						& logarithme décimal de $x$ \\
-\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ 							& \mathrm{i\ ou\ j}	& unité imaginaire \\
-\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ 							& \arg 						& argument \\					
-\mathbb{N}									& ensemble des entiers naturels 													& \mathbb{R}			& ensemble des entiers réels \\
-\mathbb{Z}									& ensemble des entiers 																	& \mathbb{C}			& ensemble des nombres complexes \\
-\mathbb{Q}									& ensemble des nombres rationnels												& \mathbb{P}			& ensemble des nombres premiers \\
+f													& fonction ou application \\
+f(x)												&	valeur de la fonction $f$ respectivement en $x$ \\
+\left[ f(x) \right] ^{a} _{b}				& $f(b)-f(a)$ \\
+f(x)\ | ^{a} _{b} 							& 	\\
+\lim\limits_{x \rightarrow a} f(x)		& limite de $f(x)$ quand $x$ tend vers $a$ \\
+f\prime											& dérivée (première) de la fonction $f$ \\
+f^{(k)}(x)										& dérivée d'ordre $k$ de la fonction $f$ \\
+\Delta f											& dérivée totale globale de la fonction $f$\supercite{Wiki:NDS} \\
+\frac{df}{dx}								& dérivée totale locale de la fonction $f$ par rapport à $x$ \\
+\frac{\partial f}{\partial x}				& dérivée partielle locale de la fonction $f$ par rapport à $x$ \\
+\frac{\delta f}{\delta x}					& variation élémentaire de la fonction $f$ par rapport à $x$ \\
+\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\
+\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\					
+\mathbb{N}									& ensemble des entiers naturels \\
+\mathbb{Z}									& ensemble des entiers \\
+\mathbb{Q}									& ensemble des nombres rationnels \\
+\cos x											&	cosinus de $x$ \\
+\sin x												&	sinus de $x$ \\
+\tan x											&	tangente de $x$ \\
+\cot x											&	cotangente de $x$ \\
+\arccos x										& réciproque du cosinus de $x$ \\
+\arcsin x										& inverse du sinus de $x$ \\
+\arctan x										& inverse de la tangente de $x$ \\
+e = 2,7182818								& base des logarithmes népériens \\
+\exp x											& exponentielle de base $e$ de $x$ \\
+\ln x												& logarithme népérien de $x$ \\
+\lg x 												& logarithme décimal de $x$ \\
+\mathrm{i\ ou\ j}							& unité imaginaire \\
+\arg 												& argument \\					
+\mathbb{R}									& ensemble des entiers réels \\
+\mathbb{C}									& ensemble des nombres complexes \\
+\mathbb{P}									& ensemble des nombres premiers \\
 \end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
 
 
 \section{Espace \& temps}
 
 \subsection{Généralités}
 
-Les tableaux suivants détaillent les noms, les symboles et les définitions des unités et grandeurs utilisées pour décrire mathématiquement l'espace et le temps. Ces notations seront d'applications pour le restant des cours.
+Les tableaux suivants détaillent les noms, les symboles et les définitions des unités et grandeurs utilisées pour décrire mathématiquement l'espace et le temps. Ces notations seront d'application pour le restant des cours.
 
 \begin{xltabular}{\textwidth}{l k l k X}
 \caption{Unités SI et grandeurs définissant l'espace et le temps\label{tab:unites_espace_temps}} \\
@@ -334,7 +392,16 @@ Les tableaux suivants détaillent les noms, les symboles et les définitions des
 \endfoot %pied de page de toutes les pages du tableau
 \bottomrule
 \endlastfoot %pied de page de la dernièredu tableau
-Longueur 			& L, l				& Mètre				& \metre				& \\
+Longueur 						& L, l					& Mètre				& \metre				& \\
+Largeur							& B, b				& 						&							& \\
+Hauteur							& H, h				&						&							& Le symbole $H$ est régulièrement utilisé pour désigner l'altitude. \\
+\'Epaisseur					& d, \delta			& 						&							& \\
+Rayon							& R, r				&						&							& \\
+Distance radiale				& r_{Q}, \rho		&						&							& \\
+Diamètre						& D, d				&						&							& \\
+Longueur curviligne		& s					&						&							& \\
+Distance						& d, r				& 						&							& \\
+Rayon (vecteur)				& \mathbf{r}		&						&							& \\
 \end{xltabular}
 
 \end{document}

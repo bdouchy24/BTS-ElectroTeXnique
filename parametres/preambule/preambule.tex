@@ -12,7 +12,7 @@
 	\usepackage[table, svgnames, dvipsnames, x11names]{xcolor} %gestion des couleurs
 	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référençage
 	\usepackage{varioref, memhfixc, url} % amélioration du référencage
-	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig, }
+	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig}
 	\usepackage{callouts, circledsteps} %annotation d'image
 	\usepackage[absolute]{textpos}  % disposition d'images
 	\usepackage{authblk, tocbibind, calc} %gestion mise en page
@@ -34,7 +34,7 @@
 	\usepackage{pgf, tikz, tikz-qtree, pgfplots, pgfplotstable, schemabloc} %création de figures et schémas
 	\usepackage[siunitx, europeanvoltages, europeancurrents, europeanresistors, americaninductors, europeanports, europeangfsurgearrester, compatibility]{circuitikz}%création de schémas électriques
 	\usepackage{pdfpages, scrbase} %inclusion des PDF
-	\usepackage{xstring, multirow, booktabs, makecell, longtable, arydshln, xltabular} %gestion fine des tableaux (sans \ltablex !)
+	\usepackage{xstring, multirow, booktabs, makecell, longtable, arydshln, xltabular, xtab, tabu} %gestion fine des tableaux (sans \ltablex !)
 	\usepackage{threeparttable} %notes dans tableaux
 	\usepackage[section]{placeins} %force les figures à rester dans leur section
 	\usepackage{impnattypo} %règle de typographie française
@@ -210,7 +210,7 @@
  	\tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
   	$#1\mskip2mu$\cr}}}
   	
-  	\LetLtxMacro{\OldSqrt}{\sqrt} %grosse prise de tête pour que la nième racine de trucmuche s'aligne correctement suite à un clash avec le package newtxmath
+  	\LetLtxMacro{\OldSqrt}{\sqrt} %grosse prise de tête pour que la nième racine de trucmuche s'aligne correctement suite à un clash avec le package newtxmath (qui sert au lettrage en grec)
 	\RenewDocumentCommand{\sqrt}{O{} O{1} O{2} m}{\OldSqrt[\leftroot{#2}\uproot{#3}#1]{#4}}%
 
 	\newlength{\conditionwd} %environnement de description "muibene" pour les équations et les formules

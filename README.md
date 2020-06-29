@@ -41,7 +41,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 3. Ajouter les informations relatives au cours en question dans les page de titre, couverture et autres informations 
 
-4. **Rectifier l'arborescence des fichiers.bib (en s'aide du fichier `INDICATEUR_ARBORESCENCE.tex`) et du préambule car celle du canevas n'est pas la même que celle pour les cours !**
+4. **Rectifier l'arborescence des fichiers.bib (en s'aide du fichier `INDICATEUR_ARBORESCENCE.tex`) car celle du canevas n'est pas la même que celle pour les cours !**
 
 5. Si des modifications sont à ajouter au préambule ou au canevas, **consulter** le Teams pour qu'on puisse ajouter ces modifications au préambule du canevas si c'est pertinent
 

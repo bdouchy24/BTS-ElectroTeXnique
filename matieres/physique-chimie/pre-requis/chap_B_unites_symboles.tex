@@ -8,11 +8,7 @@
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
-%--------------------------------------
-%préambule
-%--------------------------------------
-
-\input{../../../parametres/preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\usepackage{AOCDTF}
 
 \input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
 
@@ -306,64 +302,136 @@ Les tableaux suivants sont extraits de l'ouvrage \citetitle{BourgeoisCogniel2005
 \end{minipage}
 \end{table}
 
+\captionof{table}{Symboles mathématiques\label{tab:symboles_mathematiques}}
+\vspace{-1.6em}
 \newsavebox\ltmcbox
 \setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
 \makeatletter\col@number\@ne\makeatother
-
-\begin{xltabular}{\textwidth}{i X}
+\begin{xltabular}{0.49\textwidth}{i X}
 \toprule
 \multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
 \midrule
-\endfirsthead
-\multicolumn{2}{l}{\small\textit{Page précédente}} \\
-\midrule
-\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
-\midrule
-\endhead
-\midrule
-\multicolumn{2}{r}{\small\textit{Page suivante}} \\
-\endfoot
-\bottomrule
-\endlastfoot
 f													& fonction ou application \\
 f(x)												&	valeur de la fonction $f$ respectivement en $x$ \\
 \left[ f(x) \right] ^{a} _{b}				& $f(b)-f(a)$ \\
+\addlinespace
 f(x)\ | ^{a} _{b} 							& 	\\
+\addlinespace
 \lim\limits_{x \rightarrow a} f(x)		& limite de $f(x)$ quand $x$ tend vers $a$ \\
+\addlinespace
 f\prime											& dérivée (première) de la fonction $f$ \\
+\addlinespace
 f^{(k)}(x)										& dérivée d'ordre $k$ de la fonction $f$ \\
+\addlinespace					
 \Delta f											& dérivée totale globale de la fonction $f$\supercite{Wiki:NDS} \\
 \frac{df}{dx}								& dérivée totale locale de la fonction $f$ par rapport à $x$ \\
 \frac{\partial f}{\partial x}				& dérivée partielle locale de la fonction $f$ par rapport à $x$ \\
+\end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+
+\newsavebox\ltmubox
+\setbox\ltmubox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{xltabular}{0.49\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+
+\newsavebox\ltmdbox
+\setbox\ltmdbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{xltabular}{0.49\textwidth}{i X}
+\toprule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
 \frac{\delta f}{\delta x}					& variation élémentaire de la fonction $f$ par rapport à $x$ \\
 \int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\
-\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\					
+\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\
+\addlinespace					
 \mathbb{N}									& ensemble des entiers naturels \\
 \mathbb{Z}									& ensemble des entiers \\
 \mathbb{Q}									& ensemble des nombres rationnels \\
+\mathbb{R}									& ensemble des entiers réels \\
+\mathbb{C}									& ensemble des nombres complexes \\
+\mathbb{P}									& ensemble des nombres premiers \\
 \cos x											&	cosinus de $x$ \\
 \sin x												&	sinus de $x$ \\
 \tan x											&	tangente de $x$ \\
 \cot x											&	cotangente de $x$ \\
+\end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+
+\newsavebox\ltmvbox
+\setbox\ltmvbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{xltabular}{0.49\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+
+\newsavebox\ltmebox
+\setbox\ltmebox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{xltabular}{0.49\textwidth}{i X}
+\multicolumn{2}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
 \arccos x										& réciproque du cosinus de $x$ \\
 \arcsin x										& inverse du sinus de $x$ \\
 \arctan x										& inverse de la tangente de $x$ \\
 e = 2,7182818								& base des logarithmes népériens \\
 \exp x											& exponentielle de base $e$ de $x$ \\
-\ln x												& logarithme népérien de $x$ \\
-\lg x 												& logarithme décimal de $x$ \\
-\mathrm{i\ ou\ j}							& unité imaginaire \\
-\arg 												& argument \\					
-\mathbb{R}									& ensemble des entiers réels \\
-\mathbb{C}									& ensemble des nombres complexes \\
-\mathbb{P}									& ensemble des nombres premiers \\
+\bottomrule				
 \end{xltabular}
 \unskip
 \unpenalty
 \unpenalty}
+
+\newsavebox\ltmfbox
+\setbox\ltmfbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{xltabular}{0.49\textwidth}{i X}
+\multicolumn{2}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
+\ln x												& logarithme népérien de $x$ \\
+\lg x 												& logarithme décimal de $x$ \\
+\mathrm{i\ ou\ j}							& unité imaginaire \\
+\arg 												& argument \\	
+\bottomrule				
+\end{xltabular}
+\unskip
+\unpenalty
+\unpenalty}
+
+
 \begin{multicols}{2}
 \unvbox\ltmcbox
+\unvbox\ltmubox
+\columnbreak
+\unvbox\ltmdbox
+\unvbox\ltmvbox
+\columnbreak
+\unvbox\ltmebox
+\columnbreak
+\unvbox\ltmfbox
 \end{multicols}
+
+
+
+
 
 
 \section{Espace \& temps}
@@ -375,14 +443,14 @@ Les tableaux suivants détaillent les noms, les symboles et les définitions des
 \begin{xltabular}{\textwidth}{l k l k X}
 \caption{Unités SI et grandeurs définissant l'espace et le temps\label{tab:unites_espace_temps}} \\
 \toprule
-\multicolumn{2}{c}{\thead{Grandeur}} & \multicolumn{2}{c}{\thead{Unité}} & \multirow[c]{2}{*}{\thead[c]{Remarque}} \\
+\multicolumn{2}{c}{\thead{Grandeur}} & \multicolumn{2}{c}{\thead{Unité}} & \multirow{2}{*}{\thead[c]{Remarque}} \\
 \cmidrule(lr){1-2} \cmidrule(lr){3-4}
 \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole usuel}} & \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole}} & \\
 \midrule %filet de milieu de tableau
 \endfirsthead %en-tête de la première page du tableau  
 \multicolumn{5}{l}{\small\textit{Page précédente}} \\
 \midrule %filet de milieu de tableau
-\multicolumn{2}{c}{\thead{Grandeurs}} & \multicolumn{2}{c}{\thead{Unités}} & \multirow[c]{2}{*}{\thead[c]{Remarques}} \\
+\multicolumn{2}{c}{\thead{Grandeurs}} & \multicolumn{2}{c}{\thead{Unités}} & \multirow{2}{*}{\thead[c]{Remarques}} \\
 \cmidrule(lr){1-2} \cmidrule(lr){3-4}
 \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole usuel}} & \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole}} & \\
 \midrule %filet de milieu de tableau

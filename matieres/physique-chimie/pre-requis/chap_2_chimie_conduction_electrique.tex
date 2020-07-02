@@ -6,11 +6,7 @@
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
-%--------------------------------------
-%préambule
-%--------------------------------------
-
-\input{../../../parametres/preambule/preambule}
+\usepackage{AOCDTF}
 
 \input{marqueur_chapitre_couleur}
 
@@ -49,10 +45,10 @@ Un \emph{électron-volt} est la mesure physique de l'énergie cinétique d'un é
 		&=\SI{1,602176634e-19}{\joule} \nonumber
 	\end{align}
 \caption{Valeur expérimentale de l'\electronvolt}
-\label{eq:1}
+\label{eq:valeur_experimentale_electronvolt}
 \end{equa}
 
-\begin{variables}
+\begin{numvariables}
 U						& différence de potentiel					&	volt						& \volt								& \volt  				& \si{\kilogram\square\meter\per\cubic\second\per\ampere} \\
 W						& énergie											& joule						& \joule								& \joule				& \si{kg.m^{2}/s^{2}} \\
 Q						& charge électrique							& coulomb					& \coulomb						& \coulomb		& \si{\ampere\second} \\
@@ -61,7 +57,7 @@ h 						& constante de Planck 						& joule seconde 		& \si{\joule\second	}			& 
 \alpha				& constante de structure fine 				& sans dimension 		&										& \alpha			& \num{7,2973525564e-3} \\
 \mu					& perméabilité magnétique du vide	& henry par mètre		& \si{\henry\per\meter}		& \mu				& \SI{4\pi e-7}{\henry\per\meter} \\
 \clight				& vitesse de la lumière dans le vide	& mètre par seconde & \si{\meter\per\second}	& \clight			& \SI{2,99792458e8}{\meter\per\second}	
-\end{variables}
+\end{numvariables}
 
 
 

@@ -1,0 +1,71 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+%\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+%\end{comment}
+
+	\chapter{Les dangers de l'électricité}
+	\ChapFrame %appel du marqueur de chapitre
+
+
+
+	\section{Catégories de tension}
+
+
+\begin{table}[h]
+\caption{Domaines de tensions\label{tab:categories_tension}}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\textwidth}{X l J J}
+\toprule
+\multicolumn{2}{c}{\thead{Domaine de tension}}	& \multicolumn{1}{c}{\thead[c]{Courant alternatif\tnote{\ 1}}}		&  \multicolumn{1}{c}{\thead[c]{Courant continu}} \\
+\midrule
+Très Basse Tension										& TBT		& U \leq 50\volt								& U \leq 120\volt \\
+Basse Tension												& BT			& 50\volt < U \leq 1000\volt			& 120\volt < U \leq 1500\volt \\
+\multirow[t]{2}{*}{Haute Tension\tnote{2}}	& HTA		& 1000\volt < U \leq 50\kilo\volt		& 1500\volt < U \leq 75\kilo\volt \\
+																	& HTB		& U > 50\kilo\volt							& U > 75\kilo\volt \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] Tension nominale exprimée en \emph{valeur efficace} $U_n$\,;
+    \item[2] Les basses tensions ne sont plus divisées en deux catégories depuis 2010, seule la haute tension conserve cette caractéristique.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+	
+	\section{Action du courant électrique sur le corps humain}
+
+La présence d'une tension électrique entraine toujours un risque de choc électrique mais il est peu aisé de déterminer un seuil de tension pour lequel le choc est dangereux car ce sont le \emph{courant} $I$ traversant le corps et la \emph{durée} $t$ du choc électrique qui permettent de déterminer la probabilité de décès
+\begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
+	\begin{align} 
+		I &= \frac{116}{\sqrt{t}}
+	\end{align}
+\caption{Valeur statistique du courant entrainant la mort en fonction de la durée}
+\label{eq:valeur_courant_mort}
+\end{equa}
+
+\begin{textvariables}
+I						& courant électrique							& milliampère			& \milli\ampere					& Courant traversant le corps 	\\
+t						& durée												& seconde					& \second							&	durée du choc électrique d'une durée : $8\milli\second < t \leq 5\second \nonumber$ \\
+116					& constante										& / 							& 	/									&	constante empirique déterminée statistiquement \\
+\end{textvariables}
+
+\input{fig_action_courant_electrique}
+
+\end{document}

@@ -8,11 +8,7 @@
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
-%--------------------------------------
-%préambule
-%--------------------------------------
-
-\input{../preambule/preambule} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+\usepackage{AOCDTF}
 
 \input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
 
@@ -66,10 +62,10 @@
 
 	\begin{tikzpicture}[remember picture, overlay]
 		\begin{scope}[shift={(current page.north west)}]
-		%\draw (5,-12.5) node [right] {\sffamily\textls[150]{\Huge\textbf{\color{darkgray}\textsc{Matière ligne1}}}}; 	%ligne 1 long intitulé de la matière
+		%\draw (5,-12.5) node [right, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}\textsc{Matière ligne1}}}}; 	%ligne 1 long intitulé de la matière
 		\draw (5,-14) node [right, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}Matière}}}; %intitulé de la matière
 		\draw (20,-16) node [left, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}Cours}}}; %intitulé du cours
-		%\draw (20,-17.5) node [left] {\sffamily\textls[150]{\Huge\textbf{\color{darkgray}\textsc{Cours ligne1}}}};  %ligne 1 long intitulé du cours
+		%\draw (20,-17.5) node [left, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}\textsc{Cours ligne1}}}};  %ligne 1 long intitulé du cours
 		\draw[very thick, orangelogo, opacity=0.7] (5,-15) -- (20,-15);
 		\end{scope}
 	\end{tikzpicture}

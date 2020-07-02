@@ -1,0 +1,90 @@
+%--------------------------------------
+%CANEVAS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\pagestyle{empty}
+
+\begingroup
+
+%--------------------------------------
+%arrière-plan
+%--------------------------------------
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[shift={(current page.south west)}]
+			\draw[draw=lightgray,fill=lightgray] (0,0) rectangle (21,30);
+		\end{scope}
+	\end{tikzpicture}
+
+%--------------------------------------
+%bandeau vertical
+%--------------------------------------
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[shift={(current page.south west)}]
+			\draw[draw=orangelogo,fill=orangelogo, opacity=0.7] (0,0) rectangle (4,30);
+		\end{scope}
+	\end{tikzpicture}
+
+%--------------------------------------
+%texte dans bandeau vertical
+%--------------------------------------
+  
+	\begin{tikzpicture}[remember picture, overlay]
+	\begin{scope}[shift={(current page.south west)}]
+			\draw (1.8,1) node [right, rotate=90, opacity=0.7] {\sffamily\textbf{\Large\color{bleulogo}M\'ETIERS DES TECHNOLOGIES ASSOCI\'EES}};
+			\draw (2.5,1) node [right, rotate=90, opacity=0.7] {\sffamily\textbf{\Large\color{bleulogo}ASSOCIATION OUVRIÈRE DES COMPAGNONS DU DEVOIR ET DU TOUR DE FRANCE}};
+			\draw (3.4,29) node [left, rotate=90, opacity=0.7] {\sffamily\textls[200]{\Huge\textbf{\color{bleulogo}BTS \'ELECTROTECHNIQUE}}};
+		\end{scope}
+	\end{tikzpicture}
+
+%--------------------------------------
+%titre 
+%--------------------------------------
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[shift={(current page.north west)}]
+		%\draw (5,-12.5) node [right] {\sffamily\textls[150]{\Huge\textbf{\color{darkgray}\textsc{Matière ligne1}}}}; 	%ligne 1 long intitulé de la matière
+		\draw (5,-14) node [right, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}\'Electrotechnique}}}; %intitulé de la matière
+		\draw (20,-16) node [left, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}Schéma de liaison}}}; %intitulé du cours
+		\draw (20,-17.5) node [left, opacity=0.7] {\sffamily\textls[150]{\Huge\textbf{\color{bleulogo}\textsc{à la terre}}}};  %ligne 1 long intitulé du cours
+		\draw[very thick, orangelogo, opacity=0.7] (5,-15) -- (20,-15);
+		\end{scope}
+	\end{tikzpicture}
+
+%--------------------------------------
+%logo
+%--------------------------------------
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[shift={(current page.north west)}]
+			\draw (12.5,-7) %(12.5, -6) si long intitulé du chapitre
+			node [opacity=0.3] {\includegraphics[scale=0.3]{logo_compagnons}};
+			\draw (12.5,-23) %(12.5, -24) si long intitulé du chapitre
+			node [opacity=0.3] {\includegraphics[scale=0.7]{logo_metier}};
+		\end{scope}
+	\end{tikzpicture}
+
+\endgroup
+
+\null\cleardoublepage
+
+%\end{document}

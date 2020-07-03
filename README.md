@@ -22,7 +22,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
   <img src="parametres/github/set3.png" width="200" />
 </p>
 
-5. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/tex-mf/tex/latex`, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database et de le préciser).
+5. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex`, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database et de le préciser).
 
 4. Eplucher les documentations sur LaTeX (entre autre) :
     - `base_de_donnees/latex/masson-fiches_latex/...`
@@ -32,7 +32,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 1. Cloner le dépôt BTS-ElectroTeXnique à l'aide de l'application Github Desktop et, importer le dépôt et créer une nouvelle branche nommée "Branche-votrenom".
 
-2. Ne pas renommer les fichiers collés mais indiquer en tête de chaque programmation pour repérer facilement le cours :
+2. Ne pas renommer les fichiers clonés mais indiquer en tête de chaque programmation pour repérer facilement le nouveaux cours :
 
 ``` bash
 %--------------------------------------

@@ -4,7 +4,8 @@
 
 ## Pour commencer
 
-Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF.
+Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF. Des directives de rédactions seront ajoutées au fur et à mesure de l'avancement du projet, pour standariser les productions au mieux et permettre de produire des documents de qualités.
+**Pour respecter au mieux la charte graphique, prendre le temps de bien décrypter les instructions ci-dessous est indispensable.**
 
 
 | Page de couverture  | Page de titre |
@@ -13,6 +14,11 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 ## Pré-requis
 
+(0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter le code **commenté avec soin** du cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` est nécessaire. 
+Divers documents pour tous les niveaux sont disponibles dans la base de données, avec entre autre : 
+    - `base_de_donnees/latex/masson-fiches_latex/...`
+    - `base_de_donnees/latex/goulet-redaction_latex.pdf`)
+    
 1. Installer LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/), l'éditeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html), le programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net), l'éditeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/), l'extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/) et le logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr).
 
 2. Bien paramétrer l'éditeur Texmaker :
@@ -23,17 +29,16 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
   <img src="parametres/github/set3.png" width="200" />
 </p>
 
-5. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex` avec les docs correspondantes, se référer au tutoriel présent dans le même dossier "tutoriel_ajout_packages.pdf" (ne pas oublier de rafraichir la database et de le préciser).
+5. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex` avec les docs correspondantes, se référer au tutoriel présent dans le même dossier "tutoriel_ajout_packages.pdf" (ne pas oublier de rafraichir la database).
 
-4. Eplucher les documentations sur LaTeX (entre autre) :
-    - `base_de_donnees/latex/masson-fiches_latex/...`
-    - `base_de_donnees/latex/goulet-redaction_latex.pdf`
+6. Cloner le dépôt BTS-ElectroTeXnique à l'aide de l'application Github Desktop au préalablement installée, importer le dépôt et créer une nouvelle branche nommée "Branche-votrenom".
 
 ## Initiation de la programmation d'un nouveau cours
 
-1. Cloner le dépôt BTS-ElectroTeXnique à l'aide de l'application Github Desktop et, importer le dépôt et créer une nouvelle branche nommée "Branche-votrenom".
+1. Copier/coller le dossier `/parametres/canevas` pour créer un nouveau cours dans les dossiers /matieres/cours/... en renommant le dossier au nom du cours (matiere > cours > chapitre > sous-chapitre...).
 
-2. Ne pas renommer les fichiers clonés mais indiquer en tête de chaque programmation pour repérer facilement le nouveaux cours :
+
+2. Ne pas renommer les fichiers copiés pour le nouveau cours mais indiquer en tête de chaque programmation pour repérer facilement le nouveaux cours :
 
 ``` bash
 %--------------------------------------
@@ -45,7 +50,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 4. **Rectifier l'arborescence des fichiers.bib (en s'aide du fichier `INDICATEUR_ARBORESCENCE.tex`) car celle du canevas n'est pas la même que celle pour les cours !**
 
-5. Si des modifications sont à ajouter au préambule ou au canevas, **consulter** l'équipe pour qu'on puisse ajouter ces modifications au préambule du canevas si c'est pertinent.
+5. Si des modifications sont à ajouter au package AOCDTF ou au canevas, **consulter** l'équipe pour qu'on exporter ajouter ces modifications.
 
 ## Rédaction de la programmation d'un nouveau cours
 
@@ -115,7 +120,12 @@ le préambule une fois la programmation appelée dans le document maître
 
 1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz) pour conserver une unité graphique. 
 
-2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera simplement renommé en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...)
+2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et que les réglages de `\addplot table[]{} pour que le séparateur décimal soit un point et non une virgule :
+
+```
+\addplot[]
+table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
+```
 
 ## Bibliographie
 
@@ -177,7 +187,7 @@ Etablissement-Titre du document(-année-auteur)
 
 - Pour ne pas se oublier de refermer une accolade ou un crochet, aligner les deux verticalement dans le code;
 - S'aider de la structure pour naviguer entre les sous-programmation du document maître mais aussi pour vérifier que les \input{sous-programmation.tex} aboutissent bien aux sous-programmations souhaitées;
-- Google est ton meilleur ami (vraiment), il y a plein de forums en tout genre (erreur, solution, nouvelles idées...);
+- Google est ton meilleur ami (vraiment), il y a plein de forums en tout genre (erreur, solution, nouvelles idées...), **la plupart sont en anglais, c'est l'occasion d'apprendre**;
 - Ne pas désespérer si il y a une erreur insolvable, il y a toujours une solution;
 - Programme pas forcément stable du coup enregistrer régulièrement;
 - Ne pas oublier `\chapframe` au début de chaque chapitre du corps et réarranger le document à la fin de la rédaction;

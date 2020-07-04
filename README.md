@@ -120,7 +120,7 @@ le préambule une fois la programmation appelée dans le document maître
 
 1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz) pour conserver une unité graphique. 
 
-2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et que les réglages de `\addplot table[]{} pour que le séparateur décimal soit un point et non une virgule :
+2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{} pour que le séparateur décimal soit un point et non une virgule :
 
 ```
 \addplot[]

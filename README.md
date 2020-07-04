@@ -14,10 +14,10 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 ## Pré-requis
 
-(0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter le code **commenté avec soin** du cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` est nécessaire. 
+0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter le code **commenté avec soin** du cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` est nécessaire. 
 Divers documents pour tous les niveaux sont disponibles dans la base de données, avec entre autre : 
     - `base_de_donnees/latex/masson-fiches_latex/...`
-    - `base_de_donnees/latex/goulet-redaction_latex.pdf`)
+    - `base_de_donnees/latex/goulet-redaction_latex.pdf`
     
 1. Installer LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/), l'éditeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html), le programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net), l'éditeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/), l'extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/) et le logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr).
 

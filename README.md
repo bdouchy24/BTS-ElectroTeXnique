@@ -29,9 +29,9 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
   <img src="parametres/github/set3.png" width="200" />
 </p>
 
-5. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex` avec les docs correspondantes, se référer au tutoriel présent dans le même dossier "tutoriel_ajout_packages.pdf" (ne pas oublier de rafraichir la database).
+3. Cloner le dépôt BTS-ElectroTeXnique à l'aide de l'application Github Desktop au préalablement installée, importer le dépôt et créer une nouvelle branche nommée "Branche-votrenom".
 
-6. Cloner le dépôt BTS-ElectroTeXnique à l'aide de l'application Github Desktop au préalablement installée, importer le dépôt et créer une nouvelle branche nommée "Branche-votrenom".
+4. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex` avec les docs correspondantes, se référer au tutoriel présent dans le même dossier "tutoriel_ajout_packages.pdf" (ne pas oublier de rafraichir la database).
 
 ## Initiation de la programmation d'un nouveau cours
 

@@ -1,0 +1,223 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%    	    pas-algo.sty  v2.01     encodage : UTF8    	          %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%           	Créé par Stéphane PASQUET 		              	    %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% V2.01 [2015/02/05] Correction d'un petit bug concernant la variable des environnements algoif et algowhile
+
+% Informations générales
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pas-algo}[2015/02/05]
+
+\RequirePackage{tcolorbox}
+	\tcbuselibrary{skins}
+	\tcbuselibrary{theorems}
+	\tcbuselibrary{breakable}
+	
+% Distance
+\newlength\algoDecal
+\setlength\algoDecal{-1em}
+	
+	
+
+% Style : algo
+
+\def\titleAlgo{Algorithme}
+\definecolor{algoTitleFont}{cmyk}{0,0,0,0}
+\definecolor{algoTitleBackLeft}{cmyk}{0.98,0.22,0,0.66}
+\definecolor{algoTitleBackRight}{cmyk}{0.89,0.20,0,0.43}
+
+\tcbset{algorithme/.style={%
+	sharp corners=south,%
+	before skip=1em,%
+	after skip=1em,%
+	enhanced,%
+	fuzzy shadow={1mm}{-1mm}{0mm}{0.3mm}{black},%
+	frame style={%	
+			left color=algoTitleBackLeft,%
+			right color=algoTitleBackRight},%
+	fontupper={\ttfamily},%
+	boxrule=0.7pt,%
+	fonttitle={\sffamily\bfseries\color{algoTitleFont}},%
+	watermark graphics=algo.png,%
+	watermark stretch=1.00,%
+	watermark opacity=0.25,%
+	breakable
+	}
+}
+
+\newtcbtheorem
+	{pas@algo}		% nom de l'environnement
+	{\titleAlgo}	% texte qui s'affiche
+	{algorithme} 	% style
+	{algo}			% préfixe pour références éventuelles (label)
+
+\newenvironment{algo}[2][] 
+{\begin{pas@algo}{#2}{#1}}
+{\end{pas@algo}}
+
+\newenvironment{algo*}[2][] 
+{\begin{pas@algo*}{#2}{#1}}
+{\end{pas@algo*}}
+
+% Style : algoentries
+
+\def\titleEntry{Entr\'ees}
+\definecolor{algoEntriesTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoEntriesTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{entries/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoEntriesTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoEntriesTitleFont}}
+	}
+}
+
+\newenvironment{algoentries}
+	{\begin{tcolorbox}[entries,title=\titleEntry]\tcblower}
+	{\end{tcolorbox}}
+	
+% Style : algoinit
+
+\def\titleInit{Initialisation}
+\definecolor{algoInitTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoInitTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{init/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoInitTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoInitTitleFont}}
+	}
+}
+
+\newenvironment{algoinit}
+	{\begin{tcolorbox}[init,title=\titleInit]\tcblower}
+	{\end{tcolorbox}}
+	
+% Style : algobody
+
+\def\titleBody{Traitement}
+\definecolor{algoBodyTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoBodyTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{body/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoBodyTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoBodyTitleFont}}
+	}
+}
+
+\newenvironment{algobody}
+	{\begin{tcolorbox}[body,title=\titleBody]\tcblower}
+	{\end{tcolorbox}}
+	
+% Style : algoend
+
+\def\titleEnd{Sortie}
+\definecolor{algoEndTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoEndTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{end/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoEndTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoEndTitleFont}}
+	}
+}
+
+\newenvironment{algoend}
+	{\begin{tcolorbox}[end,title=\titleEnd]\tcblower}
+	{\end{tcolorbox}}
+
+% Style : algowhile
+
+\def\titleWhile{Tant que}
+\definecolor{algoWhileTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoWhileTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{while/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoWhileTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoWhileTitleFont}}
+	}
+}
+
+\newenvironment{algowhile}[1]
+	{\begin{tcolorbox}[while,title=\titleWhile~{#1}]\tcblower}
+	{\end{tcolorbox}\begingroup\sffamily\bfseries\color{algoWhileTitleFont}Fin du \titleWhile\endgroup}
+	
+% Style : algofor
+
+\def\titleForOne{Pour}
+\def\titleForTwo{allant de}
+\def\titleForThree{\`a}
+\definecolor{algoForTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoForTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{for/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoForTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoForTitleFont}}
+	}
+}
+
+\newenvironment{algofor}[3]
+	{\begin{tcolorbox}[for,title=\titleForOne~#1~\titleForTwo~#2~\titleForThree~#3]\tcblower}
+	{\end{tcolorbox}\begingroup\sffamily\bfseries\color{algoForTitleFont}Fin du \titleForOne\endgroup}
+	
+% Style : algoifelse
+
+\def\titleIfOne{Si}
+\def\titleIfTwo{alors}
+\def\titleIfThree{sinon}
+\definecolor{algoIfTitleFont}{cmyk}{0,0,0,1}
+\definecolor{algoIfTextFont}{cmyk}{0,0,0,1}
+
+\tcbset{if/.style={
+	blanker,
+	breakable,
+	sidebyside,
+	lefthand width=\algoDecal,
+	before lower={\color{algoIfTextFont}},
+	fontlower={\ttfamily},
+	fonttitle={\sffamily\bfseries\color{algoIfTitleFont}}
+	}
+}
+\newcommand{\ifelse}
+{
+	\end{tcolorbox}
+	\begin{tcolorbox}[if,title=\titleIfThree]\tcblower
+}
+
+\newenvironment{algoif}[1]
+	{\begin{tcolorbox}[if,title=\titleIfOne~{#1}~\titleIfTwo]\tcblower}
+	{\end{tcolorbox}\begingroup\sffamily\bfseries\color{algoIfTitleFont}Fin du \titleIfOne\endgroup}
+	
+\endinput

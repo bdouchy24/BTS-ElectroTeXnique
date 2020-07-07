@@ -1,0 +1,264 @@
+%%%%%%%%%%%% Définition des styles de page
+
+\fancypagestyle{chapterstart}{% 1ère page des chapitres
+	\fancyhf{}%
+  	\fancyfoot[RO,RE]{%
+  	\vskip0.1pt
+  	\begin{tikzpicture}
+  	\node[rounded corners=3pt,fill=shadow@color,inner ysep=5pt, inner xsep=2ex,text=shadow@color] (shadow) {\pagenumber@font\thepage};
+  	\node[rounded corners=3pt,fill=pagenumber@bg@color,inner ysep=5pt, inner xsep=2ex,text=white] at ($(shadow)+(-2pt,2pt)$) {\pagenumber@font\thepage};
+  	\end{tikzpicture}
+  	}
+}
+
+\fancypagestyle{toc}{% Sommaire
+	\fancyhf{}%
+  	\fancyfoot{}
+}
+
+\fancypagestyle{main}{% 
+	\fancyhf{}%
+  	\fancyfoot[RO]{% pages impaires
+  	\ClearShipoutPicture
+  	\vskip0.1pt  	
+  	\begin{tikzpicture}
+  	\node[rounded corners=3pt,fill=shadow@color,inner ysep=5pt, inner xsep=2ex,text=shadow@color] (shadow) {\pagenumber@font\thepage};
+  	\node[rounded corners=3pt,fill=pagenumber@bg@color,inner ysep=5pt, inner xsep=2ex,text=white] at ($(shadow)+(-2pt,2pt)$) {\pagenumber@font\thepage};
+  	\end{tikzpicture}
+  	}
+  	\fancyfoot[LE]{% pages paires	
+  		\ClearShipoutPicture
+  		\vskip0.1pt
+  		\begin{tikzpicture}
+  		\node[rounded corners=3pt,fill=shadow@color,inner ysep=5pt, inner xsep=2ex,text=shadow@color] (shadow) {\pagenumber@font\thepage};
+  		\node[rounded corners=3pt,fill=pagenumber@bg@color,inner ysep=5pt, inner xsep=2ex,text=white] at ($(shadow)+(2pt,2pt)$) {\pagenumber@font\thepage};
+  		\end{tikzpicture}
+  	}
+}
+
+%%%%%%%%%%%% En-tête et pied de page
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\pagestyle{main}
+
+%%%%%%%%%%%% Définitions par défaut
+\newcommand{\intro}[1]{\def\chapterintro{#1}}
+\newcommand{\introauthor}[1]{\def\chapterintroauthor{#1}}
+\introauthor{} % auteur de la citation en début de chapitre
+\intro{} % Citation en début de chapitre ; à déclarer avant la commande \chapter{}
+
+
+%%%%%%%%%%%% Page de présentation
+
+%%%%%%%%%%%% Première page de chaque chapitre
+
+\titleformat{\chapter}
+{%
+	\thispagestyle{chapterstart}
+	\pagecolor{white}
+	\bfseries\Huge\raggedleft
+	\color{chapter@title@color}
+	\chaptertitle@font
+}
+{%
+  \AddToShipoutPicture
+  {%
+  	\put(\LenToUnit{0mm},\LenToUnit{0mm})
+  	{%
+	\begin{tikzpicture}
+	    \clip (0,0) rectangle+(\paperwidth,-\paperheight);
+	    % Rectangle du haut à droite
+		\fill[bottom color=chapterdegrade@color,top color=white] (0,0) rectangle+(\paperwidth,-3);
+		% Trait en biais dans le rectangle en haut à droite
+	    \draw[chapterline@color] (0,3) -- (\paperwidth,-3);
+	    % Petit cercle vide dans le rectangle en haut à droite
+	    \draw[chapterline@color,very thick,opacity=0.5] (.8\paperwidth,-2) circle (5mm);
+	    % Petit cercle rempli dans rectangle haut croit
+	    \fill[chaptertopcircle@color] ($(.8\paperwidth,-2)+(8mm,8mm)$) circle (2mm);
+	    % Citation éventuelle
+	    \ifx\chapterintro\@empty
+	    \else
+	    	  \node[below left,text=chapterintro@color] (citation) at (21,-0.5) {\og \emph{\chapterintro} \fg{}};
+	    	  \ifx\chapterintroauthor\@empty
+	    	  \else
+	    	     \node[below left,text=chapterintro@color] at (citation.south east) {(\chapterintroauthor)};
+	    	  \fi
+	    \fi
+	    % cercle vide en bas à gauche
+	    \fill[chapterbotcircle@color] (1,-27) circle (3cm);
+	    \fill[white] (1,-27) circle (2.5cm);
+	    % Petit cercle presque centré verticalement
+	    \fill[chaptermidcircle@color] (1.2,-17) circle (.7cm);
+	    \fill[white] (1.2,-17) circle (0.6cm);
+	     % Traits verticaux à gauche
+	    \draw[very thick,chapterrule@color] (1cm,0) -- (1cm,-\paperheight);
+	    \draw[very thick,chapterrule@color] (1.2cm,0) -- (1.2cm,-\paperheight);
+	    % Ellipse en haut à gauche
+	    \fill[chapterellipse@bg@color] (0,0) ellipse[x radius=9cm,y radius=5cm];
+	    % Ombre de l'ellipse
+	    \foreach \rx/\ry/\c in { %
+	    8.7/4.7/10,% 
+	    8.66/4.66/30,%
+	    8.62/4.62/50,%
+	    8.58/4.58/70,%
+	    8.54/4.54/90%
+	    }
+	    {
+		\fill[fill=black!\c!chapterellipse@bg@color] (0,0) ellipse[x radius=\rx cm,y radius=\ry cm];
+	    }
+	    % ellipse
+	    \fill[chapterellipse@color] (0,0) ellipse[x radius=8.5cm,y radius=4.5cm];    
+	    % Dans l'ellipse en haut à gauche ...
+	    \clip (0,0) ellipse[x radius=8.5cm,y radius=4.5cm];
+	     % Traits verticaux à gauche
+	    \draw[very thick,chapterrule@color] (1cm,0) -- (1cm,-\paperheight);
+	    \draw[very thick,chapterrule@color] (1.2cm,0) -- (1.2cm,-\paperheight);
+	    \fill[chapter@bg@color] (0,-0.8) rectangle+(15,-1.3);
+	    \node[text=chaptertitlename@color,right] at (0.1,-1.5) {\huge\chaptertitlename@font\bfseries\chaptertitlename~\thechapter};
+  \end{tikzpicture}
+	   }
+  }
+}
+{7ex}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Tables des matières %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addto\captionsfrench{\renewcommand{\contentsname}{Sommaire}}
+
+\newcommand{\chaptertoccolor}{white}
+\newcommand{\sectiontoccolor}{section@title@color}
+\newcommand{\subsectiontoccolor}{subsection@title@color}
+\newcommand{\subsubsectiontoccolor}{subsubsection@title@color}
+
+\renewcommand*\l@chapter[2]
+{%
+  \ifnum\c@tocdepth>\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries \chaptertitle@font \large
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      \def\@linkcolor{\chaptertoccolor}%
+      \raisebox{-0.6em}{%
+      \begin{tikzpicture}%
+      \node[rounded corners=2pt,fill=chapter@title@color,text=white, xslant=0.2] {#1};
+      \end{tikzpicture}%
+      }
+      \color{chapter@title@color}
+      \nobreak\
+       \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfil\nobreak\hb@xt@\@pnumwidth{\hss
+        \def\@linkcolor{chapter@title@color}%
+        \color{\chaptertoccolor}#2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi
+  \medskip
+}
+
+%\def\@dottedtocline#1#2#3#4#5
+%{%
+%    \vskip \z@ \@plus.2\p@
+%    {%
+%     \leftskip#2\relax\rightskip\@tocrmarg\parfillskip-\rightskip
+%     \parindent #2\relax\@afterindenttrue
+%     \interlinepenalty\@M
+%     \leavevmode
+%     \@tempdima #3\relax
+%     \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+%     {%
+%     	\sectiontitle@font#4
+%     }
+%     \nobreak\sectiontitle@font
+%     \leaders\hbox{$\m@th
+%        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+%        mu$}\hfill
+%     \nobreak
+%     \hb@xt@\@pnumwidth{\hfil #5}%
+%     \par}%
+%}
+  
+\renewcommand*\l@section{%
+\color{\sectiontoccolor}
+\def\@linkcolor{\sectiontoccolor}
+\@dottedtocline{1}{0em}{2em}
+}
+
+\renewcommand*\l@subsection{%
+\color{\subsectiontoccolor}
+\def\@linkcolor{\subsectiontoccolor}
+\@dottedtocline{1}{2em}{2em}
+}
+
+\renewcommand*\l@subsubsection{%
+\color{\subsubsectiontoccolor}
+\def\@linkcolor{\subsubsectiontoccolor}
+\@dottedtocline{1}{4em}{2em}
+}
+
+\def\contentsline#1#2#3#4{%
+  \ifx\\#4\\%
+    \csname l@#1\endcsname{#2}{#3}%
+  \else
+      \csname l@#1\endcsname{\hyper@linkstart{link}{#4}{#2}\hyper@linkend}{%
+        \hyper@linkstart{link}{#4}{#3}\hyper@linkend
+      }%
+  \fi
+}
+
+%%%%%%%%%%%%%%% Page de garde
+
+\def\coef@bg@pic{1.05}
+\def\coef@opacity@pic{0.2}
+\newcommand{\titlepic}[2][1]{%
+	\FPeval\newscale{\coef@bg@pic*#1}
+	\def\@titlepic{\includegraphics[scale=#1]{#2}}
+	\def\@titlepicbg{\includegraphics[scale=\newscale]{#2}}
+}
+\renewcommand{\and}{\par}
+
+\renewcommand{\maketitle}
+{%
+	\newgeometry{margin=0pt}
+	\begin{tikzpicture}
+	\clip (current page.south west) rectangle (current page.north east);
+	% Fond en dégradé
+	\shade[top color=firstpagetop@bg@color,bottom color=firstpagebottom@bg@color] (current page.south west) rectangle (current page.north east);
+	% Traits horizontaux et verticaux
+	\foreach \y in {1,2,...,10}
+	{
+		\draw[color=firstpage@lines@color] ($(current page.north west)+(0,-\y*0.5)$) -- ($(current page.north east)+(-0.125*\y,-0.5*\y)$);
+		\draw[color=firstpage@lines@color] ($(current page.north west)+(\y*0.5,0)$) -- ($(current page.north west)+(0,-\y)$);
+	}
+	% Titre
+	\node[below right,text=titledoc@color] at ($(current page.north west)+(\marginlefttitle,-\margintoptitle)$) {\begin{minipage}{\dimexpr\paperwidth-2\marginlefttitle}\titledoc@font\@title\end{minipage}};
+	% Auteur(s)
+	\node[below left,text=titleauthor@color] at ($(current page.north east)+(-\marginlefttitle,-\margintopauthor)$) {%
+	\begin{minipage}{\dimexpr\paperwidth-2\marginlefttitle}
+	\raggedleft
+	\titleauthor@font\@author
+	\end{minipage}};
+	% Image (facultatif)
+	\ifx\titlepic\@empty\else
+		\node[above left] (pic) at ($(current page.south east)+(-\marginrightpic,\marginbottompic)$) {\@titlepic};
+		\node[opacity=\coef@opacity@pic] at (pic.center) {\@titlepicbg};
+		\node[above left] (pic) at ($(current page.south east)+(-\marginrightpic,\marginbottompic)$) {\@titlepic};
+	\fi
+	% Date
+	\node[left,text=titledate@color] at ($0.5*(current page.north east)+0.5*(current page.south east)+(-\marginrightdate,\marginbottomdate)$) {\titledate@font\@date};
+	\end{tikzpicture}
+	\if@openany
+	\else
+		\cleardoublepage
+	\fi
+	\restoregeometry
+}

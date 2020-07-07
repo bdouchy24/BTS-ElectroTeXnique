@@ -1,0 +1,51 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{figure}[h]
+\centering
+\caption{Effets du courant continu sur le corps humain \label{fig:effets_courant_electrique_continu}}
+\begin{tikzpicture}
+%\DrawGrid{(-7,-2)}{(7,5)} %grille d'aide pour le placement des objets
+
+\draw (-7,4) node [right, minimum width=2cm, text width=1.8cm] {\footnotesize{Intensité de contact $I_c$}};
+\draw [->] (-5,-1) -- (-5,4);
+
+\draw (-5.4,0) node [left] {\SI{2}{\milli\ampere}};
+\draw [->] (-5.2,0) -- (-4.5,0);
+\draw (-4.2,0) node [anchor=mid west, text width=7cm] (A) {Sensation de picotements, de très faible à faible};
+\draw (6,0) node [anchor=east] {\includegraphics[width=2cm]{sensation}};
+
+\draw (-5.4,1.5) node [left, text width=1cm, align=right] {Non défini};
+\draw [->] (-5.2,1.5) -- (-4.5,1.5);
+\draw (-4.2,1.5) node [anchor=mid west, text width=7cm] {Seuil de non lâcher, paralysie musculaire};
+\draw (3.2,1.5) node [anchor=west] {\includegraphics[width=1.5cm]{tetanisation}};
+
+\draw (-5.4,3) node [left] {\SI{130}{\milli\ampere}};
+\draw [->] (-5.2,3) -- (-4.5,3);
+\draw (-4.2,3) node [anchor=mid west, text width=7cm] {Seuil de fibriliation ventriculaire};
+\draw (5.1,3) node {\includegraphics[width=1.5cm]{fibrillation}};
+
+\end{tikzpicture}
+\end{figure}
+
+%\end{document}

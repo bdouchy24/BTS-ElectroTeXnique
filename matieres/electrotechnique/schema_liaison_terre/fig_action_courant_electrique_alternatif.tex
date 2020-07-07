@@ -1,0 +1,63 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{figure}
+\centering
+\caption{Effets du courant alternatif sur le corps humain \label{fig:effets_courant_electrique_alternatif}}
+\begin{tikzpicture}
+%\DrawGrid{(-7,-5)}{(7,5)} %grille d'aide pour le placement des objets
+
+\draw (-7,4) node [right, minimum width=2cm, text width=1.8cm] {\footnotesize{Intensité de contact $I_c$}};
+\draw [->] (-5,2.2) -- (-5,4);
+\draw (-5, 2) node {\vdots};
+\draw (-5,-3.9) -- (-5,1.6);
+
+\draw (-5.4,-3) node [left] {\SI{0,5}{\milli\ampere}};
+\draw [->] (-5.2,-3) -- (-4.5,-3);
+\draw (-4.2,-3) node [anchor=mid west, text width=7cm] (A) {Sensation de picotements, de très faible à faible};
+\draw (7,-3.5) node [anchor=east] {\includegraphics[width=2cm]{sensation}};
+
+\draw (-5.4,-2.6) node [left] {\SI{10}{\milli\ampere}};
+\draw [->] (-5.2,-2.6) -- (-4.5,-2.6);
+\draw (-4.2,-2.6) node [anchor=mid west, text width=7cm] {Seuil de non lâcher, paralysie musculaire};
+\draw (3.2,-2.6) node [anchor=west] {\includegraphics[width=1.5cm]{tetanisation}};
+
+\draw (-5.4,-1.8) node [left] {\SI{30}{\milli\ampere}};
+\draw [->] (-5.2,-1.8) -- (-4.5,-1.8);
+\draw (-4.2,-1.8) node [anchor=mid west, text width=7cm] {Seuil de paralysie respiratoire};
+\draw (7,-1.8) node [anchor=east] {\includegraphics[width=1.5cm]{paralysie_poumon}};
+
+\draw (-5.4,0.7) node [left] {\SI{75}{\milli\ampere}};
+\draw [->] (-5.2,0.7) -- (-4.5,0.7);
+\draw (-4.2,0.7) node [anchor=mid west, text width=7cm] {Seuil de fibriliation ventriculaire};
+\draw (5.1,0.7) node {\includegraphics[width=1.5cm]{fibrillation}};
+
+\draw (-5.4,3.1) node [left] {\SI{1}{\ampere}};
+\draw [->] (-5.2,3.1) -- (-4.5,3.1);
+\draw (-4.2,3.1) node [anchor=mid west, text width=7cm] {Arrêt du coeur};
+\draw (5.2,3.1) node {\includegraphics[width=2.4cm]{arret_cardiaque}};
+
+\end{tikzpicture}
+\end{figure}
+
+%\end{document}

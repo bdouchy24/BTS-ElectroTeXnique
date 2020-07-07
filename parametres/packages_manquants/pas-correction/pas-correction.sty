@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%    	 pas-correction    encodage : UTF8                      %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                               %
+%           Créé par Stéphane PASQUET 		             	  	%
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objet : créer un document avec ou sans le corrigé
+% Informations générales
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pas-correction}[2017/06/09]
+\RequirePackage{tcolorbox}
+	\tcbuselibrary{skins,magazine}
+\newif\if@correction
+\newif\if@sujet
+\DeclareOption{correction}{\@correctiontrue}
+\DeclareOption{sujet}{\@sujettrue}
+\ProcessOptions
+
+% Styles par défaut
+
+\tcbset{correction/.style={%
+	skin=enhanced,%
+	before skip=1em,%
+	after skip=1em,%
+	boxrule=0pt,%
+	colback=gray!10,%
+	borderline west={3pt}{0pt}{gray!80!black},%
+	left=5mm,%
+	bottom=2mm,%
+	top=2mm,%
+	breakable
+	}
+}
+\tcbset{vierge/.style={%
+	blanker,%
+	boxrule=0pt,%
+	colback=white,%
+	borderline={0pt}{0pt}{white},%
+	left=0mm,%
+	right=0mm,%
+	bottom=0mm,%
+	top=0mm,%
+	breakable,%
+	reset box array,%
+	store to box array
+	}
+}
+
+\tcbset{title/.style={
+	enhanced,
+	hbox,
+	tikznode,
+	left=8mm,
+	right=8mm,
+	boxrule=0.4pt,
+  colback=white,
+  colframe=gray,
+  drop lifted shadow=black!50!yellow,
+  before=\par\vspace*{5mm},
+  after=\par\bigskip,
+  fontupper=\sffamily\bfseries\Huge,
+  interior style={
+		draw=white,
+		top color=white,
+		bottom color=white}
+	}
+}
+
+\newcount\@visibility
+\@visibility\z@
+
+%----------> Portion de code due à Christian Tellechea (alias "un bon petit")
+\newwrite\sav@body
+\newcount\sav@cnt
+\def\grab@body{\begingroup\sav@cnt\z@\loop
+   \ifnum\sav@cnt<\@cclvi\catcode\sav@cnt12 \advance\sav@cnt\@ne\repeat
+   \newlinechar`\^^M \grab@body@i}
+\begingroup\edef\tmp@namedef{\endgroup\long\def\noexpand\grab@body@i##1\expandafter\@gobble\string\\\detokenize{end{document}}}
+\tmp@namedef{%
+   \immediate\openout\sav@body\jobname.sav
+   \immediate\write\sav@body{#1}\immediate\closeout\sav@body
+   \endgroup\if@sujet\maketitlesubject\input\jobname.sav\fi\if@correction\advance\@visibility\@ne\if@sujet\newpage\fi\maketitlecorrection\input\jobname.sav\fi
+   \end{document}
+   \ingnorespaces}
+\g@addto@macro\document\grab@body
+%----------> Fin du code
+
+
+% Environnnement "correction"
+
+\newsavebox{\@correc@box}
+\newenvironment{correction}
+{%
+	\ifnum\@visibility=1
+		\begin{tcolorbox}[correction]
+	\else
+		\begin{lrbox}{\@correc@box}
+		\begin{minipage}{\linewidth}
+	\fi
+}
+{%
+	\ifnum\@visibility=1
+		\end{tcolorbox}
+	\else
+		\end{minipage}
+		\end{lrbox}
+	\fi
+}
+
+% macros  pour les titres
+
+\def\@newtitlesubject{}
+\newcommand\newtitlesubject[1]{\def\@newtitlesubject{#1}}
+\def\@newtitlecorrection{}
+\newcommand\newtitlecorrection[1]{\def\@newtitlecorrection{#1}}
+
+\newcommand\titlesubject[1]{\edef\@title@subject@name{#1}}
+\newcommand\maketitlesubject{\ifx\@newtitlesubject\@empty\begin{center}\begin{tcolorbox}[title]\@title@subject@name\end{tcolorbox}\end{center}\else\@newtitlesubject\fi}
+\newcommand\titlecorrection[1]{\edef\@title@correction@name{#1}}
+\newcommand\maketitlecorrection{\ifx\@newtitlesubject\@empty\begin{center}\begin{tcolorbox}[title]\@title@correction@name\end{tcolorbox}\end{center}\else\@newtitlecorrection\fi}
+\newcommand\newpageforsubject{\ifnum\@visibility=0\newpage\fi}
+\newcommand\newpageforcorrection{\ifnum\@visibility=1\newpage\fi}
+
+% suppression du fichier auxiliaire
+
+\AtEndDocument{\immediate\write18{erase \jobname.sav}}

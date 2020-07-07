@@ -555,11 +555,11 @@ legend entries={Séries dessaisonalisées et lissées, Séries brutes},
 legend style={at={(0.5,-0.15)},anchor=north},
 legend plot pos=left, legend columns=2,
 x tick label style={at={(0.5,0)}},
-xticklabel={~~~~~~~~~~~~~~~\year}
+xticklabel={~~~~~~~~~~~~~~~~\year}
 ]
 
 \addplot[mark=none, smooth,draw=blue, ultra thick]
-table[x index=0,y index=1]{RAdonneeslissees.txt};
+table[x index=0,y index=1, /pgf/number format/read comma as period]{Default.txt};
 \addplot[mark=*, draw=black, thin]
 table[x index=0,y index=1]{RAdonneesnonlissees.txt};
 

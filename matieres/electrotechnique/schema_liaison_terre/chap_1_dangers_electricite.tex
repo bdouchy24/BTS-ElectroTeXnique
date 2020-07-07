@@ -21,12 +21,12 @@
 
 %\end{comment}
 
-	\chapter{Les dangers de l'électricité}
-	\ChapFrame %appel du marqueur de chapitre
+\chapter{Les dangers de l'électricité}
+\ChapFrame %appel du marqueur de chapitre
 
 
 
-	\section{Catégories de tension}
+\section{Catégories de tension}
 
 
 \begin{table}[h]
@@ -49,7 +49,7 @@ Basse Tension												& BT			& 50\volt < U \leq 1000\volt			& 120\volt < U \l
 \end{threeparttable}
 \end{table}
 	
-	\section{Action du courant électrique sur le corps humain}
+\section{Action du courant électrique sur le corps humain}
 
 La présence d'une tension électrique entraine toujours un risque de choc électrique mais il est peu aisé de déterminer un seuil de tension pour lequel le choc est dangereux car ce sont le \emph{courant} $I$ traversant le corps et la \emph{durée} $t$ du choc électrique qui permettent de déterminer la probabilité de décès
 \begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
@@ -62,10 +62,50 @@ La présence d'une tension électrique entraine toujours un risque de choc élec
 
 \begin{textvariables}
 I						& courant électrique							& milliampère			& \milli\ampere					& Courant traversant le corps 	\\
-t						& durée												& seconde					& \second							&	durée du choc électrique d'une durée : $8\milli\second < t \leq 5\second \nonumber$ \\
+t						& durée												& seconde					& \second							&	durée du choc électrique d'une durée ($8\milli\second < t \leq 5\second \nonumber$) \\
 116					& constante										& / 							& 	/									&	constante empirique déterminée statistiquement \\
 \end{textvariables}
 
-\input{fig_action_courant_electrique}
+\subsection{Effet du courant alternatif}
+
+Les effets du courant alternatif entre \SI{15}{\hertz} et \SI{100}{\hertz} sont décrit en \autoref{fig:effets_courant_electrique_alternatif}. 
+
+\input{fig_action_courant_electrique_alternatif}
+
+\subsubsection{Cas particuliers}
+
+Pour le courant alternatifs d'une fréquence supérieures à \SI{100}{\hertz} :
+
+\begin{itemize}
+\item Plus la fréquence du courant augmente, plus les risques de fibrillation ventriculaire diminue\,;
+\item Plus la fréquence du courant augmente, plus les risques de brûlures augmentent\,;
+\item Plus la fréquence du courant augmente, plus l'impédance du corps humain diminue\,;
+\item Il est généralement considéré que les conditions de protection contre les contacts indirects sont identiques que ça soit sous une fréquence de \SI{50}{\hertz} (réseau électrique domestique en Europe) où \SI{400}{\hertz} (réseau électrique des bateaux, avions\ldots).
+\end{itemize}
+
+\subsection{Effet du courant continu}
+
+Les effets du courant continus sont décrits en \autoref{fig:effets_courant_electrique_continu}.
+
+\input{fig_action_courant_electrique_continu}
+
+\begin{itemize}
+\item Il est moins difficile de lâcher les parties tenues à la main sous un courant continu\,;
+\item Le seuil de fibrillation ventriculaire est plus élevé.
+\end{itemize}
+
+\section{Paramètres influençant les risques électriques}
+
+L'intensité de contact $I_c$, la durée de contact $t$, la tension de contact $U_c$ et la résistance du corps humain $R$ sont autant de paramètres à prendre en compte lors de l'évaluation des risques électriques.
+
+\begin{tikzpicture}
+\pgfplotsset{grid style={dashed}} %style de la grille
+\begin{axis}[
+grid=major, %grille
+xmode=log, xmin=0.1, xmax=5000,
+ymode=log, ymin=10, ymax=10000,
+
+]
+
 
 \end{document}

@@ -1,6 +1,6 @@
 # ElectroTeXnique <img src="parametres/github/logo_compagnons.png" align="right" height="45"/>
  
-**Clean** LaTeX template of educational content for highly qualified craftsmen in electrical engineering
+**Clean** LaTeX template for educational content for highly qualified craftsmen in electrical engineering
 
 ## Pour commencer
 

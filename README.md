@@ -22,7 +22,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
   <img src="parametres/github/set3.png" width="200" />
 </p>
 
-5. Pour tout ajout et mise à jour de packages, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database et de le préciser)
+3. Pour tout ajout et mise à jour de packages, se référer au tutoriel présent dans `/bases_de_donnees/latex/tutoriel_ajout_packages.pdf` (ne pas oublier de rafraichir la database et de le préciser)
 
 4. Eplucher les documentations sur LaTeX (entre autre) :
     - `base_de_donnees/latex/masson-fiches_latex/...`

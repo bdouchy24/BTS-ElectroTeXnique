@@ -1,0 +1,136 @@
+%--------------------------------------
+%CANEVAS
+%--------------------------------------
+
+%--------------------------------------
+%appel de la classe de document et de ses options
+%--------------------------------------
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+%--------------------------------------
+%données du document
+%--------------------------------------
+
+\title{Matière -- Cours}
+\date{\year}
+\author[1]{Prénom1 Nom1}
+%\author[2]{Prénom2 Nom2}
+%\author[3]{Prénom3 Nom3}
+%\author[4]{Prénom4 Nom4}
+
+%--------------------------------------
+%programmations spécifiques de mise-en-pages adaptables selon les matières et bibliographie
+%--------------------------------------
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+\addbibresource{../bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+
+%--------------------------------------
+%préface, page de couverture, table des matières...
+%--------------------------------------
+
+\frontmatter
+	
+\openleft %début de chapitre à gauche
+\Framefalse %défini la booléenne Frame comme faux
+\Invnumtrue %défini la booléenne Invnum comme vrai -> inversion des numéros de pages
+	
+	%--------------------------------------
+	%page de couverture et de titre
+	%--------------------------------------
+
+	\input{page_couverture}
+
+	\input{page_titre}
+
+	\pagestyle{plain} %style de page avec en-tête et pied-de-page
+	\pagenumbering{roman}
+
+	%--------------------------------------
+	%listes de contenus
+	%--------------------------------------
+	
+	{\hypersetup{linkcolor=black}\tableofcontents} %table des matières en noir
+	\newpage
+	{\hypersetup{linkcolor=black}\listoftables} %liste des figures en noir
+	\newpage
+	{\hypersetup{linkcolor=black}\listoffigures} %liste des tableaux en noir
+	{\hypersetup{linkcolor=black}\listofequations} %liste des équations en noir
+
+	%--------------------------------------
+	%chapitre d'introduction
+	%--------------------------------------
+
+	\input{chap_0_preface}
+	
+	\let\cleardoublepage\clearpage %supprime une page blanche en cas double page avant le corps du texte
+	
+%--------------------------------------
+%corps de texte, annexes
+%--------------------------------------
+
+\mainmatter
+
+\Frametrue %défini la booléenne Frame comme vrai -> marqueurs de chapitre
+\Invnumfalse %défini la booléenne Invnum comme faux
+
+	%--------------------------------------
+	%inclusion des chapitres
+	%--------------------------------------
+
+\input{chap_1_premier_chapitre}
+
+\input{chap_2_deuxieme_chapitre}
+
+\input{chap_3_troisieme_chapitre}
+
+	%--------------------------------------
+	%style des annexes
+	%--------------------------------------
+
+	\appendix %appel des annexes
+	\clearpage\Framefalse %défini la booléenne Frame comme false -> pas de marqueurs de chapitre
+	\openany
+	%\thispagestyle{empty}\null\clearpage %force la page titre des annexes à s'afficher sur la droite si ça n'est pas le cas
+	\appendixpage
+	\openleft
+
+	%--------------------------------------
+	%inclusion des chapitres
+	%--------------------------------------
+
+	\input{chap_A_premiere_annexe}
+
+%--------------------------------------
+%conclusion, bibliographie
+%--------------------------------------
+
+\backmatter
+
+	%--------------------------------------
+	%inclusion des chapitres
+	%--------------------------------------
+
+	\input{chap_conclusion}
+
+
+	%--------------------------------------
+	%bibliographie
+	%--------------------------------------
+
+	\nocite{Coarer2003}
+	
+	\printbibliography %ajout des références bibliographiques
+		
+\end{document}
+

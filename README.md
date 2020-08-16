@@ -69,27 +69,33 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
         - tab_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => tableau
         - fig_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)        => figure
         - eq_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)         => équation
+		- graph_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> graphique
+
 
 4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier mais pas la sous-programmation en elle-même pour regrouper toutes les programmations et sous-programmations dans un seul dossier et éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
     - se référer au cours de pré-requis pour les sous-programmations-types à suivre (tableau, figure, graphe...);
-    - pour structurer son texte et les listes, se référer au cours de pré-requis et à la nomenclature approuvée tous ensemble avec entre autre :
+    - pour structurer son texte et les listes, se référer au cours déjà écrit et à la nomenclature approuvée tous ensemble avec entre autre (dès que vous éditez une nouvelle règle de nomenclature, consulter la team et l'écrire dans la liste suivante) :
         - `\\` + un seul retour à la ligne : nouveau sujet dans le même paragraphe
         - `\\` + deux retour à la ligne (saut de ligne) : nouveau paragraphe dans la même division
+		- Mettre les titres des colonnes de tableau au singulier
         - `\description` et `\itemize` : les listes et les définitions
-        - `\compactitemize` `\tabdescription` : liste compacte pour les listes et descriptions dans les tableaux (voir commentaire de code en préambule)
+        - `\compactitemize` `\tabdescription` : liste compacte pour les listes et descriptions dans les tableaux (voir commentaire de code du package AOCDTF)
         - respecter les règles de typographie française (voir `/bases_de_donnees/latex/goulet-redaction_latex.pdf` et `/bases_de_donnees/latex/hufflen-typographie_conventions_latex.pdf`)
-    - grands classiques de typographie avec entre autre :
-        - Gestion des tirets et des cadratins voir `/bases_de_donnees/latex/goulet-redaction_latex.pdf`
-        - Accent même pour les majuscule `\’E` ou `\È` ou `\À`
-        - Guillemets français `\og \fg{}`
-        - Liste d’éléments se terminant par l'instruction `\,;` quand ce sont des phrases (sauf la dernière)
-        - Bien faire attention à `\oe{}`,  `\iere{}`, `\Dr`, les points de suspensions `\ldots...`
-		- Voir les tableaux et les environnement mathématiques pour les canevas d'écritures
-      	- Consulter le `package{SIunitx}` pour l’écriture de unités de physique et utiliser la commande `\SI{nombre}{unitéenanglais}` pour respecter l'espacement
+    	- grands classiques de typographie avec entre autre :
+        	- Gestion des tirets et des cadratins voir `/bases_de_donnees/latex/goulet-redaction_latex.pdf`
+        	- Accent même pour les majuscule `\’E` ou `\È` ou `\À`
+        	- Guillemets français `\og \fg{}`
+       		- Liste d’éléments se terminant par l'instruction `\,;` quand ce sont des phrases (sauf la dernière ou l'on met un point)
+       		- Bien faire attention à `\oe{}`,  `\iere{}`, `\Dr`, les points de suspensions `\ldots...`
+			- Voir les tableaux et les environnement mathématiques pour les canevas d'écritures
+      		- Consulter le `package{SIunitx}` pour l’écriture de unités de physique et utiliser la commande `\SI{nombre}{unitéenanglais}` pour respecter l'espacement même dans les blocs de texte
 
-5. Rédiger les équations dans le nouvel environnement `\begin{equa}` qui va référencers les équations dans une liste d'équations et décrire les équations dans les nouveaux environnements `\begin{numvariables}`(description des variables numériquement) et `\begin{textvariables}` (description des variables mathématiquement).
-                
-6. Pour labeliser les sous-programmations (avec le même intitulé que les noms de fichier de ces sous-programmations quand c'est le cas), figures, équation... :
+5. Rédiger les équations théoriques dans le nouvel environnement `\begin{equa}` qui va référencers les équations dans une liste d'équations et décrire les équations dans les nouveaux environnements `\begin{numvariables}`(description des variables numériquement) et `\begin{textvariables}` (description des variables mathématiquement).
+Rédiger les équations pour les exemples, détails de calcul, dans l'environnement `\begin{align}` ou `\begin{align*}` (pour éviter le référencement), dont dérive l'environnement `\begin{equa}` et qui permet d'aligner les équations sur le signe suivant `&` lors d'un retour à la ligne `\\` dans l'environnement.
+
+6. Pour les tableaux, il existe un grand nombre de types de colonnes personnalisées avec des usages spécifiques (pour les écritures mathématiques, pour le calcul automatique de la largeur des colonnes...), se référer au package AOCDTF.sty pour appréhender leur usage.
+
+7. Pour labeliser les sous-programmations (avec le même intitulé que les noms de fichier de ces sous-programmations quand c'est le cas), figures, équation... :
     - \label{objet:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)} avec objet =
         
         - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label chapitre
@@ -101,12 +107,14 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
         - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label pastille d'annotation                
         - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label équation
 		- def:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label définition
+		- graph:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)    => label graphique
 
-7. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels.
 
-8. Vérifier dans package "AOCDTF.sty" toutes les macros qui ont pu y être ajoutées (bien souvent précédées d'une instruction type `\newcommand{nouvelleinstruction}{cequecette instructionexecute}`.
+8. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels.
 
-9. Une fois la rédaction de la sous-programmation effectuée, l'appeler dans sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}` qui permet de mettre en commentaire toute la portion de code se situant dans cet environnement et l'instruction `%` qui aura le même effet sur une ligne.
+9. Vérifier dans package "AOCDTF.sty" toutes les macros qui ont pu y être ajoutées (bien souvent précédées d'une instruction type `\newcommand{nouvelleinstruction}{cequecette instructionexecute}`.
+
+10. Une fois la rédaction de la sous-programmation effectuée, l'appeler dans sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}` qui permet de mettre en commentaire toute la portion de code se situant dans cet environnement et l'instruction `%` qui aura le même effet sur une ligne.
 
 ``` bash
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire 
@@ -114,13 +122,13 @@ le préambule une fois la programmation appelée dans le document maître
 (!ne pas oublier de mettre en commentaire \end{document}!)
 ```
 
-10. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois et réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
+11. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois et réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
 
 ## Charte graphique des figures
 
-1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz) pour conserver une unité graphique. 
+1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz et en s'inspirant des graphiques déjà construit) pour conserver une unité graphique. 
 
-2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{} pour que le séparateur décimal soit un point et non une virgule :
+2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{}` pour que le séparateur décimal soit une virgule et non un point :
 
 ```
 \addplot[]
@@ -204,15 +212,16 @@ Etablissement-Titre du document(-année-auteur)
 - Vérifier que les packages ne soient pas obsolètes ou remplacés;
 - Vérifier qu'un package ne vienne pas en aide lors d'une programmation très compliquée;
 - Bien lire les erreurs, elles donnent pas mal d'indices;
-- S'aider de la grille de repère lors du codage d'une figure;
-- Pour trouver une erreur, procéder par élimination de bloc de code.
+- S'aider de la grille de repère `\DrawGrid{(x1,y1)}{(x2,y2)}` lors du codage d'une figure;
+- Pour trouver une erreur, procéder par élimination de bloc de code;
+- Pour les graphiques, il faut parfois inverser le sens d'exportation des données, rajouter une ligne de coordonées... pour arriver au résultat désiré (se référer aux graphiques déjà construits).
 
 **Affaire à suivre...**
 
 ## Erreurs fréquentes
     
 - Packages qui se clashent entre eux => bonne chance pour les retrouver mais c'est l'erreur la plus fréquente;
-- Accent ou espace dans les noms de fichier => facile à retrouver;
+- Accent ou espace dans les noms de fichier ou de label => facile à retrouver;
 - Oubli de refermer les accolades ou parenthèse {} [] ; ... => les retrouver, celles qui se correspondent se surlignent quand on passe dessus, c'est pratique
 - Usage de la virgule à la place du point et inversement => les retrouver également;
 - Mauvaise appel de sous-programmation (nom du fichier ou arborescence...) => les retrouver, le log indique l'erreur;

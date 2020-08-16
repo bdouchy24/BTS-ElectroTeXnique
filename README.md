@@ -211,7 +211,7 @@ Etablissement-Titre du document(-année-auteur)
 - Vérifier que les packages ne soient pas obsolètes ou remplacés;
 - Vérifier qu'un package ne vienne pas en aide lors d'une programmation très compliquée;
 - Bien lire les erreurs, elles donnent pas mal d'indices;
-- S'aider de la grille de repère `\DrawGrid{(x1,y1)}{(x2,y2)}` lors du codage d'une figure;
+- S'aider de la grille de repère `\DrawGrid{(x1,y1)}{(x2,y2)}` lors du codage d'une figure sous Tikz-PGF;
 - Pour trouver une erreur, procéder par élimination de bloc de code;
 - Pour les graphiques, il faut parfois inverser le sens d'exportation des données, rajouter une ligne de coordonées... pour arriver au résultat désiré (se référer aux graphiques déjà construits).
 

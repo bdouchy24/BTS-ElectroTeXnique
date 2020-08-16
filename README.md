@@ -140,11 +140,11 @@ table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
 - Référencer les documents et sites utilisés dans les fichiers de bibliographie correspondants en n'ajoutant pas trop de métadonnées et en choisissant le bon type de références(book, incollection, report...);
  
 - classement des références **dans l'ordre alphabétique** des clés :
-    - Pour les normes, utiliser le type @manual (technical manual) et la clé d'appel de la référence comme suit : 
+    - Pour les normes, utiliser le type @manual (technical manual) et la clé d'appel de la référence est similaire à : 
     `@typedenorme:numéronorme-année`
     - s'il s'agit de plusieurs référénces d'un même site internet (wikipedia, cours en ligne, Guide de l'électrotechnique...), les clés d'appel sont similaires à : `@PremièreSlettreSdusite:acronymedutitre` (ex. : `@wiki:TPE` pour l'article sur le tableau périodique des éléments de Wikipédia)
 	- Pour les cours et polycopiés, utiliser le type @techreport et la clé d'appel de la référence doit être similaire à : `@Etablissement:coursannée` (si l'intitulé du cours est trop long pour une clé compacte, utiliser son acronyme)
-    - Pour les livres et similaires, utiliser le type adapté au type d'ouvrage (tome, ouvrage unique...) et la clé d'appel de la référence simialire à (si plusieurs auteurs, mettre chaque nom dans l'ordre alphabétique) : `@Nomdel'auteurannée`
+    - Pour les livres et similaires, utiliser le type adapté au type d'ouvrage (tome, ouvrage unique...) et la clé d'appel de la référence est similaire à (si il y a plusieurs auteurs, mettre chaque nom dans l'ordre alphabétique) : `@Nomdel'auteurannée`
     - Si l'auteur et l'année sont identiques, la clé d'appel doit être similaire à : 
 
 ```

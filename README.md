@@ -73,7 +73,7 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
 
 
 4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier mais pas la sous-programmation en elle-même pour regrouper toutes les programmations et sous-programmations dans un seul dossier et éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
-    - se référer au cours de pré-requis pour les sous-programmations-types à suivre (tableau, figure, graphe...);
+    - se référer au cours déjà construits et validés pour les sous-programmations-types à suivre (tableau, figure, graphe...);
     - pour structurer son texte et les listes, se référer au cours déjà écrit et à la nomenclature approuvée tous ensemble avec entre autre (dès que vous éditez une nouvelle règle de nomenclature, consulter la team et l'écrire dans la liste suivante) :
         - `\\` + un seul retour à la ligne : nouveau sujet dans le même paragraphe
         - `\\` + deux retour à la ligne (saut de ligne) : nouveau paragraphe dans la même division

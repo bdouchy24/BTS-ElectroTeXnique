@@ -77,7 +77,7 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
     - pour structurer son texte et les listes, se référer au cours déjà écrit et à la nomenclature approuvée tous ensemble avec entre autre (dès que vous éditez une nouvelle règle de nomenclature, consulter la team et l'écrire dans la liste suivante) :
         - `\\` + un seul retour à la ligne : nouveau sujet dans le même paragraphe
         - `\\` + deux retour à la ligne (saut de ligne) : nouveau paragraphe dans la même division
-		- Mettre les titres des colonnes de tableau au singulier
+		- Mettre les titres des colonnes de tableau au singulier mais les titres des chapitres au pluriel s'il le faut
         - `\description` et `\itemize` : les listes et les définitions
         - `\compactitemize` `\tabdescription` : liste compacte pour les listes et descriptions dans les tableaux (voir commentaire de code du package AOCDTF)
         - respecter les règles de typographie française (voir `/bases_de_donnees/latex/goulet-redaction_latex.pdf` et `/bases_de_donnees/latex/hufflen-typographie_conventions_latex.pdf`)

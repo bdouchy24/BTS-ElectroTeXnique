@@ -86,7 +86,7 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
         	- Accent même pour les majuscule `\’E` ou `\È` ou `\À`
         	- Guillemets français `\og \fg{}`
        		- Liste d’éléments se terminant par l'instruction `\,;` quand ce sont des phrases (sauf la dernière ou l'on met un point)
-       		- Bien faire attention à `\oe{}`,  `\iere{}`, `\Dr`, les points de suspensions `\ldots...`
+       		- Bien faire attention à `\oe{}`,  `\ier`, `\Dr`, les points de suspensions `\ldots...`
 			- Voir les tableaux et les environnement mathématiques pour les canevas d'écritures
       		- Consulter le `package{SIunitx}` pour l’écriture de unités de physique et utiliser la commande `\SI{nombre}{unitéenanglais}` pour respecter l'espacement même dans les blocs de texte
 

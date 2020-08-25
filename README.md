@@ -169,6 +169,8 @@ base_de_donnees/latex/gaborit-latex_bibliograhie.pdf
 
 - Pour ajouter une nouvelle bibliographie à un document maître d'un cours, s'aider de l'instruction `\include{INDICATEUR_ARBORESCENCE}` pour indiquer l'arborescence du fichier.bib à ajouter;
 
+- Appeler les intraliens vers la bibliographie avec la commande `\supercite{clé}`, et pour les citations, utiliser la commande `\footfullcite{clé}`
+
 - Pour la faire apparaitre dans le pdf final, compiler le fichier .bib avec le compilateur BibTeX avant de faire une compilation rapide sur le document maître.
 
 ## Base de données

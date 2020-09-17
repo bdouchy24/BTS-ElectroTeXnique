@@ -1,5 +1,5 @@
 %--------------------------------------
-%CANEVAS
+%SCHEMA DE LIAISON A LA TERRE
 %--------------------------------------
 
 \newcommand\BoxColor{\ifcase\thechapshift blue!30\or brown!30\or pink!30\or cyan!30\or green!30\or teal!30\or purple!30\or red!30\or olive!30\or orange!30\or lime!30\or gray!\or magenta!30\else yellow!30\fi} %définition de la couleur des marqueurs de chapitre
@@ -25,13 +25,13 @@
     inner sep=0pt,
     rectangle,
     text width=1.3cm,
-    text height=4.5cm,
+    text height=5.5cm,
     align=center,
     anchor=north east
   ] 
   at ($ (current page.north east) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
     {\rotatebox{90}{\hspace*{.3cm}%
-      \parbox[c][0.9cm][t]{4cm}{%
+      \parbox[c][0.9cm][t]{5cm}{%
         \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
   \end{tikzpicture}}}%
   }
@@ -43,13 +43,13 @@
     inner sep=0pt,
     rectangle,
     text width=1.3cm,
-    text height=4.5cm,
+    text height=5.5cm,
     align=center,
     anchor=north west
   ] 
   at ($ (current page.north west) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
     {\rotatebox{90}{\hspace*{.3cm}%
-      \parbox[c][0.9cm][t]{4cm}{%
+      \parbox[c][0.9cm][t]{5cm}{%
         \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
   \end{tikzpicture}}}
   }

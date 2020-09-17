@@ -71,6 +71,7 @@
 	%chapitre d'introduction
 	%--------------------------------------
 
+
 	\input{chap_0_preface}
 	
 	\let\cleardoublepage\clearpage %supprime une page blanche en cas double page avant le corps du texte
@@ -101,7 +102,7 @@
 	\appendix %appel des annexes
 	\clearpage\Framefalse %défini la booléenne Frame comme false -> pas de marqueurs de chapitre
 	\openany
-	%\thispagestyle{empty}\null\clearpage %force la page titre des annexes à s'afficher sur la droite si ça n'est pas le cas
+	\thispagestyle{empty}\null\clearpage %force la page titre des annexes à s'afficher sur la droite si ça n'est pas le cas
 	\appendixpage
 	\openleft
 
@@ -110,6 +111,9 @@
 	%--------------------------------------
 
 	\input{chap_A_premiere_annexe}
+	
+	\input{chap_B_deuxieme_annexe}
+
 
 %--------------------------------------
 %conclusion, bibliographie

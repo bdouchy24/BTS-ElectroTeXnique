@@ -1,0 +1,75 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{wrapfigure}{R}{0pt} %insertion figure dans texte
+\begin{circuitikz}[circuit ee IEC]
+%\DrawGrid{(-1,-5)}{(7,3)} %grille d'aide pour le placement des objets
+
+\fill [gray!50] (-1,-3.5) -- (5,-3.5) -- (5,-3.7) -- (-1,-3.7) -- cycle;
+\draw [thick] (-1,-3.5) -- (5,-3.5);
+
+\node (T1) [oosourcetransshape,prim=delta,sec=wye] at (0,0) {};
+\draw [brown] (-1,0.3) to (-0.5,0.3) to node {} (T1.prim1);
+\draw [black] (-1,0) to (-0.5,0) to node {} (T1.prim2);
+\draw [gray] (-1,-0.3) to (-0.5,-0.3) to node {} (T1.prim3);
+\draw [brown] (5,0.3) to (1,0.3) to (0.5,0.3) to node {} (T1.sec1);
+\draw [black] (5,0.1) to (1,0.1) to (0.5,0.1) to node {} (T1.sec2);
+\draw [gray] (5,-0.1) to (1,-0.1) to (0.5,-0.1) to node {} (T1.sec3);
+\draw [blue] (5,-0.3) to (1,-0.3) to (0.5,-0.3) to node {} (T1.sec4);
+\node (G) [tlground] at (0,-3.9) {};
+\draw [green!] (G) to (0,-0.4) to node {} (T1.sec4) ; 
+\draw [dashed, yellow!] (G) to (0,-0.4) to node {} (T1.sec4) ;
+\node (G) [tlground] at (0,-3.9) {};
+\node (T1) [oosourcetransshape,prim=delta,sec=wye] at (0,0) {};
+
+\node (R) [resistor, point down, tiny circuit symbols] at (1.7,-2.2) {};
+
+\node (T2) [oosourcetransshape, rotate=-90] at (1.5,-1) {};
+\draw [brown] (1.7,0.3) to (1.7,-0.5) to node {} (T2.prim1');
+\draw [blue] (1.3,-0.3) to (1.3,-0.5) to node {} (T2.prim2');
+\draw [blue] (R) to (1.7,-2.9) to (1.3,-2.9) to (1.3,-1.5) to node {} (T2.sec2');
+\draw [brown] (R) to (1.7,-1.5) to node {} (T2.sec1');
+\node (T2) [oosourcetransshape, rotate=-90] at (1.5,-1) {};
+\draw [thick] (1.2,-1) -- (1.8,-1);
+
+
+\draw (1.7,0.3) node[circ, scale=0.5]{};
+\draw (1.3,-0.3) node[circ, scale=0.5]{};
+
+\draw (3,-1.5) -- (3.3,-2.5) -- (3.6,-1.5) ; %tronc
+\draw (3.3,-1.5) -- (3.3, -1.3); %cou
+\draw (3.3,-1) circle [radius=0.3cm]; %tête
+\draw (1.7,-1.7) -- (1.9,-1.7) -- (2.4,-1.4)  -- (3,-1.5) -- (3.6,-1.5) -- (4,-2) -- (4,-2.6) -- (3.9,-2.8); %bras
+\draw (2.8,-3.3) -- (3,-3.4) -- (3.1, -2.9) -- (3.3,-2.5) -- (3.6,-3) -- (3.6,-3.4) -- (3.4,-3.5); %jambes
+\filldraw ([shift=(-10:0.3cm)]3.3,-1) arc (-10:150:0.3cm); %casquette
+\draw (3.04,-0.84) -- ++ (140:0.3cm); 
+
+%\fill [yellow!, decoration=lightning bolt, decorate] (1.7,-1.7) -- ++ (0.5,0.8); %éclairs
+\path [postaction={on each segment={mid arrow=red}}] node {} (1.7,-1.5) -- (1.7,-1.7) -- (1.9,-1.7) -- (2.4,-1.4)  -- (3,-1.5) -- (3.6,-1.5) -- (4,-2) -- (4,-2.6) -- (3.9,-2.8); 
+\path [postaction={on each segment={mid arrow=red}}] (1.7,-2.5) -- (1.7,-2.9) -- (1.3,-2.9) -- (1.3,-1.5) to node {} (T2.sec2'); 
+
+\end{circuitikz}
+\end{wrapfigure}
+
+%\end{document}
+

@@ -1,0 +1,89 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{landscape}
+\begin{table}
+\caption{Types de Très Basse Tension\label{tab:type_TBT}}
+\begin{tabularx}{\linewidth}{p{3,5cm} X p{3cm} p{3,5cm} p{3,5cm} p{3,5cm} p{2cm}}
+\toprule
+\thead{Domaine \\de tension}		& \thead{Alimentation}			& \thead{Liaison à\\ la terre}			& \thead{Sectionnement et\\protection contre\\ les court-circuits}		& \thead{Protection contre \\ les contacts\\ indirects}		& \thead{Protection contre\\ les contacts\\ directs}				& \thead{Récepteur} \\
+\midrule
+TBTS (Très Basse Tension de Sécurité)		& Transformateur de sécurité conforme à la norme NF C 52 742		& \makecell[c]{Interdite}		& De tous des conducteurs actifs		& \makecell[c]{Non}		& \makecell[c]{Non} 	& \\
+\addlinespace
+
+															& \multicolumn{6}{l}{%
+\begin{circuitikz}[circuit ee IEC relay]
+%\DrawGrid{(0,-0.5)}{(21,0.5)} %grille d'aide pour le placement des objets
+\draw (20.5,0) node[draw](Z){Z};
+\draw (Z.west) node[circ, left](E){};
+\draw (0,0) to[oosourcetrans, l=classe II] (3,0)
+to[make contact={point left, circuit breaker={point left}, thick, name=dis}] (16,0)
+to (E);
+\draw [thick] (1.7,0.4) arc (90:-90:0.4) -- (0.9,-0.4) -- (0.9,0.4) -- (1.7,0.4);
+\draw [thick] (1.5,0.3) -- (1.5,-0.3);
+\end{circuitikz}} \\
+\addlinespace[1cm]
+
+TBTP (Très Basse Tension de Protection)		& Transformateur de sécurité conforme à la norme NF C 52 742		&  Conducteur actif relié à la terre		& De tous des conducteurs actifs		& \makecell[c]{Non}		& \makecell[c]{Non} 	& \\
+\addlinespace
+															& \multicolumn{6}{l}{%
+\begin{circuitikz}[circuit ee IEC relay]
+%\DrawGrid{(0,-0.5)}{(21,0.5)} %grille d'aide pour le placement des objets
+\draw (20.5,0) node[draw](Z){Z};
+\draw (Z.west) node[circ, left](E){};
+\draw (0,0) to[oosourcetrans, l=classe I] (3,0)
+to node[circ](C){} (8,0)
+to[make contact={point left, circuit breaker={point left}, thick, name=dis}] (11,0)
+to (E);
+\draw (C) -- (5.5,-1) node[pground]{};
+\draw [thick] (1.5,0.3) -- (1.5,-0.3);
+\end{circuitikz}} \\
+\addlinespace[1cm]
+
+TBTF (Très Basse Tension de Fonctionnelle)		& Transformateur de sécurité d'origine indéterminée		&  Conducteur actif relié à la terre		& De tous des conducteurs actifs		& \makecell[c]{Oui (DDR)}		& \makecell[c]{Oui (appareil IP2X)} 	& \\
+\addlinespace
+															& \multicolumn{6}{l}{%
+\begin{circuitikz}[circuit ee IEC relay]
+%\DrawGrid{(0,-0.5)}{(21,0.5)} %grille d'aide pour le placement des objets
+\draw (19.5,0) node[draw](Z){Z};
+\draw (Z.west) node[circ, left](E){};
+\draw (Z.east) node[circ, right](F){};
+\draw [rounded corners] (F) -| (20.5,-1) node [tlground]{};
+\draw (0,0) to[oosourcetrans] (3,0)
+to node[circ](C){} (8,0)
+to[make contact={point left, circuit breaker={point left}, thick, name=dis}] (11,0)
+to node[iloopshape, rotate=180](D){} (16,0)
+to (E);
+\draw [dashed, rounded corners] (dis.mid) to (9.5,-1) -- (13.5,-1) to (D.i);
+\draw (C) -- (5.5,-1) node[pground]{} ;
+\end{circuitikz}} \\
+\addlinespace[1cm]
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{landscape}
+
+%\end{document}
+

@@ -4,7 +4,7 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-%\begin{comment}
+\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
@@ -19,7 +19,7 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-%\end{comment}
+\end{comment}
 
 \chapter{Informations complémentaires sur les dangers de l'électricité}
 
@@ -153,7 +153,11 @@ Il existe trois types de TBT selon la classification du lieux et la nature du co
 
 \subsubsection{Architecture}
 
+\newpage
+
 \input{tab_type_TBT}
+
+\newpage
 
 \subsection{Indice de protection\label{subsec:indice_protection}}
 
@@ -191,7 +195,7 @@ Lorsqu'un des deux indice n'est pas déterminé, il est remplacé par la lettre 
 \hfill
 \begin{minipage}[t]{0.39\linewidth}
 \begin{table}[H]
-\caption{Lettre additionnelle sur les informations supplémentaires spécifiques}
+\caption{Lettre additionnelle sur les informations supplémentaires}
 \begin{tabularx}{\linewidth}{P{1.5cm} X}
 \toprule
 \thead{Lettre}		& \thead{Signification} \\
@@ -210,7 +214,15 @@ W							& Conditions environnementales spécifiées \\
 \end{table}
 \end{minipage}
 
+\newpage
+\begin{landscape}
+\newpage
+
 \input{tab_descriptif_IP}
+
+\newpage
+\end{landscape}
+\newpage
 
 \subsubsection{Classification des locaux selon l'IP}
 
@@ -230,26 +242,8 @@ Le secondaire de ce type de transformateur ne doit pas être relié à la terre 
 
 Pour protéger les biens et les personnes contre les contacts indirects, on associe trois spécificités de l'installation électrique qui sont la MALT des appareils et structures conductrices, la prise de terre de l'installation électrique et l'usage d'un DDR. Cette association, selon le type de branchement, formera les \emph{schéma de liaison à la terre} (SLT), mais la classe des appareils électriques peut également constituer un moyen de protection contre les contacts indirects.
 
-\begin{table}[h]
-\caption{Classe d'isolation du matériel électrique\label{fig:classe_isolation_materiel_electrique}}
-\begin{tabularx}{\linewidth}{C p{4cm} p{4cm} c c}
-\toprule
-\thead{Classe}			& \thead{Définition}				& \thead{Exemple}			& \thead{Symbole}				& \thead{Raccordement} \\
-\midrule
-0								& Matériel présentant une simple isolation et ne possédant pas de dispositif de mise à la terre 		& Lampe de chevet ancienne en bois\ldots 		&	\emph{pas de symbole}			&  \\
-\addlinespace
-1								& Matériel présentant une simple isolation mais qui possède un dispositif de mise à la terre			& Ordinateur, lave-linge, fer à repasser\ldots	& 
-\begin{circuitikz}[circuit ee IEC]
-\node (G) [pground] at (0,0) {};
-\end{circuitikz} 
-& 
-\includegraphics[scale=0.1]{type_e.jpg} \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
 \subsection{Mise à la terre des appareils et structures conductrices}
 
 
 
-\end{document}
+%\end{document}

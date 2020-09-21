@@ -143,7 +143,7 @@ table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
 
 3. Construire le diaporama de manière similaire au cours format A4 mais compiler le code avec LuaLaTeX plutôt que PDFLaTeX.
 
-4. Section en construction...
+**Affaire à suivre...**
 
 ## Bibliographie
 

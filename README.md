@@ -8,9 +8,9 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 **Pour respecter au mieux la charte graphique, prendre le temps de bien décrypter les instructions ci-dessous est indispensable.**
 
 
-| Page de couverture  | Page de titre |
-| :------------------: | :------------------: |
-| ![Page de couverture](parametres/github/page_couverture_pied_page.png) | ![Page de titre](parametres/github/page_titre.png) |
+| Page de couverture  | Page de titre | Page de titre du diaporama |
+| :------------------: | :------------------: | :------------------: |
+| ![Page de couverture](parametres/github/page_couverture_pied_page.png) | ![Page de titre](parametres/github/page_titre.png) |![Page de titre du diaporama](parametres/github/page_titre_diaporama.png) |
 
 ## Pré-requis
 
@@ -122,7 +122,7 @@ le préambule une fois la programmation appelée dans le document maître
 (!ne pas oublier de mettre en commentaire \end{document}!)
 ```
 
-11. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois et réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
+11. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois avec le compilateur PDFLaTeX. Réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
 
 ## Charte graphique des figures
 
@@ -135,7 +135,17 @@ le préambule une fois la programmation appelée dans le document maître
 table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
 ```
 
+## Diaporama
+
+1. Se référer au canevas du diaporama pour analyser les différentes diapositives possibles.
+
+2. Construire le diaporama de manière similaire au cours format A4 mais compiler le code avec LuaLaTeX plutôt que PDFLaTeX.
+
+2. Section en construction...
+
 ## Bibliographie
+
+
 
 - Référencer les documents et sites utilisés dans les fichiers de bibliographie correspondants en n'ajoutant pas trop de métadonnées et en choisissant le bon type de références(book, incollection, report...);
  

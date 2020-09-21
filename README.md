@@ -137,15 +137,15 @@ table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
 
 ## Diaporama
 
-1. Se référer au canevas du diaporama pour analyser les différentes diapositives possibles.
+1. Installer le thème du diaporama Metropolis "mtheme" en respectant l'arborescence des fichiers.
 
-2. Construire le diaporama de manière similaire au cours format A4 mais compiler le code avec LuaLaTeX plutôt que PDFLaTeX.
+2. Se référer au canevas du diaporama pour analyser les différentes diapositives possibles.
 
-2. Section en construction...
+3. Construire le diaporama de manière similaire au cours format A4 mais compiler le code avec LuaLaTeX plutôt que PDFLaTeX.
+
+4. Section en construction...
 
 ## Bibliographie
-
-
 
 - Référencer les documents et sites utilisés dans les fichiers de bibliographie correspondants en n'ajoutant pas trop de métadonnées et en choisissant le bon type de références(book, incollection, report...);
  

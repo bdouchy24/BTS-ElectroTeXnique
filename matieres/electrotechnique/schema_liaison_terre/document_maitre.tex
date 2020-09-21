@@ -6,7 +6,7 @@
 %appel de la classe de document et de ses options
 %--------------------------------------
 
-\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+\documentclass[a4paper, 11pt, twoside, fleqn, french]{memoir}
 
 \usepackage{AOCDTF}
 
@@ -70,14 +70,13 @@
 	%--------------------------------------
 	%chapitre d'introduction
 	%--------------------------------------
-
-	
-	\let\cleardoublepage\clearpage %supprime une page blanche en cas double page avant le corps du texte
 	
 %--------------------------------------
 %corps de texte, annexes
 %--------------------------------------
 
+\let\clearpage %supprime une page blanche en cas double page avant le corps du texte
+ 
 \mainmatter
 
 \Frametrue %défini la booléenne Frame comme vrai -> marqueurs de chapitre
@@ -87,7 +86,7 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
-\input{chap_1_dangers_electricite}
+	\include{chap_1_dangers_electricite}
 
 	%--------------------------------------
 	%style des annexes
@@ -104,6 +103,8 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
+	\include{chap_A_addendum_dangers_electricite}
+
 %--------------------------------------
 %conclusion, bibliographie
 %--------------------------------------
@@ -119,6 +120,7 @@
 	%bibliographie
 	%--------------------------------------
 
+	\nocite{AFPA2000, BourgeoisCogniel2005, CNED:SLT2003, Juguet2017, LyceeJean-Caillaud:PRE2013, Timin2003chap2, WildiSybille2014}
 	
 	\printbibliography %ajout des références bibliographiques
 		

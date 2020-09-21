@@ -4,7 +4,7 @@
 
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
 
-%\begin{comment}
+\begin{comment}
 
 \documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
 
@@ -19,27 +19,25 @@
 \begin{document} %corps du document
 	\openleft %début de chapitre à gauche
 
-%\end{comment}
+\end{comment}
 
 \chapter{Les dangers de l'électricité}
+\label{chap:dangers_electricite}
 \ChapFrame %appel du marqueur de chapitre
 
-
-
 \section{Catégories de tension}
-
 
 \begin{table}[h]
 \caption{Domaines de tensions\label{tab:categories_tension}}
 \begin{threeparttable} %note dans tableau
-\begin{tabularx}{\textwidth}{X l J J}
+\begin{tabularx}{\textwidth}{l C k@{${\enspace{}}U_n{\enspace{}}$}i k@{${\enspace{}}U_n{\enspace{}}$}i} %les deux derniers,types de colonne sont deux colonnes compactées avec la lettre U comme colonne du centre
 \toprule
-\multicolumn{2}{c}{\thead{Domaine de tension}}	& \multicolumn{1}{c}{\thead[c]{Courant alternatif\tnote{\ 1}}}		&  \multicolumn{1}{c}{\thead[c]{Courant continu}} \\
+\multicolumn{2}{c}{\thead{Domaine de tension}}	& \multicolumn{2}{c}{\thead[c]{Courant alternatif\tnote{\ 1}}}		&  \multicolumn{2}{c}{\thead[c]{Courant continu}} \\
 \midrule
-Très Basse Tension										& TBT		& U \leq 50\volt								& U \leq 120\volt \\
-Basse Tension												& BT			& 50\volt < U \leq 1000\volt			& 120\volt < U \leq 1500\volt \\
-\multirow[t]{2}{*}{Haute Tension\tnote{2}}	& HTA		& 1000\volt < U \leq 50\kilo\volt		& 1500\volt < U \leq 75\kilo\volt \\
-																	& HTB		& U > 50\kilo\volt							& U > 75\kilo\volt \\
+Très Basse Tension										& TBT		&						& \leq 50\volt				& 						& \leq 120\volt \\
+Basse Tension												& BT			& 50\volt < 		& \leq 1000\volt			& 120\volt < 		& \leq 1500\volt \\
+\multirow[t]{2}{*}{Haute Tension\tnote{2}}	& HTA		& 1000\volt < 	& \leq 50\kilo\volt		& 1500\volt < 	& \leq 75\kilo\volt \\
+																	& HTB		&  					& > 50\kilo\volt			& 						& > 75\kilo\volt \\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}
@@ -51,7 +49,23 @@ Basse Tension												& BT			& 50\volt < U \leq 1000\volt			& 120\volt < U \l
 	
 \section{Action du courant électrique sur le corps humain}
 
-La présence d'une tension électrique entraine toujours un risque de choc électrique mais il est peu aisé de déterminer un seuil de tension pour lequel le choc est dangereux car ce sont le \emph{courant} $I$ traversant le corps et la \emph{durée} $t$ du choc électrique qui permettent de déterminer la probabilité de décès
+Les dégâts provoqués au corps humain par un choc électrique sont directement corrélés à l'énergie dissipée par ce choc. Cette énergie dissipée est définie par la \emph{loi de Joule}.
+
+\begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
+	\begin{align} 
+		W &= R \cdot I^{2} \cdot t
+	\end{align}
+\caption{Loi de Joule\label{eq:loi_joule}}
+\end{equa}
+
+\begin{textvariables}
+R						& résistance										& hhm 						& \ohm								&\\
+I						& courant électrique							& milliampère			& \milli\ampere					& \\
+t						& durée												& seconde					& \second							&	\\
+\end{textvariables}
+
+La présence d'une tension électrique entraine toujours un risque de choc électrique mais il est peu aisé de déterminer un seuil de tension pour lequel le choc est dangereux car ce sont l'\emph{intensité} du courant $I$ traversant le corps et la \emph{durée} $t$ du choc électrique qui permettent de déterminer la probabilité de décès.\\
+
 \begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
 	\begin{align} 
 		I &= \frac{116}{\sqrt{t}}
@@ -61,10 +75,12 @@ La présence d'une tension électrique entraine toujours un risque de choc élec
 \end{equa}
 
 \begin{textvariables}
-I						& courant électrique							& milliampère			& \milli\ampere					& Courant traversant le corps 	\\
-t						& durée												& seconde					& \second							&	durée du choc électrique d'une durée ($8\milli\second < t \leq 5\second \nonumber$) \\
-116					& constante										& / 							& 	/									&	constante empirique déterminée statistiquement \\
+I						& courant électrique							& milliampère			& \milli\ampere					& 	Courant traversant le corps 	\\
+t						& durée												& seconde					& \second							& 	Durée du choc électrique d'une durée ($8\milli\second < t \leq 5\second \nonumber$) \\
+116					& constante										& / 							& 	/									& 	Constante empirique déterminée statistiquement\supercite{WildiSybille2014}\\
 \end{textvariables}
+
+En plus de l'intensité du courant et de la durée de passage du courant dans le corps, la surface de contact et la susceptibilité spécifique à chaque personne sont d'autres facteurs de gravité d'un contact électrique. Plus de précisions sur la prévention du danger électrique en \superref{sec:etat_lieux_prevention_electrique}.
 
 \subsection{Effet du courant alternatif}
 
@@ -80,7 +96,7 @@ Pour le courant alternatifs d'une fréquence supérieures à \SI{100}{\hertz} :
 \item Plus la fréquence du courant augmente, plus les risques de fibrillation ventriculaire diminue\,;
 \item Plus la fréquence du courant augmente, plus les risques de brûlures augmentent\,;
 \item Plus la fréquence du courant augmente, plus l'impédance du corps humain diminue\,;
-\item Il est généralement considéré que les conditions de protection contre les contacts indirects sont identiques que ça soit sous une fréquence de \SI{50}{\hertz} (réseau électrique domestique en Europe) où \SI{400}{\hertz} (réseau électrique des bateaux, avions\ldots).
+\item Il est généralement considéré que les conditions de protection contre les contacts indirects sont identiques que ça soit sous une fréquence de \SI{50}{\hertz} (réseau électrique domestique en Europe) où \SI{400}{\hertz} (réseau électrique des bateaux, avions, batmobile\ldots).
 \end{itemize}
 
 \subsection{Effet du courant continu}
@@ -98,14 +114,228 @@ Les effets du courant continus sont décrits en \autoref{fig:effets_courant_elec
 
 L'intensité de contact $I_c$, la durée de contact $t$, la tension de contact $U_c$ et la résistance du corps humain $R$ sont autant de paramètres à prendre en compte lors de l'évaluation des risques électriques.
 
+\begin{figure}[h]
+\caption{Courbe de l'intensité de contact $I_c$ en fonction du temps $t=f(I_c)$\supercite{IEC:60479-2007}\label{graph:intensite_contact_temps}}
+\begin{center}
 \begin{tikzpicture}
-\pgfplotsset{grid style={dashed}} %style de la grille
-\begin{axis}[
-grid=major, %grille
-xmode=log, xmin=0.1, xmax=5000,
-ymode=log, ymin=10, ymax=10000,
 
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+axis x line=bottom, axis y line = left,
+no markers,
+width=\linewidth, height=8cm, %hauteur/largeur
+%title={Courbe de l'intensité de contact $I_c$ en fonction du temps $t=f(I_c)$},
+grid=major,
+enlarge x limits=false, 
+xmode=log, xmin=0.1, xmax=6000, xtick={0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000},
+xlabel={Intensité du courant $I_c$ passant dans le corps en \si{\milli\ampere}}, log ticks with fixed point,
+ymode=log, ymin=10, ymax=12000, ytick={10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000},
+ylabel={Durée $t$ du passage du courant en \si{\milli\second}},
 ]
 
+\path[name path=ha] (0.1,10000) -- (0.5,10000);
+\path[name path=la] (0.1,10) -- (0.5,10);
+\addplot[YellowGreen, opacity=0.5] fill between[of=la and ha]; %grosse prise de tête pour remplir de couleur entre deux courbes verticales
 
-\end{document}
+\addplot [name path=a] (0.5,10) -- (0.5,10000);
+
+\path[name path=ab] (0.5,10) -- (0.5,10000) -- (10.709563224492905,10000);
+\addplot [name path=b] table[/pgf/number format/read comma as period]{donnees_courant_duree_b.txt};
+
+\addplot[yellow, opacity=0.5] fill between[of=ab and b];
+
+\addplot [name path=c1, smooth] table[/pgf/number format/read comma as period]{donnees_courant_duree_c1.txt};
+
+\addplot[yellow!75!red, opacity=0.5] fill between[of=b and c1];
+
+\addplot [name path=c2, smooth] table[/pgf/number format/read comma as period]{donnees_courant_duree_c2.txt};
+
+\addplot[yellow!50!red, opacity=0.5] fill between[of= c1 and c2]; %bien inverser le sens d'une des deux listes de données pour que la fonction "fill between" fonctionne correctement
+
+\addplot [name path=c3, smooth] table[/pgf/number format/read comma as period]{donnees_courant_duree_c3.txt};
+
+\addplot[yellow!25!red, opacity=0.5] fill between[of= c2 and c3]; %bien inverser le sens d'une des deux listes de données pour que la fonction "fill between" fonctionne correctement
+
+\path[name path=ec3] (1427.1112552188479, 10) -- (5000,10) -- (5000, 10000);
+
+\addplot[red, opacity=0.5] fill between[of=ec3 and c3];
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\begin{mdframed}
+\begin{itemize}
+\item[\textcolor{YellowGreen}{\rule{1.5em}{1.2ex}}] Aucune réaction physiologique\,;
+\item[\textcolor{yellow}{\rule{1.5em}{1.2ex}}] Aucun effet physiologique dangereux\,;
+\item[\textcolor{yellow!75!red}{\rule{1.5em}{1.2ex}}] Aucun dommage corporel. Possibilité de difficultés respiratoires et de contractions musculaires, de troubles réversibles de la formation et de la conduite des impulsions cardiaques (y compris fibrillation des oreillettes et arrêts cardiaques momentanés sans fibrillation ventriculaire ). Phénomènes augmentant proportionnellement avec l'intensité du courant $i_c$ et le temps $t$ d'exposition\,;
+\item[\textcolor{yellow!50!red}{\rule{1.5em}{1.2ex}}] Même effets que ceux de la zone \textcolor{yellow!75!red}{\rule{1.5em}{1.2ex}} avec une probabilité de fibrillation ventriculaire augmentant jusqu'à 5\%. Possibilité d'effets physiopathologiques, tels qu'un arrêt cardiaque, un arrêt respiratoire ou des brûlures, augmentant proportionnellement avec l'intensité du courant $i_c$ et le temps $t$ d'exposition\,;
+\item[\textcolor{yellow!25!red}{\rule{1.5em}{1.2ex}}] Même effets que ceux de la zone \textcolor{yellow!75!red}{\rule{1.5em}{1.2ex}} avec une probabilité de fibrillation ventriculaire augmentant jusqu'à 50\%. Possibilité d'effets physiopathologiques, tels qu'un arrêt cardiaque, un arrêt respiratoire ou des brûlures, augmentant proportionnellement avec l'intensité du courant $i_c$ et le temps $t$ d'exposition\,;
+\item[\textcolor{red}{\rule{1.5em}{1.2ex}}] Même effets que ceux de la zone \textcolor{yellow!75!red}{\rule{1.5em}{1.2ex}} avec une probabilité de fibrillation ventriculaire dépassant 50\%. Possibilité d'effets physiopathologiques, tels qu'un arrêt cardiaque, un arrêt respiratoire ou des brûlures, augmentant proportionnellement avec l'intensité du courant $i_c$ et le temps $t$ d'exposition.
+\end{itemize}
+\end{mdframed}
+
+Si une personne subit un choc électrique sans en succomber, il s'agit d'une \emph{électrisation}. Si la personne décède suite au choc électrique, il s'agit d'une \emph{électrocution}.
+
+\begin{figure}[H]
+\caption{Courbe de la tension de contact $U_c$ en fonction du temps de coupure maximal $t=f(U_c)$\label{graph:tension_contact_temps}}
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+axis x line=bottom, axis y line = left,
+no markers,
+width=12cm, height=12cm, %hauteur/largeur
+%title={Courbe de la tension de contact $U_c$ en fonction du temps de coupure maximal $t=f(U_c)$},
+grid=both,
+enlarge x limits=false, 
+xmode=log, xmin=10, xmax=600, xtick={10, 20, 30, 50, 100, 200, 300, 500},
+xlabel={Tension de contact $U_c$ en \si{\volt}}, log ticks with fixed point,
+ymode=log, ymin=0.01, ymax=12, ytick={0.01, 0.02, 0.03, 0.04, 0.05, 1, 0.2, 0.3, 0.4, 0.5, 1, 2, 3, 4, 5, 10},
+ylabel={Temps $t$ de coupure maximal en \si\second},
+]
+
+\addplot table[/pgf/number format/read comma as period]{donnees_tension_duree_12V.txt};
+\addlegendentry{12\si\volt};
+\addplot table[/pgf/number format/read comma as period]{donnees_tension_duree_25V.txt};
+\addlegendentry{25\si\volt};
+\addplot table[/pgf/number format/read comma as period]{donnees_tension_duree_50V.txt};
+\addlegendentry{50\si\volt};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+La peau constitue l'isolant contre la pénétration du courant dans le corps humain, et sa résistance électrique varie selon son état de surface et son épaisseur. Pour une peau sèche et fine, on peut estimer que la barrière isolante cède au-delà d'une tension d'environ \SI{50}{\volt}, et le courant pourra dès lors pénétrer de manière plus importante dans le corps humain.\\
+En règle générale, on considère la résistance moyenne du corps humain entre \SI{300}{\ohm} et \SI{1000}{\ohm} mais cela peut varier selon les conditions de contact.\supercite{Delahaye2015}
+
+\begin{figure}[H]
+\caption{Courbe de la tension de contact $U_c$ en fonction de la résistance du corps humain $R=f(U_c)$\label{graph:tension_contact_resistance}}
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+axis x line=bottom, axis y line = left,
+width=13cm, height=8cm, %hauteur/largeur
+%title={Courbe de la tension de contact $U_c$ en fonction de la résistance du corps humain $R=f(U_c)$},
+grid=both,
+legend cell align={left},
+enlarge x limits=false, 
+xmin=0, xmax=400, xtick={25, 50, 250, 380},
+xlabel={Tension de contact $U_c$ en \si{\volt}},
+ymin=0, ymax=6, ytick={1, 2, 3, 4, 5},
+ylabel={Résistance du corps humain $R$ en \si{\kilo\ohm}},
+]
+
+\addplot [smooth, black] table[/pgf/number format/read comma as period]{donnees_tension_resistance_peauseche.txt};
+\addlegendentry{Peau sèche};
+\addplot [smooth, brown] table[/pgf/number format/read comma as period]{donnees_tension_resistance_peauhumide.txt};
+\addlegendentry{Peau humide};
+\addplot [smooth, red] table[/pgf/number format/read comma as period]{donnees_tension_resistance_peaumouillee.txt};
+\addlegendentry{Peau mouillée};
+\addplot [smooth, blue] table[/pgf/number format/read comma as period]{donnees_tension_resistance_peauimmergee.txt};
+\addlegendentry{Peau immergée};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+\section{Nature des contacts}
+
+\subsection{Contact direct}
+
+\subsubsection{Définition}
+
+Contact des personnes avec les parties actives du matériel électrique (pièces ou conducteurs sous tension). La personne rentre en contact direct avec un élément sous tension suite à une négligence ou un non-respect des consignes de sécurité. Dans ce cas, l'électrocution ou l'électrisation sont la conséquence de cette maladresse ou négligence.
+
+\subsubsection{Catégories}
+
+\input{fig_contact_phase_neutre}
+
+\paragraph{Contact entre deux phases ou la phase et le neutre} 
+Contact le moins fréquent mais le plus dangereux car la résistance pied/sol n'intervient pas. La personne qui touche les deux est alors soumise à la tension simple $V$ ou composée $U$ du réseau. La résistance globale du corps devient alors très faible et le courant en est d'autant plus élevé.\\ Dans ce cas, le corps humain se comporte comme un récepteur et aucun appareil de coupure ne peut détecter ce contact comme provoquant un défaut, seule une intervention externe pourra couper le courant.\\
+
+Si la personne est soumise à une tension de contact $U_c$ de \SI{230}{\volt} et que l'on estime la résistance résultante $R$ des résistance main/fil + résistance des bras à environ \SI{1,5}{\kilo\ohm}, on peut calculer l'intensité du courant traversant le corps comme suit :
+
+\begin{align*}
+I 	&= \frac{U_c}{R} \\
+	&= \frac{230}{1500} \\
+	&= \SI{150}{\milli\ampere}
+\end{align*}
+
+En se référençant au tableau \superref{graph:intensite_contact_temps}, on peut constater que le temps de réaction de coupure (venant d'une intervention externe) doit être très court. Effectivement, après une seconde, le risque de fibrillation ventriculaire dépasse déjà les 50\%, ce qui augmente sensiblement le risque d'arrêt cardiaque.
+
+\input{fig_contact_phase_terre}
+
+\paragraph{Contact entre la phase et la terre}
+Contact relativement plus fréquent et moins dangereux que le précédent car la résistance pied/sol et la détection de courant de fuite interviennent. Ce contact direct est rendu possible lorsque le neutre est relié à la terre (\emph{régime TT} et \emph{régime TN}) et soumet la personne à la tension simple $V$ du réseau.\\
+La résistance pied/sol augmente donc la résistante résultante $R$ comprenant donc la résistance main/fil + résistance des bras + résistance pied/sol. Si l'on estime cette résistance à \SI{16}{\kilo\ohm} et que l'on conserve la tension de contact $U_c$ de \SI{230}{\volt}, on peut calculer l'intensité du courant traversant le corps comme suit :
+
+\begin{align*}
+I 	&= \frac{U_c}{R} \\
+	&= \frac{230}{16000} \\
+	&= \SI{14,4}{\milli\ampere}
+\end{align*}
+
+En se référençant au tableau \superref{graph:intensite_contact_temps}, on peut constater cette fois-ci que la situation présente moins de danger que précédemment si le contact ne dépasse toutefois pas les deux secondes. Cette résistance dépend évidement de la nature des semelles, et dans le cas où la personne serait pied nu, la résistance pied/sol baissera au point de considérer le contact comme un contact phase/neutre.\\
+
+Dans cette configuration-là, le corps entraine également une fuite du courant électrique vers la terre. Cette spécificité est exploité par un appareil de protection dédié à la détection de fuite de courant, le dispositifs différentiel résiduel (DDR), ou différentiel.
+
+\subsubsection{Protection contre les contacts directs}
+
+\begin{table}[H]
+\caption{Moyen de protection contre les contacts directs\label{tab:protection_contact_direct}}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\textwidth}{p{4cm}XX}
+\toprule
+\thead{Catégorie}																	& \thead{Principe}																																& \thead{Moyen} \\
+\midrule
+Contact phase/neutre																& Mise hors de portée des pièce sous tensions																							& 
+\begin{tabitemize}
+\item Capotage, isolement, mise sous enveloppe\ldots\,;
+\item Respect de l'indice de protection (IP) minimal\tnote{1}.
+\end{tabitemize} \\
+																							&	Utilisation d'une tension non dangereuse																							&	Alimentation des circuits en TBT\tnote{2} \\
+\addlinespace
+Contact phase/neutre et phase/terre										&	Isolement par rapport au réseau TT																										& Transformateur d'isolement\tnote{3} \\
+																							&	Contrôle du courant de fuite $I_f$ (ne devant pas dépasser quelques dizaines de \si{\milli\ampere}		& DDR de basse sensibilité (\SI{10}{\milli\ampere} ou \SI{30}{\milli\ampere}\tnote{4}\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] Informations complémentaires sur les IP en \superref{subsec:indice_protection}\,;
+    \item[2] Informations complémentaires sur les différentes TBT en \superref{subsec:TBT} \,;
+    \item[3] Informations complémentaires sur le transformateur d'isolement en \superref{subsec:transformateur_isolement} \,;
+    \item[4] Détails sur le DDR en .
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{Contact indirect}
+
+\subsubsection{Définition}
+
+\begin{description}
+\item[Contact indirect] Contact des personnes avec les masses métalliques mises accidentellement sous tension, généralement suite à un défaut d'isolement (déconnexion des fils, vieillissement ou rupture des isolants\ldots). Dans ce cas, la responsabilité de la personne n'est pas mise en jeu et l'électrisation (et électrocution) est la conséquence d'un défaut imprévisible.
+\item[Masse] Partie conductrice susceptible d'être touchée et manipulée par une personne et normalement isolée des éléments sous tension, qui peut toutefois être accidentellement portée à un potentiel dangereux.
+\end{description}
+
+\subsubsection{Principe}
+
+\input{fig_contact_indirect}
+
+Ce type de contact peut apparaitre lorsque le neutre est relié à la terre (\emph{régime TT} et \emph{régime TN}) et qu'une masse métallique est mise accidentellement sous tension. Si cette masse est reliée à la terre, un courant de fuite $I_f$ va faire son apparition et sera potentiellement détecté par un DDR selon sa sensibilité, si celui-ci est présent et fonctionnel. \`A cause de la résistance de la prise de terre $R_t$, le courant de fuite $I_f$ et le potentiel des masses métalliques augmenteront progressivement avec le temps.\\
+
+Le risque devient de plus en plus élevé, d'autant que le contact indirect est accidentel et les masses métalliques généralement manipulées franchement. \`A cela s'ajoute le fait que les conditions de contact peuvent également être défavorables (zones humides, pieds nus...), ce qui peut augmenter dangereusement l'intensité du courant traversant le corps.
+
+\subsubsection{Protection contre les contacts indirects}
+
+Il existe différents moyens de protections contre les contacts indirects qui varient selon les \emph{schémas de liaison à la terre} (SLT), qui seront détaillé en \superref{chap2:schémas_liaison_terre}. Le principal moyen pour ce faire en régime TT et TN est d'installer un DDR, associé obligatoirement à une \emph{prise de terre} du transformateur de l'installation électrique et une \emph{mise à la terre} (MALT) des matériels et structures conducteurs susceptibles d'être accidentellement mis sous tension. Ces deux spécificités de l'installation électrique permettront au courant de s'échapper vers la terre via la mise à la terre et former une boucle jusqu'à la prise de terre. Cela formera une boucle de \emph{courant de défaut} $I_d$ qui sera détecté par le DDR, qui, selon le type de protection exigé, jouera un rôle de protection des personne (signalement de défaut et/ou sectionnement de l'installation en défaut).\\
+En régime IT, la protection contre les contacts indirects s'effectue de manière similaire mais supervisée par un service technique.\\
+
+L'usage d'appareils électriques de classe II ou III est également un autre moyen de protection contre les contacts indirects. Plus de détails sur ces différentes solutions en \superref{sec:moyens_protection_contacts_indirects}. 
+
+%\end{document}

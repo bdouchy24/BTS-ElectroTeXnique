@@ -1,0 +1,534 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\captionof{table}{Classification des locaux}
+\vspace{-1em}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\toprule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux (ou emplacements) domestiques et analogues} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Auvents}																							& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Bains (salle de)}																				& \multicolumn{2}{p{2.2cm}}{(voir salles d'eau)} \\
+\multicolumn{2}{p{4.8cm}}{Bicyclettes, cyclomoteurs, voitures pour enfants (locaux pour)}			& 20				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Branchement eau, égout, chauffage}												& 23				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Buanderies}																					& 23				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Caves, celliers, garage, local avec chaudière}									& 20				& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Chambres	}																					& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Collecte des ordures (locaux pour)}												& 25				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Couloirs de cave}																			& 20				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Cours}																							& 24--25			& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Cuisines}																						& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Douches}																						& \multicolumn{2}{p{2.2cm}}{(voir salles d'eau)} \\
+\multicolumn{2}{p{4.8cm}}{Escaliers intérieurs, coursives intérieures}										& 20				& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Escaliers extérieures, coursives extérieures non couvertes}				& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Coursives extérieures couvertes}														& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Greniers (combles)}																			& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Abris de jardins	}																			& 24--25			& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Lieux d'aisances}																			& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Locaux à poubelles}																		& 25				& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Lingeries, salles de repassage}														& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Rampes d'accès au garage}																& 25				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles d'eau, locaux contenant une baignoire ou une douche :	}		& 					& \\
+& volume 0																& 27				& 02 \\
+& volume 1																& 24				& 02 \\
+& volume 2																& 23				& 02 \\
+& volume 3																& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles de séjour}																				& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Séchoirs}																						& 21				& 02 \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\toprule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux (ou emplacements) domestiques et analogues} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Sous-sols}																						& 21				& 02/07 \\
+\multicolumn{2}{p{4.8cm}}{Terrasses couvertes}																		& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Toilettes (cabinets de)}																	& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Vérandas}																						& 21				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Vides sanitaires}																				& 23				& 02--07 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux techniques} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Accumulateurs (salles d')}																& 23				& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Ascenseurs (locaux des machines et locaux des poulies)}					& 20				& 07--08 \\	
+\multicolumn{2}{p{4.8cm}}{Service électrique}																			& 20				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles des commandes}																	& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Ateliers}																							& 21--23			& 07--08 \\
+\multicolumn{2}{p{4.8cm}}{Laboratoires}																					& 21--23			& 02--07 \\
+\multicolumn{2}{p{4.8cm}}{Laveurs de conditionnement d'air	}													& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Garages (servant exclusivement au stationnement des véhicules) d'une surface n'excédant pas \SI{100}{\square\meter}}	& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Laveurs de conditionnement d'air}													& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Machines (salles de)}																		& 31				& 07--08 \\
+\multicolumn{2}{p{4.8cm}}{Surpresseurs d'eau}																		& 23				& 07--08 \\
+\multicolumn{2}{p{4.8cm}}{Chaufferies et locaux annexes :}														& 					& \\
+&	 à charbon																																& 51--61			& 07--08 \\
+&	 autres combustibles																												& 21				& 07--08 \\
+&	 électriques																															& 21				& 07--08 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Garages et parcs de stationnement couverts d'une surface supérieure à \SI{100}{\square\meter}} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Aires de stationnement}																	& 21				& 07--20 \\
+\multicolumn{2}{p{4.8cm}}{Zones de lavage (à l'intérieur du local)}											& 25				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Zones de sécurité :}																		& 					&  \\
+	&	à l'intérieur																														& 21				& 07 \\
+	&	à l'extérieur																														& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Zones de graissage}																			& 23				& 08 \\
+
+\end{tabularx}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\begin{tabularx}{\textwidth}{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\textwidth}
+\begin{tabularx}{\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{tabularx}
+\end{minipage}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Garages et parcs de stationnement couverts d'une surface supérieure à \SI{100}{\square\meter}} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Locaux de recharge de batteries}															& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Ateliers}																								& 21				& 08 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux sanitaires à usage collectif} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Salles de lavabos individuels}																& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de WC à cuvettes (à l'anglaise)}													& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles d'urinoirs}																					& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de lavabos collectifs}																	& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de WC à la turques, de douches à cabines individuelles, de douches collectives}								& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Buanderies collectives}																		& 24				& 07 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Bâtiments à usage collectif (autre que ERP)} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Bureaux}																							& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Bibliothèques}																					& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles d'archives}																				& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles d'informatiques}																		& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles de dessin}																					& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Locaux regroupant les machines de reproduction de plans et de documents}			& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles de tri}																						& 20				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de restaurant et de cantine, grandes cuisines}							& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de sports}																					& 21				& 07--08 \\
+\multicolumn{2}{p{4.8cm}}{Locaux de casernement}																		& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Salles de réunion}																				& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles d'attentes, salons, hall}																& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles de consultation à usage médical, ne comportant pas d'équipements spécifiques}		& 20				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Salles de démonstration et d'exposition}												& 20				& 02 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux (ou emplacements) dans les exploitations agricoles} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Alcools (entrepôts de)}																		& 23				& 07 \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Colonne précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux (ou emplacements) dans les exploitations agricoles} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Bergeries fermées}																				& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Buanderies}																					& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Battages de céréales}																		& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Bûchers}																							& 30				& 10 \\
+\multicolumn{2}{p{4.8cm}}{Caves de distillation}																		& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Chais (vin)	}																					& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Cours}																							& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{\'Elevages de volailles}																	& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{\'Ecuries}																						& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Engrais (dépôts d')}																			& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{\'Etables}																						& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Fumières}																						& 24				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Fenils}																							& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Fourrage (entrepôts de)}																	& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Greniers, granges}																			& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Paille (entrepôts de)}																		& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Serres}																							& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Silos à céréales}																				& 50				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Traies (salle de)}																				& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Porcheries}																						& 35				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Poulaillers}																						& 35				& 07 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Installations diverses} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Terrains de camping et caravaning}													& 34				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Quais de ports de plaisance}															& 34				& 08 \\
+\multicolumn{2}{p{4.8cm}}{Chantiers}																						& 44				& 08 \\
+\multicolumn{2}{p{4.8cm}}{Quais de chargement}																		& 35				& 08 \\
+\multicolumn{2}{p{4.8cm}}{Rues, cours, jardins et autres emplacements extérieurs}					& 34--35			& 07 \\
+\multicolumn{2}{p{4.8cm}}{\'Etablissement forains}																	& 33				& 08 \\
+\multicolumn{2}{p{4.8cm}}{Piscines :}																						& 					&	  \\
+& volume 0																																& 28				& 02 \\
+& volume 1																																& 25				& 02 \\
+& volume 2																																& 22--24			& 02 \\
+\multicolumn{2}{p{4.8cm}}{Saunas}																							& 34				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Bassins de fontaines}																		& 37				& 02 \\
+\multicolumn{2}{p{4.8cm}}{Traitements des eaux (local de)}														& 24--25			& 07--08 \\
+\addlinespace
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Installations thermodynamiques, chambres climatisées et chambres froides} \\
+\middashrule \\
+\end{tabularx}
+\end{minipage}
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{xltabular}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{xltabular}
+\end{minipage}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Installations thermodynamiques, chambres climatisées et chambres froides} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Température < \SI{-10}{\celsius}}												&	23				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Hauteur au dessus du sol :}															& 					&  \\
+& \SIrange[range-phrase=\ à\ ]{0}{1,10}{\meter}																		& 24				& 07 \\
+& \SIrange[range-phrase=\ à\ ]{1,10}{2}{\meter}																		& 21				& 07 \\
+& au-dessus de \SI{2}{\meter}																									& 21				& 07 \\
+& sous l'évaporateur ou tube																									& 21				& 07 \\
+& écoulement d'eau																													& 21				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Plafond et jusqu'à \SI{10}{\centi\meter} en-dessous}	 				&	23				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Compresseur :}																			& 					&  \\
+& local																																		& 21				& 08 \\
+& monobloc placé à l'extérieur ou en terrasse																				& 34				& 08 \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements industriels} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Abattoirs}																	 				&	55				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Accumulateurs (fabrication d')}										 				&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Acide (fabrication et dépôts)}										 				&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Alcool (fabrication et dépôts)}										 				&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Aluminium (fabrication et dépôts)}										 		&	51--53		&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Animaux (élevage et engraissement)}										 	&	45				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Asphaltes, bitume (dépôts d')}										 				&	53				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Battage et cardage des laines}											 				&	50				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Blanchisseries}																 				&	23--24		&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Bois (travail du)}																 			&	50				&	08 \\
+\multicolumn{2}{p{4.8cm}}{Boucheries}																		 			&	24--25		&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Boucheries}																		 			&	24--25		&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Brasseries}																		 			&	24				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Briqueteries}																		 		&	53--54		&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Caoutchouc (fabrication et transformation)}								 	&	54				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Carbure (fabrication et dépôts)}								 					&	51				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Cartoucherie}								 												&	53				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Cartons (fabrication de}																&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Carrières}									 												&	55				&	08 \\
+\multicolumn{2}{p{4.8cm}}{Celluloïd (fabrication d'objets}														&	30				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Cellulose (fabrication)}									 								&	34				&	08 \\	
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Colonne précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements industriels} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Charbon (entrepôts de)}									 							&	54				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Charcuteries}									 											&	24				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Chaudronneries}									 										&	30				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Chaux (fours à)}									 										&	50				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Chiffons (entrepôts de)}									 							&	30				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Chlore (fabrication et dépôts)}									 					&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Chromage}									 												&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Cimenterie}									 												&	50				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Cokerie}									 													&	53				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Colle (fabrication de)}									 								&	33				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Chaines d'embouteillage}									 							&	35				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Combustibles liquides (dépôts de)}												&	31--33		&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Corps gras (traitement de)}									 						&	51				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Cuir (fabrication et dépôts de)}									 					&	31				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Cuivre (traitement des minéraux)}									 				&	31				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Décapage}									 												&	54				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Détersifs (fabrication de produits)}									 			&	53				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Distillerie}									 												&	33				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{\'Electrolyse}									 											&	03				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Encre (fabrication d')}									 								&	31				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Engrais (fabrication et dépôts de)}				 								&	53				&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Explosifs (fabrication et dépôts de)}				 								&	55				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Fer (fabrication et traitement de)}				 									&	51				&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Filatures}									 													&	50			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Fourrures (battage)}									 									&	50			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Fromageries}									 											&	25			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Gaz (usines et depôts de)}									 						&	31			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Goudron (traitement de)}									 							&	33			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Graineteries}									 											&	50			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Gravures de métaux}																	&	33			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Huile (extraction de)}																	&	31			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Hydrocarbures (fabrication de)}														&	33--34	&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Imprimeries}																				&	20			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Laiteries}																						&	25			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Laveries, lavoirs publics}																&	25			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Liqueurs (fabrication de)}																&	21			&	07 \\	
+\end{tabularx}
+\end{minipage}
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{xltabular}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{xltabular}
+\end{minipage}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements industriels} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Liquides halogénés (emploi de)}													&	21			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Liquides inflammables (dépôts, ateliers ou l'on emploie des)}			&	21			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Magnésium (fabrication, travail et depôts de)}								&	31			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Machines (salle des)}																	&	20			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Matières plastiques (fabrication de)}												&	51			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Menuiseries}																				&	50			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Métaux (traitement de)}									 							&	31--33	&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Moteurs thermiques (essai de)}									 					&	30			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Munitions (dépôts de)}									 								&	33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Nickel (traitement des minérais)}									 				&	33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Ordures ménagères (traitement d')}								 				&	53--54	&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Papiers (fabriques de)}													 				&	33--34	&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Papiers (dépôts de)}													 					&	31			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Parfum (fabrication et dépôts de)}													&	31			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Pâte à papiers (préparation de)}													&	34			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Peinture (fabrication et dépôts de)}												&	33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Plâtre (broyage et dépôts de)}														&	50			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Poudreries}																					&	55			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Produits chimiques (fabrication de)}												&	30--50	&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Raffinerie de pétrole}																	&	34			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Salaisons}																					&	33			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Savons (fabrication de)}																&	31			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Scieries}																						&	50			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Serrureries}																					&	30			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Silos à céréales ou à sucre}															&	50			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Soies et crins (préparation de)}														&	50			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Soude (fabrication et dépôts de)}													&	33			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Soude (traitement de)}																		&	51			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Spiritueux (entrepôts de)}																&	33			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Sucreries}																					&	55			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Tanneries}																					&	35			&	07 \\	
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Colonne précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements industriels} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Teintureries}																				&	35			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Textiles et tissus (fabrication de)}													&	51			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Vernis (fabrication et application de)}											&	33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Verreries}																					&	33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Zinc (travail du)}																			&	31			&	08 \\	
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements recevant du public (ERP)} \\
+\middashrule \\
+L 	& \multicolumn{3}{p{0.75\textwidth}}{Salles d'audition, de conférence, de réunion, de spectacles ou à usages multiples :} \\
+& salles																																	& 20			& 02--07 \\
+& cages de scènes																													& 20			& 08 \\
+& magasin de décors																												& 20			& 08 \\
+& locaux des perruquiers et des cordonniers																			& 20			& 07 \\
+M 	& \multicolumn{3}{p{0.8\textwidth}}{Magasins de vente, centres commerciaux :} \\
+& locaux de ventes																												& 20			& 08 \\
+& stockages et manipulations de matériels d'emballages															& 20			& 08 \\
+N	& Restaurants et débits de boissons																					& 20			& 02 \\
+O	& Hôtels et pensions de familles																							& 20			& 02 \\
+P	& Salles de danse et salles de jeux																						& 20			& 07 \\
+R 	& \multicolumn{3}{p{0.75\textwidth}}{\'Etablissements d'enseignement, colonies de vacances :} \\
+& salles	 d'enseignement																										& 20			& 02 \\
+& dortoirs																																& 20			& 07 \\
+S	&  Bibliothèques, centres de documentation																		& 20			& 02 \\
+T 	& \multicolumn{3}{p{0.75\textwidth}}{Expositions :} \\
+& halls et salles																														& 21			& 07 \\
+& locaux de réceptions de matériels et de marchandises															& 20			& 08 \\
+U 	& \multicolumn{3}{p{0.75\textwidth}}{\'Etablissements sanitaires :} \\
+& chambres																															& 20			& 02 \\
+& incinérations																														& 21			& 07--08 \\
+& blocs opératoires																												& 20			& 07 \\
+\end{tabularx}
+\end{minipage}
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{xltabular}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.49\textwidth}
+\begin{xltabular}{\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{xltabular}
+\end{minipage}
+\begin{minipage}[t]{0.49\linewidth}
+%\begin{threeparttable}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Page précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{\'Etablissements recevant du public (ERP)} \\
+\middashrule \\
+U 	& \multicolumn{3}{p{0.75\textwidth}}{\'Etablissements sanitaires :} \\
+& stérilisations centralisées																									& 24--25		& 02--07 \\
+& pharmacies et laboratoires avec plus de \SI{10}{\liter} de liquides inflammatoires				& 21--23		& 02--07 \\
+V & \'Etablissement de cultes 																									& 20				& 02 \\
+W & Administrations et banques																								& 20				& 02 \\
+X 	& \multicolumn{3}{p{0.75\textwidth}}{\'Etablissements sportifs couverts :} \\
+& Salles																																	& 21				& 07--08 \\
+& Locaux contenant des installations frigorifiques																	& 21				& 08 \\
+Y & Musées																															& 20				& 02 \\
+PA & \'Etablissement de plein air 																							& 25				& 08--10 \\
+CT & Chapiteaux et tentes 																										& 44($^1$)	& 08 \\
+SG & Structures gonflables 																									& 44				& 08 \\
+PS & Parc de stationnement couvert																						& 21				& 07--10 \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux communs aux établissements recevant du public} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Dépôts, réserve}																		&	20			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Locaux d'emballage}																&	20			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Locaux d'archive et de stockage}												&	20			&	02 \\	
+\multicolumn{2}{p{4.8cm}}{Films et supports magnétiques}												&	20			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Lingeries}																				&	21			&	02 \\	
+\multicolumn{2}{p{4.8cm}}{Blanchisseries}																			&	24			&	07 \\	
+\multicolumn{2}{p{4.8cm}}{Ateliers divers}																			&	21			&	07--08 \\	
+\multicolumn{2}{p{4.8cm}}{Cuisines (grandes)$^2$}													&				& \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux commerciaux, boutiques et annexes} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Armuries (réserves et ateliers d')}												&	31--33			&	08 \\	
+\multicolumn{2}{p{4.8cm}}{Blanchisseries (laveries)}															&	24					&	07 \\
+\end{tabularx}
+%\end{threeparttable}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{c X c c}
+\multicolumn{4}{l}{\small\textit{Colonne précédente}} \\
+\midrule
+\multicolumn{2}{c}{\thead{Type de\\local}}																				& \thead{IP}	& \thead{IK}  \\
+\midrule
+\multicolumn{4}{p{0.95\textwidth}}{Locaux commerciaux, boutiques et annexes} \\
+\middashrule \\
+\multicolumn{2}{p{4.8cm}}{Boucherie :}																				& 					&  \\
+ & Boutique																															& 24				& 07 \\
+ & Chambre froide																													& 23				& 07 \\
+\multicolumn{2}{p{4.8cm}}{Boulangerie-pâtisserie (fournil)}												&	50				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Brûlerie cafés}																		&	21				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Charbon, bois, mazout}																&	20				&	08 \\
+\multicolumn{2}{p{4.8cm}}{Charcuterie (fabrication de)}														&	24				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Confiserie (fabrication de)}														&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Cordonnerie}																			&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Crèmerie, fromagerie}															&	24				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Droguerie, peinture (réserve de)}											&	33				&	07 \\
+\multicolumn{2}{p{4.8cm}}{\'Ebenisterie, menuiserie}														&	50				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Exposition, galerie d'art}														&	20				&	02--07 \\
+\multicolumn{2}{p{4.8cm}}{Fleuriste}																				&	24				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Fourrure}																				&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Fruits et légumes}																&	24				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Graineterie}																			&	50				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Libraire, papeterie}																&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Mécanique, accessoires de motos et vélos}							&	20				&	08 \\
+\multicolumn{2}{p{4.8cm}}{Messageries}																		&	20				&	08 \\
+\multicolumn{2}{p{4.8cm}}{Meuble (antiquités et brocantes de)}										&	20				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Miroiterie (atelier de)}															&	20				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Papiers peints (réserve de)}													&	21				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Parfumerie (réserve de)}														&	31				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Pharmacie (réserve de)}														&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Photographie (laboratoire de)}												&	23				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Plomberie et sanitaire (réserve de)}										&	20				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Poissonnerie}																		&	20				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Pressing et teinturerie}															&	23				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Quincaillerie}																		&	20				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Serrurerie}																			&	20				&	07--08 \\
+\multicolumn{2}{p{4.8cm}}{Spiritueux, vins et alcools (caves de stockages de)}				&	23				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Tapissier (cardage de)}															&	50				&	07 \\
+\multicolumn{2}{p{4.8cm}}{Tailleur, vêtement (réserve de)}											&	20				&	02 \\
+\multicolumn{2}{p{4.8cm}}{Toilette animaux, clinique vétérinaire}									&	35				&	07 \\
+\bottomrule
+\end{tabularx}
+\end{minipage}
+\begin{minipage}[b]{0.49\textwidth}
+\begin{threeparttable}
+\begin{tabularx}{\textwidth}[b]{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] IP24 - IK08 pour les luminaires\,;
+    \item[2] Se reporter au guide spécialisé UTE C15-201.
+\end{tablenotes}
+\end{threeparttable}
+\end{minipage}
+
+%\end{document}
+

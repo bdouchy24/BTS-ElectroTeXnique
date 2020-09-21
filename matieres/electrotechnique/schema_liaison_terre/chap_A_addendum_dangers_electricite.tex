@@ -1,0 +1,249 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Informations complémentaires sur les dangers de l'électricité}
+
+Cette annexe regroupe des données complémentaires mentionnées dans le \superref{chap:dangers_electricite}. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toute précision concernant ce chapitre.
+
+\section{\'Etat des lieux de la prévention des risques électriques\label{sec:etat_lieux_prevention_electrique}}
+
+\section{Statistiques}
+
+\subsection{Accidents d'origine électrique}
+
+Les accidents du travail d'origine électrique diminuent depuis la mise en place du décret du 14 novembre 1962 qui attrait à la protection des travailleurs contre les dangers de l'électricité. Entre 1962 et 2000, le nombre d'incidents a baissé de 74\%. 
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+/pgf/number format/.cd, use comma, 1000 sep={\,}, %format numérique européen
+date coordinates in=x,
+axis x line=bottom, axis y line = left,
+xmin=1975-01-01,
+xmax=2005-12-31,
+ymin=0,
+ymax=3100,
+legend cell align={left},
+no markers,
+grid=major,
+ytick={0, 500, 1000, 1500, 2000, 2500, 3000},
+xtick={1975-01-01, 1980-01-01, 1985-01-01, 1990-01-01, 1995-01-01, 2000-01-01, 2005-01-01},
+title={Variation du nombre d'accidents du travail d'origine électrique},
+height=8cm,width=\linewidth,
+ylabel={Nombre d'accidents},
+legend entries={Accidents avec arrêt, Accidents graves, Accidents mortels},
+xticklabel={\year},
+]
+
+\addplot[mark=none]table{donnees_accident_arret.txt};
+\addlegendentry{Accidents avec arrêt};
+\addplot[mark=none, red]table{donnees_accident_grave.txt};
+\addlegendentry{Accidents graves};
+\addplot[mark=none, blue]table{donnees_accident_mortel.txt};
+\addlegendentry{Accidents mortels};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Secteurs les plus atteints}
+
+Durant l'année 2008, on dénombrait 771 accidents d'origine électrique. Les secteurs les plus touchés sont : 
+\begin{description}
+\item[30\% :] bâtiment et travaux publics,\;
+\item[17\% :] métallurgie,\;
+\item[16\% :] service et travail temporaire,\;
+\item[11\% :] alimentation.
+\end{description}
+
+\subsection{Facteurs principaux}
+
+Les principaux facteurs ayant causé l'accident sont :
+\begin{description}
+\item[31\% :] mode opératoire inapproprié ou dangereux\,;
+\item[15\% :] application incomplète\,;
+\item[12\% :] formation insuffisante\,;
+\item[12\% :] état du matériel\,;
+\item[11\% :] état du sol.
+\end{description}
+
+\subsection{Type de contact}
+
+\begin{description}
+\item[75\% :] contact direct\,;
+\item[20\% :] contact indirect\,;
+\item[5\% :] non précisé.
+\end{description}
+
+\subsection{Type de dommages}
+
+Ces statistiques sur plusieurs années sont relativement constantes. Elles précisent que :
+\begin{description}
+\item[60\% :] brûlures\,;
+\item[$\approx$ 33\% :] localisation multiples (les yeux, les membres supérieurs et les mains sont les plus touchés)\,;
+\item[5\% :] lésions internes.
+\end{description}
+
+\subsection{Conclusion}
+
+On peut conclure de ces statistiques que depuis une trentaine d'années, le nombre d'accidents dus à l'électricité :
+\begin{itemize}
+\item diminue régulièrement\,;
+\item demeurent particulièrement graves.
+\end{itemize}
+
+Le risque d'accidents est certe mieux maitrisé qu'auparavant mais il reste toujours présent.
+
+\section{Différents effets du courant électriques\label{sec:effet_courant_électrique}}
+
+\subsection{Effet thermique}
+
+Il est admis que les brûlures électriques peuvent apparaitre à des intensités relativement faibles ($\approx \SI{10}{\milli\ampere}$), si le contact est maintenu quelques minutes
+
+\subsection{Effet tétanisant}
+
+Lorsque la tension est alternatif, les muscles se situant sur le trajet du courant électrique se contractent. Cet effet, surtout s'il s'agit des muscles de la main, peuvent empêcher tout dégagement volontaire de la victime. Pour l'extraire de cette situation, il convient de stopper le contact crispé en la poussant à l'aide d'un objet non conducteur.
+
+\subsection{Effets respiratoires et circulatoires}
+
+Les muscles respiratoires pouvant également être crispés par le courant, il suffit de \SI{60}{\second} pour bloquer la respiration. Cela provoque une asphyxie, appelée également \emph{syncope blanche}.\\
+Une fibrillation ventriculaire se manifeste également pour les mêmes ordres de grandeurs. C'est le résultat de la contraction anarchiques des fibrilles du muscle cardiaque. Ces battements du c\oe{}ur rapides et désordonnés ne permettent plus d'assurer une circulation sanguine adéquate et provoque ainsi une syncope cardiaque, appelée aussi \emph{syncope blanche}. Une défibrillation devient indispensable pour stopper cet effet du courant.\\
+Au-delà d'un \SI{1}{\ampere}, le courant entraîne un arrêt cardiaque par asystolie, une absence de battements cardiaques sur laquelle une défibrillation n'est pas recommandée.\\
+Les lésions cardiaques diffèrent selon certain paramètres, ces information peuvent aider les premiers secours à axer leurs interventions en situation d'extrême urgence : 
+\begin{description}
+\item[basse tension :] effet excito-moteur et fibrillation ventriculaire\,;
+\item[haute tension :] effet joule et asystolie\,;
+\item[foudre :] sidération myocardique (dysfonction des contractions du c\oe{}ur difficilement prise en charge).
+\end{description}
+
+Lors de la prise en charge d'un patient électrisé, il convient de bien suivre celui-ci sur plusieurs jours car les risques de malaises cardiaques dûs au choc électrique peuvent ressurgir durant une période plus ou moins longue selon les conditions d'électrisation.
+
+\section{Descriptifs des moyens de protections contre les contacts directs}
+
+Les différents moyens de protections sont ici décrits en profondeur à titre informatif.
+
+\subsection{Très basse tension\label{subsec:TBT}}
+
+Il existe trois types de TBT selon la classification du lieux et la nature du courant.
+
+\subsubsection{Principe}
+
+\paragraph{Très Basse Tension de Sécurité (ou Séparation)} Alimentation basse tension ou il n'existe aucun point commun entre le primaire et le secondaire du transformateur, utilisée pour alimenter des appareillages situés dans des locaux humides.
+\paragraph{Très Basse Tension de Protection} Alimentation basse tension ou il existe un point commun entre le commun du secondaire et le conducteur de protection, utilisée pour alimenter des machines-outils et automatisme. La liaison du commun au conducteur de protection du secondaire permet d'éviter les mises en marche intempestives pouvant survenir après deux défauts de masse consécutifs dans une commande de machine (alimentation possible d'une bobine de contacteur via la carcasse de l'armoire de commande).
+\paragraph{Très Basse Tension Fonctionnelle} Alimentation basse tension ou il existe plusieurs point commun entre le primaire et le secondaire du transformateur (autotransformateur), utilisée pour alimenter des appareillages ne requérant pas d'exigences de sécurité autre qu'une tension nominale de fonctionnement spécifique.
+
+\subsubsection{Architecture}
+
+\newpage
+
+\input{tab_type_TBT}
+
+\newpage
+
+\subsection{Indice de protection\label{subsec:indice_protection}}
+
+L'indice de protection (IP) est composé de deux chiffres (et parfois d'une ou deux lettres) et caractérise le degré de protection procuré par une enveloppe contre la pénétration de corps étrangers (1\ier chiffre) et d'eau (2\ieme chiffre). Cet indice est souvent accompagné d'un indice contre les chocs mécaniques IK.\\
+Lorsqu'un des deux indice n'est pas déterminé, il est remplacé par la lettre " x ".
+
+\begin{minipage}[t]{0.59\linewidth}
+\begin{table}[H]
+\caption{Descriptif de l'indice contre les chocs mécanique IK\label{tab:signes_mathematiques}}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\linewidth}{p{0.5cm} m{3cm} J C C}
+\toprule
+\thead{IK}		& \thead{Tests}										& \multicolumn{1}{c}{\thead{\'Energie}}		& \thead{AG\tnote{1}}		& \thead{Ancien\\IP} 	\\
+\midrule
+00 				& 																& \SI{0}{\joule}		& 										& 0							\\
+01 				& \includegraphics[scale=1]{K1.png}		& \SI{0,15}{\joule}	& 										& 								\\
+02 				& \includegraphics[scale=1]{K1.png}		& \SI{0,20}{\joule}	& 	AG1								& 1							\\
+03 				& \includegraphics[scale=1]{K3.png}		& \SI{0,35}{\joule}	& 										& 								\\
+04 				& \includegraphics[scale=1]{K4.png}		& \SI{0,50}{\joule}	& 										& 3							\\
+05 				& \includegraphics[scale=1]{K5.png}		& \SI{0,70}{\joule}	& 										& 								\\
+06 				& \includegraphics[scale=1]{K6.png}		& \SI{1}{\joule}		& 										& 								\\
+07 				& \includegraphics[scale=1]{K7.png}		& \SI{2}{\joule}		& 	AG2								& 5							\\
+08 				& \includegraphics[scale=1]{K8.png}		& \SI{5}{\joule}		& 	AG3								& 								\\
+08 				& \includegraphics[scale=1]{K8.png}		& \SI{5}{\joule}		& 	AG3								& 								\\
+09 				& \includegraphics[scale=1]{K9.png}		& \SI{10}{\joule}		& 	AG3								& 								\\
+10 				& \includegraphics[scale=1]{K10.png}	& \SI{20}{\joule}		& 	AG4								& 								\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] Corresponsdances avec le code AG de la classification des influences externes issu de la norme NF C 15-100.
+\end{tablenotes}
+\end{threeparttable} %note dans tableau
+\end{table}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.39\linewidth}
+\begin{table}[H]
+\caption{Lettre additionnelle sur les informations supplémentaires}
+\begin{tabularx}{\linewidth}{P{1.5cm} X}
+\toprule
+\thead{Lettre}		& \thead{Signification} \\
+\midrule
+f							& Résistant aux huiles \\
+\addlinespace
+H							& Appareil à haute tension \\
+\addlinespace
+M							& Appareil en déplacement durant le test à l'eau \\
+\addlinespace
+S							& Appareil immobile durant le test à l'eau \\
+\addlinespace
+W							& Conditions environnementales spécifiées \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{minipage}
+
+\newpage
+\begin{landscape}
+\newpage
+
+\input{tab_descriptif_IP}
+
+\newpage
+\end{landscape}
+\newpage
+
+\subsubsection{Classification des locaux selon l'IP}
+
+Selon les locaux à équiper, leurs emplacements et les conditions particulières d'installation, la norme NF C 15-100 indique une protection minimale spécifiée par les indices IP et IK.
+
+\input{tab_classification_locaux_IP}
+
+\subsection{Transformateur d'isolement\label{subsec:tranformateur_isolement}}
+
+Le \emph{transformateur d'isolement} a pour but d'isoler l'utilisateur du réseau électrique. On le retrouve généralement dans les salles de bains d'ERP tels que les hôtels, intégré aux sèches-cheveux et rasoirs muraux.\\ 
+
+\input{fig_transformateur_isolement}
+
+Le secondaire de ce type de transformateur ne doit pas être relié à la terre et isolé \emph{galvaniquement} du primaire, c'est-à-dire qu'il n'y a aucune liaison électrique entre les deux bobinages du transformateur. Le tout afin que le corps humain n'offre pas de chemin pour que le courant effectue une boucle et revienne au transformateur d'où il vient, la différence de potentiel entre la terre et les conducteurs de phase et neutre est alors nulle.\\Cette situation est analogue à celle d'un oiseau perché sur une ligne électrique, tant qu'il ne touche pas deux conducteurs électriques en même temps,  celui-ci ne risque rien.
+
+\section{Descriptifs des moyens de protection contre les contacts indirects\label{sec:moyens_protection_contacts_indirects}}
+
+Pour protéger les biens et les personnes contre les contacts indirects, on associe trois spécificités de l'installation électrique qui sont la MALT des appareils et structures conductrices, la prise de terre de l'installation électrique et l'usage d'un DDR. Cette association, selon le type de branchement, formera les \emph{schéma de liaison à la terre} (SLT), mais la classe des appareils électriques peut également constituer un moyen de protection contre les contacts indirects.
+
+\subsection{Mise à la terre des appareils et structures conductrices}
+
+
+
+%\end{document}

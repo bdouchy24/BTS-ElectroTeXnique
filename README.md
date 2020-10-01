@@ -14,19 +14,12 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 ## Pré-requis
 
-0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter le code **commenté avec soin** du cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` est nécessaire. 
-Divers documents pour tous les niveaux sont disponibles dans la base de données, avec entre autre : 
+0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter les codes **commenté avec soin** des cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` et schéma de liaison à la terre en électrotechnique `matieres/electrotechnique/schema_liaison_terre` est nécessaire. 
+Divers documents de tutoriel pour tous les niveaux sont disponibles dans la base de données, avec entre autre : 
     - `base_de_donnees/latex/masson-fiches_latex/...`
     - `base_de_donnees/latex/goulet-redaction_latex.pdf`
     
-1. Installer 
-	- LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/)
-	- Editeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html)
-	- Programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net)
-	- Editeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/)
-	- Extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/)
-	- Logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr)
-	- S'inscrire sur le site d'éditeur de dessin Tikz (code de dessin LaTeX) [Mathcha](https://www.mathcha.io/editor)
+1. Installer LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/), l'éditeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html), le programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net), l'éditeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/), l'extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/) et le logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr).
 
 2. Bien paramétrer l'éditeur Texmaker :
 
@@ -79,7 +72,7 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
 		- graph_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> graphique
 
 
-4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier mais pas la sous-programmation en elle-même pour regrouper toutes les programmations et sous-programmations dans un seul dossier et éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
+4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier MAIS pas la sous-programmation en elle-même, pour regrouper toutes les programmations et sous-programmations dans un seul dossier. Cela permettra d'éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
     - se référer au cours déjà construits et validés pour les sous-programmations-types à suivre (tableau, figure, graphe...);
     - pour structurer son texte et les listes, se référer au cours déjà écrit et à la nomenclature approuvée tous ensemble avec entre autre (dès que vous éditez une nouvelle règle de nomenclature, consulter la team et l'écrire dans la liste suivante) :
         - `\\` + un seul retour à la ligne : nouveau sujet dans le même paragraphe
@@ -135,9 +128,7 @@ le préambule une fois la programmation appelée dans le document maître
 
 1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz et en s'inspirant des graphiques déjà construit) pour conserver une unité graphique. 
 
-2. Pour la création de figures plus complexes (diagramme, schéma...), utiliser l'éditeur [Mathcha](https://www.mathcha.io/editor) pour réaliser des figures de façon WYSIWYG importable en code modifiable dans LaTeX (environnement PGF-Tikz). Très gros gain de temps !!
-
-3. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{}` pour que le séparateur décimal soit une virgule et non un point :
+2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{}` pour que le séparateur décimal soit une virgule et non un point :
 
 ```
 \addplot[]
@@ -146,7 +137,7 @@ table[/pgf/number format/read comma as period]{donneesdugraphique.txt};
 
 ## Diaporama
 
-1. Installer le thème du diaporama Metropolis "mtheme" en respectant l'arborescence des fichiers.
+1. Installer le thème du diaporama Metropolis "mtheme" en respectant l'arborescence des fichiers dans le dossier `texlive/2020/texmf-dist/tex/latex`.
 
 2. Se référer au canevas du diaporama pour analyser les différentes diapositives possibles.
 

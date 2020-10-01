@@ -19,7 +19,14 @@ Divers documents pour tous les niveaux sont disponibles dans la base de données
     - `base_de_donnees/latex/masson-fiches_latex/...`
     - `base_de_donnees/latex/goulet-redaction_latex.pdf`
     
-1. Installer LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/), l'éditeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html), le programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net), l'éditeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/), l'extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/) et le logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr).
+1. Installer 
+	- LaTeX avec la distribution [TexLive](https://www.tug.org/texlive/)
+	- Editeur [Texmaker](https://www.xm1math.net/texmaker/index_fr.html)
+	- Programme de gestion des bibliographie [Biber](http://biblatex-biber.sourceforge.net)
+	- Editeur d'image en format vectoriel [Inkscape](https://inkscape.org/fr/)
+	- Extracteur de données issues de graphiques [WebPlotDigitzer](https://automeris.io/WebPlotDigitizer/)
+	- Logiciel de géométrie [Geogebra](https://www.geogebra.org/?lang=fr)
+	- S'inscrire sur le site d'éditeur de dessin Tikz (code de dessin LaTeX) [Mathcha](https://www.mathcha.io/editor)
 
 2. Bien paramétrer l'éditeur Texmaker :
 
@@ -128,7 +135,9 @@ le préambule une fois la programmation appelée dans le document maître
 
 1. Maximiser au possible les programmations sous LaTeX pour les figures (en utilisant la couche PGF-Tikz et en s'inspirant des graphiques déjà construit) pour conserver une unité graphique. 
 
-2. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{}` pour que le séparateur décimal soit une virgule et non un point :
+2. Pour la création de figures plus complexes (diagramme, schéma...), utiliser l'éditeur [Mathcha](https://www.mathcha.io/editor) pour réaliser des figures de façon WYSIWYG importable en code modifiable dans LaTeX (environnement PGF-Tikz). Très gros gain de temps !!
+
+3. Pour les graphiques, extraire les données à l'aide de WebPlotDigitzer dans un fichier "donneesdugraphique.csv" qui sera converti en "donneesdugraphique.txt" pour importer ces données dans un graphique codé sous PGF-Tikz et conserver ainsi l'unité graphique (légende, référençage...). Modifiez les réglages d'exportation pour que le séparateur de colonnes soit un espace et les réglages de `\addplot table[]{}` pour que le séparateur décimal soit une virgule et non un point :
 
 ```
 \addplot[]

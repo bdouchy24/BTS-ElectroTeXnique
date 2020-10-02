@@ -27,13 +27,13 @@
     text width=1.3cm,
     text height=5.5cm,
     align=center,
-    anchor=north east
+    anchor=north west
   ] 
-  at ($ (current page.north east) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
+  at ($ (current page.north west) + (-0cm,-2*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
     {\rotatebox{90}{\hspace*{.3cm}%
       \parbox[c][0.9cm][t]{5cm}{%
         \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
-  \end{tikzpicture}}}%
+  \end{tikzpicture}}}
   }
   {\backgroundsetup{contents={%
   \begin{tikzpicture}[overlay,remember picture]
@@ -45,13 +45,13 @@
     text width=1.3cm,
     text height=5.5cm,
     align=center,
-    anchor=north west
+    anchor=north east
   ] 
-  at ($ (current page.north west) + (-0cm,-4.5*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
+  at ($ (current page.north east) + (-0cm,-2*\thechapshift cm) $) %nombre négatif = espacement des marqueurs entre les différents chapitres (à régler en fin de rédaction) (4.5cm vaut un espacement équivalement à la hauteur du marqueur, une page peut en contenir 6 avec cet espacement-la mais il est le plus équilibré)
     {\rotatebox{90}{\hspace*{.3cm}%
       \parbox[c][0.9cm][t]{5cm}{%
         \raggedright\textcolor{black}{\sffamily\textbf{\leftmark}}}}};
-  \end{tikzpicture}}}
+  \end{tikzpicture}}}%
   }
   \BgMaterial%
   \fi%

@@ -43,9 +43,7 @@
 
 \frontmatter
 
-\openleft %début de chapitre à gauche
 \Framefalse %défini la booléenne Frame comme faux
-\Invnumtrue %défini la booléenne Invnum comme vrai -> inversion des numéros de pages
 
 	%--------------------------------------
 	%page de couverture et de titre
@@ -57,6 +55,7 @@
 
 	\pagestyle{plain} %style de page avec en-tête et pied-de-page
 	\pagenumbering{roman}
+	\openany
 	
 	%--------------------------------------
 	%listes de contenus
@@ -64,18 +63,18 @@
 	
 	{\hypersetup{linkcolor=black}\tableofcontents} %table des matières en noir
 	\newpage
-	{\hypersetup{linkcolor=black}\listoftables} %liste des figures en noir
+	{\hypersetup{linkcolor=black}\listoftables} %liste des tableaux en noir
 	\newpage
-	{\hypersetup{linkcolor=black}\listoffigures} %liste des tableaux en noir
+	{\hypersetup{linkcolor=black}\listoffigures} %liste des figures en noir
 	{\hypersetup{linkcolor=black}\listofequations} %liste des équations en noir
+	
+	\openright %début de chapitre à "droite" mais comme demarrage de la numérotation inversé avec la page de titre, ça décale l'ouverture des chapitre à gauche
 
 	%--------------------------------------
 	%inclusion du chapitre d'introduction
 	%--------------------------------------
-
+	
 	\input{chap_0_preface}
-
-	\let\cleardoublepage\clearpage %supprime une page blanche en cas double page avant le corps du texte
 	
 %--------------------------------------
 %corps de texte, annexes
@@ -84,25 +83,21 @@
 \mainmatter
 
 \Frametrue %défini la booléenne Frame comme vrai -> marqueurs de chapitre
-\Invnumfalse %défini la booléenne Invnum comme faux
-
+	
 	%--------------------------------------
 	%inclusion des chapitres
 	%--------------------------------------
 
 	\include{chap_1_chimie_atomique}
-	%\include{chap_2_chimie_conduction_electrique}
+	\include{chap_2_chimie_conduction_electrique}
 
 	%--------------------------------------
 	%style des annexes
 	%--------------------------------------
 
+	\Framefalse %défini la booléenne Frame comme false -> pas de marqueurs de chapitre
 	\appendix %appel des annexes
-	\clearpage\Framefalse %défini la booléenne Frame comme false -> pas de marqueurs de chapitre
-	\openany
-	\thispagestyle{empty}\null\clearpage %force la page titre des annexes à s'afficher sur la droite si ça n'est pas le cas
-	\appendixpage %page de titre des annexes
-	\openleft
+	\appendixpage
 
 	%--------------------------------------
 	%inclusion des chapitres

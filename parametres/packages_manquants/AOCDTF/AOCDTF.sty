@@ -14,6 +14,7 @@
 
 	\usepackage[french]{babel}
 	\usepackage[T1]{fontenc}
+	\usepackage[french]{translator}
 	\usepackage{lmodern, marvosym, microtype, expl3} %gestion fine des police de caractère
 	\usepackage[table, svgnames, dvipsnames, x11names]{xcolor} %gestion des couleurs
 	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référençage
@@ -24,20 +25,20 @@
 	\usepackage{authblk, tocbibind, calc, mdframed} %gestion mise en page
 	\usepackage{xifthen, multido, etoolbox, ifpdf} %appel de fonction conditionnelles
 	\usepackage{newtxmath, mathtools, amsfonts, amssymb, mathrsfs, wasysym} %écriture des mathématiques avec référénces
-	\usepackage{chemfig, bohr, tikzorbital, chemgreek, expl3, xparse, l3keys2e, xargs, verbatim} %gestion de l'écriture en chimie
+	\usepackage{chemfig, bohr, tikzorbital, chemgreek, expl3, xparse, l3keys2e, xargs} %gestion de l'écriture en chimie
 	\usepackage[version=4]{mhchem}
 	\usepackage{modiagram} %orbitale atomique
 	\usepackage{cancel, colortbl, soul} %packages nécessaires pour le chargement du package SIunitx
 	\usepackage{siunitx, xfrac} %gestion des unités de physique
 	\usepackage[export]{adjustbox}
-	\usepackage{animate} %animation d'image
+	\usepackage{animate, multimedia, media9} %animation d'image
 	\usepackage{subcaption, capt-of} %gestion des sous-figures et des légendes communes
 	\usepackage{enumitem} %mise en page type code informatique et listes
-	\usepackage{verbatim} %mise en page type code informatique et listes
+	\usepackage{verbatim, fancyvrb} %mise en page type code informatique et listes
 	\usepackage{rotating, mdframed} %rotation
 	\usepackage[scale=1,angle=0,opacity=1,contents={}]{background} %gestion de l'arrière-plan 
 	\usepackage{xspace, xpatch, letltxmacro} %macros de luxe
-	\usepackage{pgf, tikz, tikz-qtree, pgfplots, pgfplotstable, schemabloc} %création de figures et schémas
+	\usepackage{pgf, tikz, tikz-qtree, pgfplots, pgfcalendar, pgfgantt, pgfplotstable, schemabloc} %création de figures et schémas
 	\usepackage{pdfpages, scrbase} %inclusion des PDF
 	\usepackage{xstring, multirow, booktabs, makecell, longtable, arydshln, xltabular, xtab, tabu} %gestion fine des tableaux (sans \ltablex !)
 	\usepackage[siunitx, european, RPvoltages]{circuitikz}%création de schémas électriques
@@ -232,6 +233,16 @@
   {}
 \makeatother
 
+\newcounter{myWeekNum}
+\stepcounter{myWeekNum}
+%
+\newcommand{\myWeek}{\themyWeekNum
+    \stepcounter{myWeekNum}
+    \ifnum\themyWeekNum=53
+    \setcounter{myWeekNum}{1}
+    \else\fi
+}
+
 \newcommand*{\superref}[1]{\hyperref[{#1}]{\autoref*{#1} \autopageref*{#1}}} %liens avec page et titre
 
 \definecolor{orangelogo}{RGB}{249,125,0} %couleur orange du logo
@@ -303,14 +314,14 @@
 	\newlength{\conditionwd} %environnement de description "muibene" pour les équations et les formules
 	\newenvironment{numvariables}
   		{Avec :\newline\newline\tabularx{\textwidth}[t]{
-			>{$}l<{$} @{${}:\enspace{}$}X l >{$(\enspace{}}l<{\enspace{})$} M}
+			j @{${}:\enspace{}$}X r >{$(\enspace{}}l<{\enspace{})$} O}
 			\multicolumn{2}{c}{\thead{Grandeur dans l'ISQ}} & \multicolumn{2}{c}{\thead{Unité SI de mesure}} & \multicolumn{2}{c}{\thead{Valeur}} \\
 			\midrule}	%preambule du tableau à 5 colonnes
 		{\endtabularx\\[\belowdisplayskip]}
 		
 	\newenvironment{textvariables}
   		{Avec :\newline\newline\tabularx{\textwidth}[t]{
-			>{$}l<{$} @{${}:\enspace{}$}X l >{$(\enspace{}}l<{\enspace{})$} X}
+			j @{${}:\enspace{}$}X r >{$(\enspace{}}l<{\enspace{})$} X}
 			\multicolumn{2}{c}{\thead{Grandeur dans l'ISQ}} & \multicolumn{2}{c}{\thead{Unité SI de mesure}} & \thead{Description} \\
 			\midrule}	%preambule du tableau à 5 colonnes
 		{\endtabularx\\[\belowdisplayskip]}
@@ -324,9 +335,7 @@
 		\DeclareNewFloatType{equa}{placement=tbh,fileext=loe} %fileext=extension
 		\floatname{equa}{\textsc{\'Eq}} 
 
-		\newcommand{\listofequations}{%
-		\listof{equa}{Liste des équations}\addcontentsline{toc}{chapter}{Liste des équations}%
-		}
+		\newcommand{\listofequations}{\listof{equa}{Liste des équations}\addcontentsline{toc}{chapter}{Liste des équations}}
 
 	%--------------------------------------
 	%macros pour les listes
@@ -374,47 +383,28 @@
 	%En-tête et pied-de-page
 	%--------------------------------------
 
-	\newif\ifInvnum\Invnumtrue %énorme prise de tête pour que les numéros de page de l'introduction soient disposés inversement au restant du document
-
 	\pagestyle{plain}{} %réglage de la présence d'en-tête et de pied-de-page 
 	\makeevenhead{plain}{}{}{} %en-tête page paire 
 	\makeoddhead{plain}{}{}{} %en-tête page impaire 
-	\makeevenfoot{plain}{%
-		\ifInvnum %instruction conditionelle selon la booleenne Invnum
-		\else %si Invnum faux
-			{\ifFrame %instruction conditionelle selon la booleenne Frame
-				\begin{tikzpicture}
-					\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
-				\end{tikzpicture}
-			\else
-				\sffamily\textbf{\thepage}
-			\fi}
-		\fi}
+	\makeevenfoot{plain}{}
 	{\includegraphics[scale=0.03]{logo_compagnons}}
-	{%
-		\ifInvnum %instruction conditionelle selon la booleenne Invnum
-			\sffamily\textbf{\thepage} %si Invnumtrue
+	{\ifFrame %instruction conditionelle selon la booleenne Frame
+			\begin{tikzpicture}
+				\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
+			\end{tikzpicture}
 		\else
+			\sffamily\textbf{\thepage}
 		\fi} %pied-de-page page paire
 
-	\makeoddfoot{plain}{%
-		\ifInvnum 
-			\sffamily\textbf{\thepage} %si Invnumtrue
-		\else
-		\fi}
+	\makeoddfoot{plain}{\ifFrame %instruction conditionelle selon la booleenne Frame
+		\begin{tikzpicture}
+			\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
+		\end{tikzpicture}
+	\else
+		\sffamily\textbf{\thepage}
+	\fi}
 	{\includegraphics[scale=0.03]{logo_compagnons}}
-	{%
-		\ifInvnum %instruction conditionelle selon la booleenne Invnum
-		\else %si Invnum faux
-			{\ifFrame %instruction conditionelle selon la booleenne Frame
-				\begin{tikzpicture}
-					\draw node [rounded corners=3pt, draw=\BoxColor, fill=\BoxColor, text=black, inner xsep=2ex, inner ysep=5pt]{\sffamily\textbf{\thepage}};
-				\end{tikzpicture}
-			\else
-				\sffamily\textbf{\thepage}
-			\fi}
-		\fi} %pied-de-page page impaire
-
+	{}
 	%--------------------------------------
 	%macros de mise en page
 	%--------------------------------------

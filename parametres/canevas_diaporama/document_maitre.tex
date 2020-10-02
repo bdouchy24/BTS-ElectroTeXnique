@@ -1,10 +1,11 @@
 %--------------------------------------
-%PROJET DE RECEPTION - DEFENSE DE PROJET
+%CANEVAS
 %--------------------------------------
 
 %--------------------------------------
 %appel de la classe de document et de ses options
 %--------------------------------------
+\PassOptionsToPackage{french}{translator}
 
 \documentclass[10pt]{beamer}
 
@@ -14,14 +15,29 @@
 %données du document
 %--------------------------------------
 
-\title{Matière}
-\subtitle{Cours}
-\author{Auteur}
-\date{\footnotesize{Édition \the\year.\the\month}}
+\title{Matière} %inscrire le nom de la matière ici
+
+\subtitle{Cours} %inscrire le nom du cours ici
+
+\date{
+\begin{minipage}{0.49\textwidth}
+\footnotesize{Édition \the\year.\the\month}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\textwidth}
+\raggedleft{\footnotesize{Prénom1 \textsc{Nom1}}} %inscrire le nom de l'auteur ici
+\end{minipage}}
+
 \institute{
+\begin{center}
+\begin{large}
+\textsc{BTS \'Electrotechnique} %inscrire le nom de la formation ici
+\end{large}
+\end{center}
+\vspace{0.3cm}
 \flushleft{Association Ouvrière des Compagnons du Devoir et du tour de France}
-\\
 \flushright{Métiers des technologies associées}}
+
 \titlegraphic{
 \begin{tikzpicture}[overlay, remember picture]
 		\begin{scope}[shift={(current page.south west)}]

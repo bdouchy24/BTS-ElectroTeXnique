@@ -40,7 +40,7 @@ Divers documents de tutoriel pour tous les niveaux sont disponibles dans la base
 
 4. Ajouter le package "AOCDTF" et les autres packages du dossier `/BTS-ElectroTeXnique/parametres/packages_manquants` dans le dossier contenant les packages `texlive/2020/texmf-dist/tex/latex` avec les docs correspondantes, se référer au tutoriel présent dans le même dossier "tutoriel_ajout_packages.pdf" (ne pas oublier de rafraichir la database).
 
-## Initiation de la programmation d'un nouveau cours
+## Initialisation de la programmation d'un nouveau cours
 
 1. Copier/coller le dossier `/parametres/canevas` pour créer un nouveau cours dans les dossiers /matieres/cours/... en renommant le dossier au nom du cours (matiere > cours > chapitre > sous-chapitre...).
 

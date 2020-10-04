@@ -14,7 +14,7 @@ Canevas de rédaction et support de cours destiné au (gros) chantier de créati
 
 ## Pré-requis
 
-0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter les codes **commenté avec soin** des cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` et schéma de liaison à la terre en électrotechnique `matieres/electrotechnique/schema_liaison_terre` est nécessaire. 
+0. Maitriser les bases de la programmation sous l'environnement LaTeX. Pour cela, prendre le temps de décrypter les codes **commentés avec soin** des cours de pré-requis en physique-chimie `matieres/physique-chimie/pre-requis` et schéma de liaison à la terre en électrotechnique `matieres/electrotechnique/schema_liaison_terre` est nécessaire. 
 Divers documents de tutoriel pour tous les niveaux sont disponibles dans la base de données, avec entre autre : 
     - `base_de_donnees/latex/masson-fiches_latex/...`
     - `base_de_donnees/latex/goulet-redaction_latex.pdf`

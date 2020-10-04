@@ -4,7 +4,7 @@
 
 ## Pour commencer
 
-Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF. Des directives de rédactions seront ajoutées au fur et à mesure de l'avancement du projet, pour standariser les productions au mieux et permettre de produire des documents de qualités.
+Canevas de rédaction et support de cours destiné au (gros) chantier de création de contenus pédagogiques pour les formations en électrotechnique octroyées à l'AOCDTF. Des directives de rédactions seront ajoutées au fur et à mesure de l'avancement du projet, pour standariser les cours au mieux et permettre de produire des documents de qualités.
 **Pour respecter au mieux la charte graphique, prendre le temps de bien décrypter les instructions ci-dessous est indispensable.**
 
 
@@ -79,7 +79,7 @@ Divers documents de tutoriel pour tous les niveaux sont disponibles dans la base
 		- graph_mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> graphique
 
 
-4. Si une sous-programmation demande des dossiers de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier MAIS pas la sous-programmation en elle-même, pour regrouper toutes les programmations et sous-programmations dans un seul dossier. Cela permettra d'éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
+4. Si une sous-programmation demande une liste importante de fichiers spécifiques (image, données brutes...), regrouper ces fichiers dans un sous-dossier MAIS pas la sous-programmation en elle-même, pour regrouper toutes les programmations et sous-programmations dans un seul dossier. Cela permettra d'éviter les arborescences foireuses pour les appels de sous-programmation dans les programmations maitres :
     - se référer au cours déjà construits et validés pour les sous-programmations-types à suivre (tableau, figure, graphe...);
     - pour structurer son texte et les listes, se référer au cours déjà écrit et à la nomenclature approuvée tous ensemble avec entre autre (dès que vous éditez une nouvelle règle de nomenclature, consulter la team et l'écrire dans la liste suivante) :
         - `\\` + un seul retour à la ligne : nouveau sujet dans le même paragraphe

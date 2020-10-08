@@ -244,6 +244,7 @@ Etablissement-Titre du document(-année-auteur)
 - Accent ou espace dans les noms de fichier ou de label => facile à retrouver;
 - Oubli de refermer les accolades ou parenthèse {} [] ; ... => les retrouver, celles qui se correspondent se surlignent quand on passe dessus, c'est pratique
 - Usage de la virgule à la place du point et inversement => les retrouver également;
+- Dans les tableaux, si l'on veut implémenter une liste d'item, utiliser des colonnes de type paragraph `p{Xcm}
 - Mauvaise appel de sous-programmation (nom du fichier ou arborescence...) => les retrouver, le log indique l'erreur;
 - Ligne trop longue et compilation qui crashe => copier/coller sur une nouvelle programmation vierge après avoir segmenté la ligne en question avec des `%`;
 - Compilation qui peuvent foirer la première fois => recompiler ou enregistrer, quitter et recopier.

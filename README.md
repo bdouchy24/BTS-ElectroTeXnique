@@ -114,7 +114,7 @@ Rédiger les équations pour les exemples, détails de calcul, dans l'environnem
         - fig:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      =>label figure
         - tab:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label tableau
         - pas:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)      => label pastille d'annotation                
-        - eq:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label équation
+        - form:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)       => label formule
 		- def:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)	=> label définition
 		- graph:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)    => label graphique
 

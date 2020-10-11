@@ -97,12 +97,14 @@ Divers documents de tutoriel pour tous les niveaux sont disponibles dans la base
 			- Voir les tableaux et les environnement mathématiques pour les canevas d'écritures
       		- Consulter le `package{SIunitx}` pour l’écriture de unités de physique et utiliser la commande `\SI{nombre}{unitéenanglais}` pour respecter l'espacement même dans les blocs de texte
 
-5. Rédiger les équations théoriques dans le nouvel environnement `\begin{equa}` qui va référencers les équations dans une liste d'équations et décrire les équations dans les nouveaux environnements `\begin{numvariables}`(description des variables numériquement) et `\begin{textvariables}` (description des variables mathématiquement).
-Rédiger les équations pour les exemples, détails de calcul, dans l'environnement `\begin{align}` ou `\begin{align*}` (pour éviter le référencement), dont dérive l'environnement `\begin{equa}` et qui permet d'aligner les équations sur le signe suivant `&` lors d'un retour à la ligne `\\` dans l'environnement.
+5. Rédiger les formules physique dans le nouvel environnement `\begin{Theorem}[Titre_formule_physique]` qui va référencers les formules dans une liste de formules et décrire les équations dans les nouveaux environnements `\begin{numvariables}`(description des variables numériquement) et `\begin{textvariables}` (description des variables mathématiquement).
+Rédiger les équations pour les exemples, détails de calcul, dans l'environnement `\begin{align}` ou `\begin{align*}` (pour éviter le référencement), dont dérive l'environnement `\begin{Theorem}` et qui permet d'aligner les équations sur le signe suivant `&` lors d'un retour à la ligne `\\` dans l'environnement.
 
-6. Pour les tableaux, il existe un grand nombre de types de colonnes personnalisées avec des usages spécifiques (pour les écritures mathématiques, pour le calcul automatique de la largeur des colonnes...), se référer au package AOCDTF.sty pour appréhender leur usage.
+6. Rédiger les définitions dans l'environnement `\begin{Definition}[Titre_définition]` qui va référencers les définitions dans une liste de définitions.
 
-7. Pour labeliser les sous-programmations (avec le même intitulé que les noms de fichier de ces sous-programmations quand c'est le cas), figures, équation... :
+7. Pour les tableaux, il existe un grand nombre de types de colonnes personnalisées avec des usages spécifiques (pour les écritures mathématiques, pour le calcul automatique de la largeur des colonnes...), se référer au package AOCDTF.sty pour appréhender leur usage.
+
+8. Pour labeliser les sous-programmations (avec le même intitulé que les noms de fichier de ces sous-programmations quand c'est le cas), figures, équation... :
     - \label{objet:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)} avec objet =
         
         - chap:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)     => label chapitre
@@ -117,11 +119,11 @@ Rédiger les équations pour les exemples, détails de calcul, dans l'environnem
 		- graph:mot-clé-général_mot-clé-précis(_mot-clé-plus-précis)    => label graphique
 
 
-8. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels.
+9. Ne pas oublier de référencer les sources à l'aide de la bibliographie que l'on alimente au fur et à mesure de la rédaction et d'inclure des liens de références internes à l'aide des labels.
 
-9. Vérifier dans package "AOCDTF.sty" toutes les macros qui ont pu y être ajoutées (bien souvent précédées d'une instruction type `\newcommand{nouvelleinstruction}{cequecette instructionexecute}`.
+10. Vérifier dans package "AOCDTF.sty" toutes les macros qui ont pu y être ajoutées (bien souvent précédées d'une instruction type `\newcommand{nouvelleinstruction}{cequecette instructionexecute}`.
 
-10. Une fois la rédaction de la sous-programmation effectuée, l'appeler dans sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}` qui permet de mettre en commentaire toute la portion de code se situant dans cet environnement et l'instruction `%` qui aura le même effet sur une ligne.
+11. Une fois la rédaction de la sous-programmation effectuée, l'appeler dans sa programmation maitre en suivant bien les consignes en début de programmation avec le `\package{comment}` qui permet de mettre en commentaire toute la portion de code se situant dans cet environnement et l'instruction `%` qui aura le même effet sur une ligne.
 
 ``` bash
 %utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire 
@@ -129,7 +131,7 @@ le préambule une fois la programmation appelée dans le document maître
 (!ne pas oublier de mettre en commentaire \end{document}!)
 ```
 
-11. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois avec le compilateur PDFLaTeX. Réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
+12. Une fois tout le cours rédigé, vérifier que la compilation du document maître du cours s'effectue correctement (bibliographie, position d'image, table des matières...), compiler plusieurs fois avec le compilateur PDFLaTeX. Réorganiser le document avec `\newpage` et `\pagebreak` si des images ou des parties de paragraphes doivent sauter une page (fonctionne aussi dans les tableaux avec la consigne `\noalign{\break}`). Pour forcer le placement de figures, utiliser la commande `\begin{figure}[h]`, `\begin{figure}[h!]` voire même `\begin{figure}[H]`.
 
 ## Charte graphique des figures
 

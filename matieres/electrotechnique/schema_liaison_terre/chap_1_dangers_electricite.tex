@@ -51,12 +51,11 @@ Basse Tension												& BT			& 50\volt < 		& \leq 1000\volt			& 120\volt < 		
 
 Les dégâts provoqués au corps humain par un choc électrique sont directement corrélés à l'énergie dissipée par ce choc. Cette énergie dissipée est définie par la \emph{loi de Joule}.
 
-\begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
-	\begin{align} 
+\begin{Theorem}[Loi de Joule]
+\begin{align}
 		W &= R \cdot I^{2} \cdot t
-	\end{align}
-\caption{Loi de Joule\label{eq:loi_joule}}
-\end{equa}
+\end{align}
+\end{Theorem}
 
 \begin{textvariables}
 R						& résistance										& ohm 						& \ohm								&\\
@@ -66,13 +65,11 @@ t						& durée												& seconde					& \second							&	\\
 
 La présence d'une tension électrique entraine toujours un risque de choc électrique mais il est peu aisé de déterminer un seuil de tension pour lequel le choc est dangereux car ce sont l'\emph{intensité} du courant $I$ traversant le corps et la \emph{durée} $t$ du choc électrique qui permettent de déterminer la probabilité de décès.\\
 
-\begin{equa} %environnement pour créer des équations référencées avec légendes alignée sur &=
-	\begin{align} 
+\begin{Theorem}[Probabilité d'électrocution]
+\begin{align}
 		I &= \frac{116}{\sqrt{t}}
-	\end{align}
-\caption{Valeur statistique du courant entrainant la mort en fonction de la durée}
-\label{eq:valeur_courant_mort}
-\end{equa}
+\end{align}
+\end{Theorem}
 
 \begin{textvariables}
 I						& courant électrique							& milliampère			& \milli\ampere					& 	Courant traversant le corps 	\\
@@ -248,9 +245,9 @@ ylabel={Résistance du corps humain $R$ en \si{\kilo\ohm}},
 
 \subsection{Contact direct}
 
-\subsubsection{Définition}
-
+\begin{Definition}[Contact direct]
 Contact des personnes avec les parties actives du matériel électrique (pièces ou conducteurs sous tension). La personne rentre en contact direct avec un élément sous tension suite à une négligence ou un non-respect des consignes de sécurité. Dans ce cas, l'électrocution ou l'électrisation sont la conséquence de cette maladresse ou négligence.
+\end{Definition}
 
 \subsubsection{Catégories}
 
@@ -316,26 +313,27 @@ Contact phase/neutre et phase/terre										&	Isolement par rapport au réseau 
 
 \subsection{Contact indirect}
 
-\subsubsection{Définition}
-
-\begin{description}
-\item[Contact indirect] Contact des personnes avec les masses métalliques mises accidentellement sous tension, généralement suite à un défaut d'isolement (déconnexion des fils, vieillissement ou rupture des isolants\ldots). Dans ce cas, la responsabilité de la personne n'est pas mise en jeu et l'électrisation (et électrocution) est la conséquence d'un défaut imprévisible.
-\item[Masse] Partie conductrice susceptible d'être touchée et manipulée par une personne et normalement isolée des éléments sous tension, qui peut toutefois être accidentellement portée à un potentiel dangereux.
-\end{description}
+\begin{Definition}[Contact indirect]
+Contact des personnes avec les masses métalliques mises accidentellement sous tension, généralement suite à un défaut d'isolement (déconnexion des fils, vieillissement ou rupture des isolants\ldots). Dans ce cas, la responsabilité de la personne n'est pas mise en jeu et l'électrisation (et électrocution) est la conséquence d'un défaut imprévisible.
+\end{Definition}
+\begin{Definition}[Masse\label{def:masse}]
+Une masse est la partie conductrice d'un appareil électrique susceptible d'être touchée par une personne, qui n'est normalement pas sous tension, mais qui peut le devenir en cas de défaut d'isolement des parties actives de ce matériel.
+\end{Definition}
 
 \subsubsection{Principe}
 
 \input{fig_contact_indirect}
 
-Ce type de contact peut apparaitre lorsque le neutre est relié à la terre (\emph{régime TT} et \emph{régime TN}) et qu'une masse métallique est mise accidentellement sous tension. Si cette masse est reliée à la terre, un courant de fuite $I_f$ va faire son apparition et sera potentiellement détecté par un DDR selon sa sensibilité, si celui-ci est présent et fonctionnel. \`A cause de la résistance de la prise de terre $R_t$, le courant de fuite $I_f$ et le potentiel des masses métalliques augmenteront progressivement avec le temps.\\
+Ce type de contact peut apparaitre lorsque le neutre est relié à la terre (\emph{régime TT} et \emph{régime TN}) et qu'une masse métallique est mise accidentellement sous tension. Si cette masse est reliée à la terre, un courant de fuite $I_f$ va faire son apparition et sera potentiellement détecté par un DDR selon sa sensibilité, si celui-ci est présent et fonctionnel. \`A cause de la résistance de la prise de mise à la terre $R_t$, le courant de fuite $I_f$ et le potentiel des masses métalliques augmenteront progressivement avec le temps.\\
 
 Le risque devient de plus en plus élevé, d'autant que le contact indirect est accidentel et les masses métalliques généralement manipulées franchement. \`A cela s'ajoute le fait que les conditions de contact peuvent également être défavorables (zones humides, pieds nus...), ce qui peut augmenter dangereusement l'intensité du courant traversant le corps.
 
 \subsubsection{Protection contre les contacts indirects}
 
-Il existe différents moyens de protections contre les contacts indirects qui varient selon les \emph{schémas de liaison à la terre} (SLT), qui seront détaillé en \superref{chap2:schémas_liaison_terre}. Le principal moyen pour ce faire en régime TT et TN est d'installer un DDR, associé obligatoirement à une \emph{prise de terre} du transformateur de l'installation électrique et une \emph{mise à la terre} (MALT) des matériels et structures conducteurs susceptibles d'être accidentellement mis sous tension. Ces deux spécificités de l'installation électrique permettront au courant de s'échapper vers la terre via la mise à la terre et former une boucle jusqu'à la prise de terre. Cela formera une boucle de \emph{courant de défaut} $I_d$ qui sera détecté par le DDR, qui, selon le type de protection exigé, jouera un rôle de protection des personne (signalement de défaut et/ou coupure de l'installation en défaut).\\
+Il existe différents moyens de protections contre les contacts indirects qui varient selon les \emph{schémas de liaisons à la terre} (SLT), qui seront détaillé en \superref{chap2:schémas_liaison_terre}. Le principal moyen pour ce faire en régime TT et TN est d'installer un DDR, associé obligatoirement à une \emph{prise de terre} du transformateur de l'installation électrique et une \emph{mise à la terre} (MALT) des matériels et structures conducteurs susceptibles d'être accidentellement mis sous tension. Ces deux spécificités de l'installation électrique permettront au courant de s'échapper vers la terre via la mise à la terre et former une boucle jusqu'à la prise de terre. Cela formera une boucle de \emph{courant de défaut} $I_d$ qui sera détectée par le DDR, qui, selon le type de protection exigé, jouera un rôle de protection des personne (signalement de défaut et/ou coupure de l'installation en défaut).\\
 En \emph{régime IT}, la protection contre les contacts indirects s'effectue de manière similaire mais elle est supervisée par un service technique.\\
 
-L'usage d'appareils électriques de classe II ou III est également un autre moyen de protection contre les contacts indirects. Plus de détails sur ces différentes solutions en \superref{sec:moyens_protection_contacts_indirects}. 
+L'usage d'appareils électriques de classe II ou III ou la mise hors de portée des carcasses conductrices sont également des moyens de protection contre les contacts indirects. Plus de détails sur ces différentes solutions en \superref{sec:moyens_protection_contacts_indirects}. 
+
 
 %\end{document}

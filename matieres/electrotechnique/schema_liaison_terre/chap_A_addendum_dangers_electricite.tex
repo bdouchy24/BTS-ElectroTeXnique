@@ -230,14 +230,208 @@ Le \emph{transformateur d'isolement} a pour but d'isoler l'utilisateur du résea
 
 \input{fig_transformateur_isolement}
 
-Le secondaire de ce type de transformateur ne doit pas être relié à la terre et isolé \emph{galvaniquement} du primaire, c'est-à-dire qu'il n'y a aucune liaison électrique entre les deux bobinages du transformateur. Le tout afin que le corps humain n'offre pas de chemin pour que le courant effectue une boucle et revienne au transformateur d'où il vient, la différence de potentiel entre la terre et les conducteurs de phase et neutre est alors nulle.\\Cette situation est analogue à celle d'un oiseau perché sur une ligne électrique, tant qu'il ne touche pas deux conducteurs électriques en même temps,  celui-ci ne risque rien.
+Le secondaire de ce type de transformateur ne doit pas être relié à la terre et isolé \emph{galvaniquement} du primaire, c'est-à-dire qu'il n'y a aucune liaison électrique entre les deux bobinages du transformateur. Le tout afin que le corps humain n'offre pas de chemin pour que le courant effectue une boucle et revienne au transformateur d'où il vient, la différence de potentiel entre la terre et les conducteurs de phase et neutre est alors nulle.\\Cette situation est analogue à celle d'un oiseau perché sur une ligne électrique, tant qu'il ne touche pas deux conducteurs électriques en même temps, celui-ci ne risque rien.
 
 \section{Descriptifs des moyens de protection contre les contacts indirects\label{sec:moyens_protection_contacts_indirects}}
 
-Pour protéger les biens et les personnes contre les contacts indirects, on associe trois spécificités de l'installation électrique qui sont la MALT des appareils et structures conductrices, la prise de terre de l'installation électrique et l'usage d'un DDR. Cette association, selon le type de branchement, formera les \emph{schéma de liaison à la terre} (SLT), mais la classe des appareils électriques peut également constituer un moyen de protection contre les contacts indirects.
+Pour protéger les biens et les personnes contre les contacts indirects, on associe trois spécificités de l'installation électrique qui sont la MALT des appareils et structures conductrices, la prise de terre du poste de distribution électrique et l'usage d'un DDR. Cette association, selon le type de branchement, formera les \emph{schémas de liaisons à la terre} (SLT). En outre, le choix des \emph{classe d'isolation} d'un appareil électrique ou la mise hors de portées des appareils peuvent également constituer un moyen de protection contre les contacts indirects.
+
+\subsection{Classe d'isolation des appareils électriques}
+
+\begin{xltabular}{\textwidth}{c X p{3cm} p{2cm} c}
+\caption{Classe d'isolation électrique des appareils\label{tab:classe_isolation_electrique}}\\
+\toprule
+\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+\midrule
+\endfirsthead %en-tête de la première page du tableau  
+\multicolumn{5}{l}{\small\textit{Page précédente}} \\
+\midrule %filet de milieu de tableau
+\thead{Classe}		& \thead{Définition}		& \thead{Exemple}		& \thead{Symbole}		& \thead{Raccordement} \\
+\midrule
+\endhead
+\midrule %filet de milieu de tableau
+\multicolumn{5}{r}{\small\textit{Page suivante}} \\
+\endfoot %pied de page de toutes les pages du tableau
+\bottomrule
+\endlastfoot %pied de page de la dernièredu tableau
+0		& Matériel ayant une simple isolation et ne présentant pas de dispositif de mise à la terre (interdit)		& Lampe de chevet ancienne en bois		& \emph{pas de symbole}			& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\addlinespace
+I		& Matériel ayant une simple isolation mais présentant un dispositif de mise à la terre			& Ordinateur, lampadaire, fer à repasser, fer à souder\ldots		&  \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_I.png}}} & \adjustbox{valign=t}{\includegraphics[width=2cm]{type_e.png}} \\
+\addlinespace
+II		& Matériel présentant une double isolation ne nécessitant donc pas de mise à la terre			& Chaîne hi-fi, sèche-cheveux, rasoir électrique\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_II.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{type_c.png}} \\
+\addlinespace
+III		& Matériel ne fonctionnant qu'en très basse tension (\SI{12}{\volt}	ou \SI{24}{\volt}) et ne présentant pas de dangers pour les personnes (aucune précaution particulière à prendre)			& Circuits électriques, sonnette, smartphone\ldots		& \multicolumn{1}{c}{\adjustbox{valign=t}{\includegraphics[width=1cm]{classe_III.png}}}		& \adjustbox{valign=t}{\includegraphics[width=2cm]{fiche_TBT.png}}
+\end{xltabular}
 
 \subsection{Mise à la terre des appareils et structures conductrices}
 
+\subsubsection{Mise à la terre des appareils électriques}
+
+Les appareils de classe d'isolation I doivent être raccordées à des prises 2P + T \Circled{1} au moyen de fiches 2P + T \Circled{2}. Ces prises équipent maintenant tous les logements dont l'installation respecte la norme NF C15 100. Si ces appareils ne présentent pas de fiches, elles sont raccordées au moyen de boitiers d'encastrements appropriés.\\
+Sont particulièrement concernés par cette connexion vers la terre les appareils combinant électricité et eau (lave-vaisselle, lave-linge, cafetière\ldots \Circled{3}). Les fuites d'eau peuvent effectivement  provoquer relativement facilement la mise sous tension de la carcasse métallique de l'appareil.
+
+\subsubsection{Liaison équipotentielle}
+
+Pour protéger les biens et les personnes des contacts indirects, en plus de connecter toutes les carcasses métalliques des appareils de classe d'isolation II vers la terre, il convient de connecter toutes les structures métalliques du bâtiment susceptibles d'être en contact avec un individu \emph{et} d'être mise sous tension accidentellement. Sont concernés par la mise à la terre \Circled{4} :
+\begin{itemize}
+\item tuyauterie (même non conductrice car l'eau y transitant l'est)\,;
+\item baignoire et bac de douche (fonte, métal\ldots)\,;
+\item charpente métallique\,;
+\item autres structures métalliques (pouvant varier selon les exigences de sécurité).
+\end{itemize}
+Cette connexion, effectuée par un \emph{conducteur de protection} PE \Circled{5} (obligatoirement en jaune-vert), de toutes les structures conductrices et appareils de classe I constitue la \emph{liaison équipotentielle}. Tous ces conducteurs sont connectés sur une \emph{barrette de terre} \Circled{8} dans le Tableau Général Basse Tension (TGBT) et sont séparés de la \emph{prise de terre de l'installation électrique} \Circled{9} par une \emph{barrette de mesure} \Circled{10} (dénommé également \emph{couteau de terre}).\\
+
+Afin d'assurer la meilleure protection possible, les conducteurs de protection doivent présenter une section de câble et des raccordements dimensionnés à même de garantir une résistance de la liaison équipotentielle d'une valeur inférieure à \SI{2}{\ohm}. Cette résistance est contrôlée au moyen d'un \emph{testeur de continuité} spécifique.
+\begin{table}[H]
+\caption{Section des conducteurs de protection}
+\begin{tabularx}{\linewidth}{c X p{5,5cm}}
+\toprule
+\thead{Schéma}		& \thead{Type de conducteur}		& \thead{Section} \\
+\midrule
+\Circled{5} 		& Conducteur de protection transitant dans la même canalisation que les phase(s) et neutre		& identique à celle des phase(s) et neutre \\
+\addlinespace
+	&		Conducteur de protection protégé mécaniquement																	& \SI{2,5}{\square\milli\meter} \\
+\addlinespace
+	&		Conducteur de protection non protégé mécaniquement															& \SI{4}{\square\milli\meter} \\
+\addlinespace
+\Circled{6}		&	Conducteur principal de protection																							& \SI{16}{\square\milli\meter} en cuivre isolé \\
+\addlinespace
+\Circled{7} 		& Conducteur de terre																												& 
+\begin{tabdescription}
+\item[Selon les caractéristiques :]\hfill
+\begin{compactitemize}
+\item \SI{16}{\square\milli\meter} en cuivre isolé\,;
+\item \SI{25}{\square\milli\meter} en cuivre nu\,;
+\item \SI{50}{\square\milli\meter} en aluminium ou en fer.
+\end{compactitemize} 
+\end{tabdescription}
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\input{fig_equipotentielle}
+\pagebreak
+\subsubsection{Prise de terre de l'installation électrique}
+
+Le courant de défaut $I_d$ transite par les conducteurs de la liaison équipotentielle et s'échappe vers la terre via la \emph{prise de terre de l'installation électrique} \Circled{9} qui est simplement un électrode métallique en contact avec la terre.\\
+Cet électrode doit présenter également la plus faible \emph{résistance de terre} $R_T$ pour permettre au courant de défaut $I_d$ de s'échapper sous une \emph{tension de sécurité} $U_L$ la plus faible possible.  Cette valeur doit être régulièrement contrôlée par un \emph{contrôleur de terre}. Les paramètres $U_L$ et $I\Delta_n$ (calibre du DDR) étant des constantes déterminées par le DDR, le seul paramètre variable est donc la $R_t$, selon les conditions environnementales (géologie, humidité, corrosion\ldots).\\
+Elle ne doit jamais dépasser :
+\begin{description}
+\item[\SI{50}{\ohm} :] locaux humides\,;
+\item[\SI{100}{\ohm} :] locaux secs.
+\end{description}
+
+\begin{Theorem}[Valeur de la résistance de terre $R_t$]
+\begin{align}
+R_t &\leq \frac{U_L}{I\Delta_n}
+\end{align}
+\end{Theorem}
+
+\begin{textvariables}
+R_t			& résistance		& ohm		& \ohm 		& résistance de la prise de terre \\
+U_L			& tension			& volt		& \volt		& tension de sécurité \\
+I\Delta_n	& intensité			& ampère	& \ampere	& intensité de sensibilité du DDR (calibre) \\
+\end{textvariables}
+
+Il existe trois méthode de mesure de $R_t$ :
+\begin{description}
+\item[mesure en ligne (des 62\%) :] un ou deux piquets selon les variantes\,;
+\item[mesure en triangle :] deux piquets.disposés de façon à former un triangle équilatéral avec le piquet de terre.
+\end{description}
+
+La terre est un conducteur offrant une résistance bien plus élevée que le cuivre mais sa \og section \fg{} est théoriquement infinie, on va donc maximiser la surface de contact de la prise de terre de l'installation électrique. Il existe trois technique courant pour la réaliser :
+
+\paragraph{Boucle à fond de fouille}
+Cette technique consiste en un conducteur noyé dans les fondations et raccordée à la boucle. Elle est réalisée lors du terrassement précédant la construction de l'immeuble et constitue la solution privilégiée pour minimiser la résistance de terre $R_t$. Elle sera donc préférée aux deux solutions suivantes.\\
+Le conducteur utilisé doit cependant présenter une section minimale selon le matériau choisi :
+\begin{itemize}
+\item câble de cuivre nu de \SI{25}{\square\milli\meter}\,;
+\item câble en acier de \SI{95}{\square\milli\meter}\,;
+\item feuillard en acier de \SI{100}{\square\milli\meter} et de \SI{3}{\milli\meter} d'épaisseur.
+\end{itemize}
+\input{fig_boucle_terre}
+
+\paragraph{Câble en tranchée}
+Si la mise en \oe{}uvre de la boucle à fond de fouille n'est pas possible (bâtiment existant par exemple), on peut réaliser la mise à la terre de l'installation électrique par l'installation d'un câble en tranchée en respectant les règles de pose explicité dans le schéma \superref{fig:cable_tranchee}.\\
+Le conducteur utilisé doit aussi présenter une section minimale selon le matériau choisi :
+\begin{itemize}
+\item câble de cuivre nu de \SI{25}{\square\milli\meter}\,;
+\item câble en acier de \SI{95}{\square\milli\meter}.
+\end{itemize}
+
+\input{fig_cable_tranchee}
+
+\paragraph{Piquet de terre}
+Si aucune des deux solutions précédentes n'est envisageable, on peut réaliser la prise de terre au moyen d'un piquet enfoncé dans le sol en respectant les règles de pose explicité dans le schéma \superref{fig:piquet_terre}.\\
+Le piquet utilisé doit aussi présenter une section ou une surface minimale selon le matériau choisi :
+\begin{itemize}
+\item tube en acier de \SI{25}{\milli\meter} de diamètre\,;
+\item profilé en acier de \SI{60}{\square\milli\meter} de diamètre\,;
+\item une barre de cuivre ou d'acier cuivré de \SI{15}{\square\milli\meter} de diamètre.
+\end{itemize}
+
+\input{fig_piquet_terre}
+
+\subsection{Mise hors de portée des appareils électriques}
+
+Un dernier moyen de protection contre les contacts indirects est de mettre hors de portée les appareils électriques ou du moins installer des appareils présentant des indices de protections adaptés à l'environnement. Cette solution est obligatoirement appliquée dans les pièces humides comme les salles de bain ou de douches, et les règles d'installations sont régies par la norme NF-C15 100\supercite{NF:C15-100-2015}.\\
+L'eau étant conductrice, si l'on se retrouve immergé ou simplement mouillé, le risque d'électrocution lors de la manipulation d'appareils est plus important. Les zones humides font donc l'objet d'une attention particulière :
+\begin{itemize}
+\item règlementation de pose des appareils électrique\,;
+\item calibre du DDR plus faible ($I\Delta_n<\SI{30}{\milli\ampere}$)\,;
+\item liaison équipotentielle \emph{secondaire} (huisseries, tuyauterie, baignoire métallique, plancher chauffant, crépine\ldots).
+\end{itemize}
+
+\input{fig_volume_douche}
+\input{fig_volume_bain}
+
+\begin{table}[t]
+\caption{Caractéristiques des équipements électriques selon les volumes des salles d'eau}
+\begin{threeparttable} %note dans tableau
+\begin{tabularx}{\linewidth}{X ccccc}
+\toprule
+\multirow[c]{2}{*}{\thead{Appareils}} 	& \multirow[c]{2}{*}{\thead{Mesure de\\protection}}		& \thead{Volume 0}		& \thead{Volume 1}		& \thead{Volume 2}		& \multirow{2}{*}{\thead{Hors volume}} \\
+&&	IPX7		& IPX4\tnote{1}			& IPX4\tnote{1}			& \\
+\midrule
+Lave-linge, sèche-linge				& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Appareils de chauffage 				& classe I												& interdit						& interdit 						& interdit						& autorisé \\
+												&classe II												& interdit						& interdit 						& autorisé						& autorisé \\
+\addlinespace
+\'Eclairage									& classe I													& interdit						& interdit 						& interdit						& autorisé \\
+												& classe II													& interdit						& interdit 						& autorisé						& autorisé \\
+												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}												& autorisé\tnote{2}						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
+\addlinespace
+Chauffe-eau instantané				& classe I													& interdit						& autorisé\tnote{4} 					& autorisé\tnote{4}						& autorisé \\
+\addlinespace
+Chauffe-eau à accumulation				& classe I												& interdit						& autorisé\tnote{5} 					& autorisé\tnote{4}						& autorisé \\
+\addlinespace
+Interrupteur								& 																& interdit						& interdit 						& interdit						& autorisé \\
+												& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{TBTS (\SI{12}{\volt} $\mathdirectcurrent$ ou \SI{30}{\volt} $\sim$)}}	& interdit						& autorisé\tnote{2} 						& autorisé\tnote{2}						& autorisé\tnote{3} \\
+\addlinespace
+Prise de courant avec terre			& 																& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Prise rasoir (\SIrange{10}{50}{\watt})								& \adjustbox{valign=t}{\makecell[{{p{2,5cm}}}]{transformateur de séparation}}															& interdit						& interdit 						& autorisé						& autorisé \\
+\addlinespace
+Transformateur de séparation							& 															& interdit						& interdit 						& interdit						& autorisé \\
+\addlinespace
+Canalisation							& 															& interdit						& autorisé\tnote{6} 						& autorisé\tnote{6}						& autorisé \\
+\addlinespace
+Boitier de connexion							& 															& interdit						& interdit\tnote{7} 						& interdit						& autorisé \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+    \item[1] IP X5 si le volume est soumis à des jets d'eau pour des raisons de nettoyage (piscines, bains publics\ldots)\,;
+    \item[2] Le transformateur de séparation doit être installé en dehors des volumes 1, 2 et 3\,;
+	\item[3] La tension peut être portée à \SI{230}{\volt}\,;
+	\item[4] Si l'appareil est alimenté directement sans boite de connexion\,;
+	\item[5] Chauffe-eau horizontal installé le plus haut possible\,;
+	\item[6] Limité à l'alimentation des appareils autorisés dans ces volumes\,;
+	\item[7] Pour l'alimentation en direct d'un appareil et avec le respect de l'IP exigée par le volume ou elle se situe.
+\end{tablenotes}
+\end{threeparttable} %note dans tableau
+\end{table}
 
 
 %\end{document}

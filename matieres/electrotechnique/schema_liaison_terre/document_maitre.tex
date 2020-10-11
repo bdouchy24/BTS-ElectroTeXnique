@@ -64,7 +64,8 @@
 	{\hypersetup{linkcolor=black}\listoftables} %liste des tableaux en noir
 	\newpage
 	{\hypersetup{linkcolor=black}\listoffigures} %liste des figures en noir
-	{\hypersetup{linkcolor=black}\listofequations} %liste des équations en noir
+	{\hypersetup{linkcolor=black}\listtheoremname\listtheorems{Theorem}} %liste des équations en noir
+	{\hypersetup{linkcolor=black}\listdefinitionname\listtheorems{Definition}} %liste des définitions en noir
 	
 	\openright %début de chapitre à "droite" mais comme demarrage de la numérotation inversé avec la page de titre, ça décale l'ouverture des chapitre à gauche
 
@@ -85,7 +86,8 @@
 	%--------------------------------------
 
 	\include{chap_1_dangers_electricite}
-
+	\include{chap_2_principes_fonctionnements}
+	
 	%--------------------------------------
 	%style des annexes
 	%--------------------------------------
@@ -115,7 +117,7 @@
 	%bibliographie
 	%--------------------------------------
 
-	\nocite{AFPA2000, BourgeoisCogniel2005, CNED:SLT2003, Juguet2017, LyceeJean-Caillaud:PRE2013, Timin2003chap2, WildiSybille2014}
+	\nocite{AFPA2000, BourgeoisCogniel2005, CNED:SLT2003, Juguet2017,Legrand:pointsclesNFC15-100, LyceeJean-Caillaud:PRE2013, NF:C15-100-2015, WildiSybille2014}
 	
 	\printbibliography %ajout des références bibliographiques
 		

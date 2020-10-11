@@ -18,13 +18,14 @@
 	\usepackage{lmodern, marvosym, microtype, expl3} %gestion fine des police de caractère
 	\usepackage[table, svgnames, dvipsnames, x11names]{xcolor} %gestion des couleurs
 	\usepackage[bookmarksnumbered=false, breaklinks, linktoc=all]{hyperref} %référençage
-	\usepackage{varioref, memhfixc, url} % amélioration du référencage
+	\usepackage{varioref, memhfixc, url, hypbmsec, bookmark, tocloft} % amélioration du référencage
 	\usepackage{pict2e, picture, multicol, pdflscape, graphicx, eso-pic, preview, graphbox, wrapfig, svg-extract}
 	\usepackage{callouts, circledsteps} %annotation d'image
 	\usepackage[absolute]{textpos}  % disposition d'images
 	\usepackage{authblk, tocbibind, calc, mdframed} %gestion mise en page
-	\usepackage{xifthen, multido, etoolbox, ifpdf} %appel de fonction conditionnelles
-	\usepackage{newtxmath, mathtools, amsfonts, amssymb, mathrsfs, wasysym} %écriture des mathématiques avec référénces
+	\usepackage{xifthen, multido, etoolbox, ifpdf} %appel de fonction conditionnelles\\
+	\usepackage{thmtools,newtxmath, mathtools, amsfonts, amssymb, mathrsfs, wasysym} %écriture des mathématiques avec référénces
+	\usepackage[hyperref, thref]{ntheorem}
 	\usepackage{chemfig, bohr, tikzorbital, chemgreek, expl3, xparse, l3keys2e, xargs} %gestion de l'écriture en chimie
 	\usepackage[version=4]{mhchem}
 	\usepackage{modiagram} %orbitale atomique
@@ -77,9 +78,9 @@
 %paramétrage des packages pour le document
 %--------------------------------------
 
-\hypersetup{colorlinks = true, urlcolor = Blue, linkcolor = ForestGreen, citecolor = Red} %paramètrage des couleurs des liens
-
 %\frenchbsetup{StandardLists=true} %liste au format français
+
+\hypersetup{colorlinks = true, urlcolor = Blue, citecolor = Red, linkcolor = ForestGreen}
 
 \sisetup{%
 	locale=FR, %règles de typo française
@@ -87,12 +88,13 @@
 	group-minimum-digits = 3,	 %nombre de chiffre entre chaque séparation
 	free-standing-units=true, %macro pour les unités existants en dehors des arguments \si et \SI
 	group-minimum-digits=5, %groupe si au moins 5 chiffres
-	load-configurations=abbreviations % charge les abréviations avec l'argument \SI
-	number-unit-separator
+	load-configurations=abbreviations, % charge les abréviations avec l'argument \SI
+	number-unit-separator,
+	range-phrase=~à~,     % Utilise le tiret court pour dire "de... à"
+	range-units=single,  % Cache l'unité sur la première borne
 	}
 	
 \floatsetup[table]{capposition=top}
-\floatsetup[equation]{capposition=top}
 
 	%--------------------------------------
 	%paramétrage Tikz-PGF
@@ -243,12 +245,30 @@
     \else\fi
 }
 
+\newcommand{\discolorlinks}[1]{{\hypersetup{hidelinks}#1}}
+
 \newcommand*{\superref}[1]{\hyperref[{#1}]{\autoref*{#1} \autopageref*{#1}}} %liens avec page et titre
 
 \definecolor{orangelogo}{RGB}{249,125,0} %couleur orange du logo
 \definecolor{bleulogo}{RGB}{11,92,180} %couleur bleue du logo
 
 \newcommand{\circref}[1]{\CircledText{\small\textbf{\ref{#1}}} : } %référence des pastilles
+\newcommand{\circrefseul}[1]{\CircledText{\small\textbf{\ref{#1}}}} %référence des pastilles
+
+\newcommand{\textdirectcurrent}{%
+  \settowidth{\dimen0}{$=$}%
+  \vbox to .85ex {\offinterlineskip
+    \hbox to \dimen0{\leaders\hrule\hfill}
+    \vskip.35ex
+    \hbox to \dimen0{%
+      \leaders\hrule\hskip.2\dimen0\hfill
+      \leaders\hrule\hskip.2\dimen0\hfill
+      \leaders\hrule\hskip.2\dimen0
+    }
+    \vfill
+  }%
+}
+\newcommand{\mathdirectcurrent}{\mathrel{\textdirectcurrent}}
 
 	%--------------------------------------
 	%redéfinition des noms
@@ -321,7 +341,7 @@
 		
 	\newenvironment{textvariables}
   		{Avec :\newline\newline\tabularx{\textwidth}[t]{
-			j @{${}:\enspace{}$}X r >{$(\enspace{}}l<{\enspace{})$} X}
+			j @{${}:\enspace{}$}l r >{$(\enspace{}}l<{\enspace{})$} X}
 			\multicolumn{2}{c}{\thead{Grandeur dans l'ISQ}} & \multicolumn{2}{c}{\thead{Unité SI de mesure}} & \thead{Description} \\
 			\midrule}	%preambule du tableau à 5 colonnes
 		{\endtabularx\\[\belowdisplayskip]}
@@ -329,14 +349,18 @@
 	\newcommand{\pc}[1]{\SI{#1}{\percent}} %nouvelle commande pour afficher les pourcents dans SIunitx
 
 		%--------------------------------------
-		%Liste des équations
+		%Listes théorèmes/style
 		%--------------------------------------
 
-		\DeclareNewFloatType{equa}{placement=tbh,fileext=loe} %fileext=extension
-		\floatname{equa}{\textsc{\'Eq}} 
+		\newtheorem{Theorem}{Formule}[chapter]
+		\renewcommand*{\listtheoremname}{\chapter{Liste des formules}}
+		\newtheorem*{theorem*}{Formule}
 
-		\newcommand{\listofequations}{\listof{equa}{Liste des équations}\addcontentsline{toc}{chapter}{Liste des équations}}
+		\newtheorem{Definition}{Définition}[chapter]
+		\newtheorem*{definition*}{Définition}
 
+		\newcommand{\listdefinitionname}{\chapter{Liste des définitions}}
+		
 	%--------------------------------------
 	%macros pour les listes
 	%--------------------------------------
@@ -412,73 +436,89 @@
 	\setlength{\parindent}{0pt}
 	
 	\maxsecnumdepth{subsubsection}\setsecnumdepth{subsubsection} %numérotation des sous-sous-sections
-	\setcounter{tocdepth}{2} %affichage des sous-sections dans la table des matières
+	\setcounter{tocdepth}{1} %affichage des sous-sections dans la table des matières
 
 	\makeatletter %nouvelle commande conditionnelle interne pour différencier un chapitre en corps de texte et en annexes
 		\newcommand{\inappendix}{\fi\expandafter\ifx\@chapapp\appendixname}
 	\makeatother
+	
+	%--------------------------------------
+	%Liens des titres vers la table des matières
+	%--------------------------------------
+
+\makeatletter
+
+\newcounter{tocBackrefCount}
+
+\def\MPR@command#1{%
+  \AtBeginDocument{\csletcs{HYPBMSEC@#1}{#1}\csletcs{#1}{MPR@#1}}%
+  \@namedef{MPR@#1}{\@ifstar{\@nameuse{HYPBMSEC@#1}*}{\@nameuse{MPR@#1@}}}%
+  % define \MPR@<command>@
+  \expandafter\DeclareDocumentCommand\csname MPR@#1@\endcsname{d() o m}{
+    \stepcounter{tocBackrefCount}
+    \IfNoValueTF{##1}
+      {\IfNoValueTF{##2}
+        {\@nameuse{HYPBMSEC@#1}(##3)[\mpr@opt{##3}]{\mpr@mand{##3}}}
+        {\@nameuse{HYPBMSEC@#1}(##2)[\mpr@opt{##2}]{\mpr@mand{##3}}}
+      }
+      {\IfNoValueTF{##2}
+        {\@nameuse{HYPBMSEC@#1}(##1)[\mpr@opt{##3}]{\mpr@mand{##3}}}
+        {\@nameuse{HYPBMSEC@#1}(##1)[\mpr@opt{##2}]{\mpr@mand{##3}}}
+      }
+  }
+}
+\def\mpr@opt#1{\protect\raisebox{\baselineskip}{%
+  \protect\hypertarget{toc:backref:\thetocBackrefCount}{}}#1}
+\def\mpr@mand#1{\hyperlink{toc:backref:\thetocBackrefCount}{#1}}
+
+\MPR@command{chapter}
+\MPR@command{section}
+
+\makeatother
+
 
 	%--------------------------------------
 	%Chapitre
 	%--------------------------------------
 	
 	\makeatletter
-	\makechapterstyle{douchy}{%
+	\makechapterstyle{douchy}{
+  	\chapterstyle{komalike}
+  	  \setlength{\beforechapskip}{0pt}
+ 	\renewcommand\printchapternum{}
+  	\renewcommand\printchaptertitle[1]{
+  	  		\if@mainmatter
+    \begin{tabularx}{\linewidth}{@{}l @{\quad} c @{\quad} >{\raggedright\arraybackslash} X@{}}
+    \raisebox{-0.93\height}{\bfseries\sffamily\small\MakeUppercase \@chapapp} & 
+    \if\inappendix %instruction conditionelle pour savoir si on se situe dans les annexes ou pas (grosse prise de tête)
+		\multirow{2}{*}{\raisebox{-0.99\height}{\resizebox{31,5pt}{!}{{\mdseries\sffamily \thechapter}}}}
+		\else
+		\multirow{2}{*}{\raisebox{-1.02\height}{\resizebox{24,3pt}{!}{{\mdseries\sffamily \thechapter}}}}
+		\fi & \hrule depth 1pt \\
+     &  &  \Huge\sffamily\bfseries\discolorlinks{##1}
+  	\end{tabularx}
+    \vspace{0.5cm}
+	\hrule depth 1pt
+  	\else
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash} X@{}}
+    \hrule depth 1pt
+  	\vspace{0.5cm}
+   	\Huge\sffamily\bfseries\discolorlinks{##1}
+	\vspace{0.5cm}
+	\hrule depth 1pt
+  	\end{tabularx}
+  	\fi}}
 	
-		\setlength{\beforechapskip}{-3em}
-		\setlength{\afterchapskip}{3em}
-		\renewcommand*{\chapnamefont}{\bfseries\sffamily\scriptsize\MakeUppercase}
-		\renewcommand*{\chapnumfont}{\mdseries\sffamily}
-		\renewcommand*{\chaptitlefont}{\raggedright\Huge\sffamily\bfseries}
-
-		\renewcommand*{\printchaptername}{
-			\if\inappendix %instruction conditionelle pour savoir si on se situe dans les annexes ou pas (grosse prise de tête)
-				\raisebox{-\height}{\chapnamefont\@chapapp}
-			\else
-				\raisebox{-0.8\height}{\chapnamefont\@chapapp}
-			\fi}
-		\renewcommand*{\chapternamenum}{\hspace{0.3cm}}
-		\renewcommand*{\printchapternum}{\raisebox{-\height}{%
-			\if\inappendix %instruction conditionelle pour savoir si on se situe dans les annexes ou pas (grosse prise de tête)
-				\resizebox{31,5pt}{!}{\chapnumfont\thechapter}
-			\else
-				\resizebox{24,5pt}{!}{\chapnumfont\thechapter}
-			\fi}
-		\hspace{0.2cm}}
-
-		\settowidth{\chapindent}{%
-		{\printchaptername}\chapternamenum{\printchapternum}\hspace{0.2cm}}
-
-		\renewcommand*{\afterchapternum}{
-			\if\inappendix %instruction conditionelle pour savoir si on se situe dans les annexes ou pas (grosse prise de tête)
-				\vspace{-43,5pt}
-			\else
-				\vspace{-43,4pt}
-			\fi}
-			
-		\renewcommand*{\printchaptertitle}[1]{
-			\if@mainmatter
-				\flushright{\parbox[t]{\linewidth-\chapindent}%
-				{\hrule depth 1pt\vspace{3ex}\chaptitlefont ##1}}%
-				\vspace{2.75ex}%
-				\hrule depth 1pt
-			\else
-				\parbox[t]{\textwidth}%
-				{\hrule depth 1pt\vspace{3ex}\chaptitlefont ##1%
-				\vspace{1.25ex}%
-				\hrule depth 1pt}
-			\fi}
-
-		\renewcommand*{\afterchaptertitle}{\vskip\afterchapskip}
-	}
 	\makeatother
+		
 	\chapterstyle{douchy}
 	
 	%--------------------------------------
 	%Section
 	%--------------------------------------
 	
-	\setsecheadstyle{\huge\sffamily\bfseries\color{black}}
+	\setsecheadstyle{\huge\sffamily\bfseries\discolorlinks}
+
 
 	%--------------------------------------
 	%Sous-section
@@ -492,12 +532,6 @@
 
 	\setcounter{secnumdepth}{3}
 	\setsubsubsecheadstyle{\large\sffamily\bfseries\color{gray}}
-
-%--------------------------------------
-%Nouveau symboles électrotechnique
-%--------------------------------------
-
-
 
 % Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
 \endinput

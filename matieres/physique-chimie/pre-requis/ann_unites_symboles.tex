@@ -1,0 +1,431 @@
+%--------------------------------------
+%PRE-REQUIS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Unité de mesure et grandeurs physique}
+
+\section{Généralités}
+
+\subsection{Différences}
+
+Cette annexe énumère les unités de mesures et de leur grandeurs physiques associées à connaître pour la maitrise des formules mathématiques en électrotechnique. Il convient de bien identifier ce qu'est une grandeur physique et une unité de mesure :
+\begin{description}
+\item[Unité de mesure] \'Etalon de mesure nécessaire pour la mesure d'une grandeur physique dont le fondement est l'exacte reproductibilité expérimentale de l'étalon\,;
+\item[Grandeur physique] Toute propriété des sciences de la nature qui peut être mesurée ou calculées et dont les différentes valeurs s'expriment à l'aide d'une nombre réel ou complexe. Une grandeur physique peut s'exprimer sans unité de mesure, ce sont des \emph{grandeurs sans dimension}. Mais l'inverse n'est pas vraie, toute unité de mesure est associée une grandeur physique.\\
+La notion générale de grandeur physique peut être divisées en des notions plus précises, indiquée au moyen d'indices ou d'un symbole usuel différent.
+\item[Dimension] Expression de la dépendance d'une grandeur par rapport aux grandeurs de base d'un système de grandeurs sous la forme d'un produit de puissance de facteurs correspondant aux grandeurs de base, en omettant tout facteur numérique.
+\end{description}
+Les tableaux situés en \superref{subsec:systeme_international} sont issus des normes ISO 80000-xx\supercite{ISO:80000-2013}, les normes internationales régissant le Système International de grandeurs (\emph{International System of Quantities}, ISQ), qui font également le lien avec le Système International d'unités (SI).
+
+\subsection{Quelques règles de rédaction}
+
+\begin{description}
+	\item[Symboles des grandeurs] Les symboles usuels des grandeurs prennent généralement la forme d'une seule lettre (alphabet grec ou latin), toujours en italique, et peuvent être précisés par des indices.
+	\item [Indice] Un indice permet de différencier des grandeurs présentant le même symbole usuel ou, pour une même grandeur, différentes applications de celle-ci.
+		\begin{itemize}
+			\item Symbole d'une grandeur physique ou d'une variable mathématique\,;
+			\item Mots ou nombres fixes.
+		\end{itemize}
+	\item[Symboles des unités] Les symboles des unités prennent généralement la forme d'une seule lettre (alphabet grec ou latin), toujours en caractère droit, ce qui permet de les différencier des symboles des grandeurs.\\
+Une unité composée d'une multiplication de deux unités ou plus peut être indiquée de deux manières :
+		\begin{gather*}
+			\newton\cdot\metre \\ 
+			\newton\metre
+		\end{gather*}
+Il convient de faire attention lorsque le symbole d'une unité est le même que celui d'un préfixe.
+\end{description}
+
+\subsection{Terminologie}
+
+\begin{description}
+\item[Coefficient] Dans une équation type $A=k \cdot B$, $k$ est le coefficient/facteur et $A$ est une grandeur proportionnelle à $B$. Usage du terme \emph{coefficient} (ou \emph{module}) lorsque les grandeurs $A$ et $B$ présentent des \emph{dimensions} différentes.
+\item[Facteur] Dans une équation type $A=k \cdot B$, $k$ est le coefficient/facteur et $A$ est une grandeur proportionnelle à $B$. Usage du terme \emph{facteur} lorsque les grandeurs $A$ et $B$ sont de même \emph{dimension}.
+\item[Paramètre] Combinaison de grandeurs qui apparaissent sous une telle forme dans les équations, pouvant être considérée comme constituant de nouvelles grandeurs.
+\item[Nombre] Combinaison de grandeurs sans dimension.
+\item[Rapport] Quotient sans dimension de deux grandeurs.
+\item[Constante] Grandeur qui présente la même valeur en toutes circonstances.
+\item[Massique] Adjectif apposé à une grandeur caractérisant le quotient de cette grandeur par la masse.
+\item[Volumique] Adjectif apposé à une grandeur caractérisant le quotient de cette grandeur par le volume.
+\item[Surfacique] Adjectif apposé à une grandeur caractérisant le quotient de cette grandeur par l'aire.
+\item[Densité] Adjectif apposé à une grandeur exprimant un flux ou un courant, qui caractérise le quotient de cette grandeur par l'aire.
+\item[Linéique] Adjectif apposé à une grandeur caractérisant le quotient de cette grandeur par la longueur.
+\item[Molaire] Adjectif apposé à une grandeur caractérisant le quotient de cette grandeur par la quantité de matière.
+\item[Concentration] Adjectif apposé à une grandeur, spécifiquement dans le cas d'un mélange, caractérisant le quotient de cette grandeur par le volume total.
+\end{description}
+
+\subsection{Alphabet}
+
+\begin{table}[h!]
+\caption{Alphabet grec}
+\begin{tabularx}{\textwidth}[t]{l C C C C l C C C C}
+\cmidrule[\heavyrulewidth](lr){1-5} \cmidrule[\heavyrulewidth](lr){6-10}
+\thead{Nom} 		& \multicolumn{2}{c}{\thead{Caractère\\romain}} 	& \multicolumn{2}{c}{\thead{Caractère\\italique}} & \thead{Nom} 		& \multicolumn{2}{c}{\thead{Caractère\\romain}} 	& \multicolumn{2}{c}{\thead{Caractère\\italique}} \\
+\cmidrule[\lightrulewidth](lr){1-5} \cmidrule[\lightrulewidth](lr){6-10}
+alpha 					& A						& $\alphaup$											& \textit{A}							& $\alpha$							& nu							& N						& $\nuup$												& \textit{N}							& $\nu$ \\
+beta 						& B						& $\betaup$											& \textit{B}							& $\beta$  							& xi							& $\Xiup$				& $\xiup$												& $\mathit{\Xi}$					& $\xi$ \\
+gamma 				& $\Gammaup$		& $\gammaup$										& $\mathit{\Gamma}$			& $\gamma$ 							& omicron					& O						& o														& \textit{O}							& \textit{o} \\
+delta						& $\Deltaup$			& $\deltaup$											& $\mathit{\Delta}$				& $\delta$ 							& pi							& $\Piup$				& $\piup$, $\varpiup$								& $\mathit{\Pi}$					& $\pi$, $\varpi$ \\
+epsilon					& E						& $\epsilonup$, $\varepsilonup$				& \textit{E}							& $\epsilon$, $\varepsilon$ 	& rhô						& P						& $\rhoup$, $\varrhoup$						& \textit{P}							& $\rho$, $\varrho$ \\
+zêta						& Z						& $\zetaup$											& \textit{Z}							& $\zeta$ 								& sigma					& $\Sigmaup$		& $\sigmaup$										& $\mathit{\Sigma}$				& $\sigma$ \\
+êta						& H						& $\etaup$											& \textit{H}							& $\eta$								& tau						& T						& $\tauup$											& \textit{T}							& $\tau$ \\
+thêta						& $\Thetaup$		& $\thetaup$, $\varthetaup$					& $\mathit{\Theta}$				& $\theta$, $\vartheta$	 		& upsilon					& Y						& $\upsilonup$										& \textit{Y}							& $\upsilon$ \\
+iota						& I						& $\iotaup$											& \textit{I}							& $\iota$ 								& phi						& $\Phiup$			& $\phiup$											& $\mathit{\Phi}$					& $\phi$ \\
+kappa					& K						& $\kappaup$, $\varkappaup$				& \textit{K}							& $\kappa$, $\varkappa$ 		& khi						& X						& $\chiup$												& \textit{X}							& $\chi$ \\
+lambda					& $\Lambdaup$		& $\lambdaup$										& $\mathit{\Lambda}$			& $\lambda$							& psi						& $\Psiup$				& $\psiup$												& $\mathit{\Psi}$					& $\psi$ \\
+mu						& M						& $\muup$											& \textit{M}							& $\mu$								& oméga					& $\Omegaup$		& $\omegaup$										& $\mathit{\Omega}$			& $\Omega$ \\
+\cmidrule[\heavyrulewidth](lr){1-5} \cmidrule[\heavyrulewidth](lr){6-10}
+\end{tabularx}
+\end{table}
+
+
+\subsection{Système International}
+\label{subsec:systeme_international}
+
+\subsubsection{Généralités}
+
+Le Système International d'unités est un système cohérent d'unités dans l'\emph{ISQ}. Il est abrégé \emph{SI} dans toutes les langues et est formé de :
+\begin{itemize}
+\item Sept unités de base\,;
+\item Des unités dérivées de ces unités de base.
+\end{itemize}
+
+\subsubsection{Unités SI et grandeurs}
+
+\begin{table}[!h]
+\caption{Unités SI et grandeurs correspondante de base\label{tab:unites_SI_base}}
+\begin{tabularx}{\textwidth}{X R X R}
+\toprule
+\multicolumn{2}{c}{\thead{Grandeur de base de l'ISQ}} & \multicolumn{2}{c}{\thead{Unité SI de base}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4} 
+\thead[l]{Nom} & \thead[r]{Symbole usuel} & \thead[l]{Nom} & \thead[r]{Symbole} \\
+\midrule 
+Longueur 									& $L$ 			& mètre 			& \meter \\
+Masse										& $M, m$ 		& kilogramme 	& \kilogram \\
+Temps										& $T$			& seconde			& \second \\
+Courant électrique 					& $I$				& ampère			& \ampere \\
+Température thermodynamique	& $\Theta$	& kelvin				& \kelvin \\
+Quantité de matière					& $N$			& mole				& \mole \\
+Intensité lumineuse					& $J$				& candela			& \candela \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!h]
+\caption{Préfixes des unités SI \label{tab:prefixes_unites_SI}}
+\begin{tabularx}{\textwidth}{C X r C X r}
+\cmidrule[\heavyrulewidth](lr){1-3} \cmidrule[\heavyrulewidth](lr){4-6} 
+
+\multirow[c]{2}{*}{\thead{Facteur}} 	& \multicolumn{2}{c}{\thead{Préfixe}} 	& \multirow[c]{2}{*}{\thead{Facteur}} 	& \multicolumn{2}{c}{\thead{Préfixe}} \\
+
+\cmidrule(lr){2-3} \cmidrule(lr){5-6} 
+
+															& \thead[l]{Nom} 		& \thead[r]{Symbole}	& 									& \thead[l]{Nom} 		& \thead[r]{Symbole} \\
+\cmidrule[\lightrulewidth](lr){1-3} \cmidrule[\lightrulewidth](lr){4-6} 
+$10^{24}$											& yotta 						& Y		& $10^{-1}$											& déci 						& d  \\
+$10^{21}$											& zetta 						& Z  		& $10^{-2}$											& centi 						& c  \\ 
+$10^{18}$											& exa 						& E  		&															&								&	\\ 
+$10^{15}$											& péta 						& P  		& $10^{-3}$											& milli 						& m  \\ 
+															&								&			& $10^{-6}$											& micro 					& $\mu$  \\ 
+$10^{12}$											& téra 						& T  		& $10^{-9}$											& nano 						& n  \\
+$10^{9}$												& giga 						& G  		& $10^{-12}$										& pico 						& p  \\
+$10^{6}$												& méga 					& M  		& 															&								& \\
+$10^{3}$												& kilo 						& k 		& $10^{-15}$										& femto 					& f  \\
+															&								&			& $10^{-18}$										& atto 						& a  \\
+$10^{2}$												& hecto 					& h		& $10^{-21}$										& zepto 					& z \\
+$10^{1}$												& déca	 					& da 		& $10^{-24}$										& yocto	 					& y \\
+\cmidrule[\heavyrulewidth](lr){1-3} \cmidrule[\heavyrulewidth](lr){4-6} 
+\end{tabularx}
+\end{table}
+
+\begin{xltabular}{\textwidth}{X r X O}
+\caption{Unités SI dérivées avec des noms et des symboles spéciaux\label{tab:unites_SI_derivee}}\\
+\toprule
+\multicolumn{2}{c}{\thead{Grandeur dérivée de l'ISQ}} & \multicolumn{3}{c}{\thead{Unité SI dérivée}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-5}
+\thead[l]{Nom} & \thead[r]{Symbole usuel} & \thead[l]{Nom} & \multicolumn{2}{c}{\thead[c]{Symbole \& Valeur}} \\
+\midrule %filet de milieu de tableau
+\endfirsthead %en-tête de la première page du tableau  
+\multicolumn{5}{l}{\small\textit{Page précédente}} \\
+\midrule %filet de milieu de tableau
+\multicolumn{2}{c}{\thead{Grandeur dérivée de l'ISQ}} & \multicolumn{3}{c}{\thead{Unité SI dérivée}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-5}
+\thead[l]{Nom} & \thead[r]{Symbole usuel} & \thead[l]{Nom} & \multicolumn{2}{l}{\thead[l]{Symbole \& Valeur}} \\
+\midrule %filet de milieu de tableau
+\endhead %en-tête de la première page du tableau  
+\midrule %filet de milieu de tableau
+\multicolumn{5}{r}{\small\textit{Page suivante}} \\
+\endfoot %pied de page de toutes les pages du tableau
+\bottomrule
+\endlastfoot %pied de page de la dernièredu tableau
+Angle plan											& $\alpha$ 						& radian 			& \radian 					& \si{\meter\per\meter} \\
+Angle solide										& $\Omega$						& stéradian	 	&	\steradian		 		& 	\si{\square\meter\per\square\meter} \\
+Fréquence 										& $f$									& hertz				&	\hertz 					&	\si{\per\second} \\
+Force												& $F$								& newton			&	\newton					&  \si{\kilogram\meter\per\square\second} \\
+Pression, contrainte							& $P$								& pascal			&	\pascal					& 	\si{\newton\per\square\meter} \\
+\'Energie, travail								& $W$								& joule				& 	\joule					& 	\si{\kilo\gram\square\meter\per\square\second} \\
+Puissance											& $P$								& watt				& 	\watt						&	\si{\joule\per\second} \\
+Charge électrique								& $Q$								& coulomb			& 	\coulomb				&	\si{\ampere\second} \\
+Différence de potentiel électrique		& $U, V$							& volt				& 	\volt						&	\si{\watt\per\ampere} \\
+Capacité électrique							& $C$								& farad				& 	\farad					& \si{\coulomb\per\volt} \\
+Résistance électrique							& $R$								& ohm				& 	\ohm						& \si{\volt\per\ampere} \\
+Conductance électrique						& $G$								& siemens			&	\siemens				& \si{\per\ohm} \\
+Flux magnétique								& $\Phi$							& weber			&	\weber					& \si{\volt\second} \\
+Induction magnétique						& $\overrightarrow{B}$		& tesla				& \tesla						& \si{\weber\per\square\meter} \\
+Inductance										& $L$								& henry				& \henry					& \si{\weber\per\ampere} \\
+Température Celsius							& $T$								& celsius			& \celsius					& \kelvin - 273,15 \\
+Flux lumineux									& $J$									& lumen			& \lumen					& \si{\candela\steradian} \\
+\'Eclairement lumineux						& $E, E_v$							& lux					& \lux						& \si{\lumen\per\square\meter} \\
+\end{xltabular}
+
+\begin{table}[!h]
+\caption{Unités en usage avec le SI\label{tab:unites_usage_SI}}
+\begin{tabularx}{\textwidth}{X r X O}
+\toprule
+\multicolumn{2}{c}{\thead{Grandeur}} & \multicolumn{3}{c}{\thead{Unités}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-5} 
+\thead[l]{Nom} & \thead[r]{Symbole usuel} & \thead[l]{Nom} & \multicolumn{2}{l}{\thead[l]{Symbole \& Valeur}} \\
+\midrule
+Temps											& $t$								 	& minute 			& \minute 				& \SI{60}{\second} \\
+													& 											& heure				& \hour					& \SI{60}{\minute} \\
+													&											&	jour				& \si{\day}			& \SI{24}{\hour} \\
+\addlinespace
+Angle plan										& $\alpha$							& degré				& \degree				& \sfrac{180}{\pi}\times\radian \\
+													&											& minute			& \arcminute			& \sfrac{1}{60}\times\degree \\
+													&											& seconde			& \arcsecond			& \sfrac{1}{60}\times\arcminute \\
+\addlinespace
+Volume											& $V$									& litre				& \litre, \liter			& \si{\cubic\deci\metre} \\
+\addlinespace
+Masse											& $M, m$								& tonne				& \tonne				& \SI{1000}{\kilo\gram} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\caption{Unités en usage avec le SI dont la valeur est obtenue expérimentalement\label{tab:unites_SI_experimentales}}
+\begin{tabularx}{\textwidth}{X r X O}
+\toprule
+\multicolumn{2}{c}{\thead{Grandeur}} 		& \multicolumn{3}{c}{\thead{Unités}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-5} 
+\thead[l]{Nom} & \thead[r]{Symbole\\usuel} 	& \thead[l]{Nom} 	& \multicolumn{2}{c}{\thead[c]{Symbole \& Valeur}} \\
+\midrule
+\'Energie 		& $W$ 			& électronvolt 					& \multicolumn{2}{p{8cm}}{\'Energie cinétique acquise par un électron en traversant une différence de potentiel de 1v dans le vide.} \\%
+					& 					& 										& \electronvolt					& \SI{1,602176634e-19}{\joule} \\
+\addlinespace
+Masse			& $M, m$		& dalton							& \multicolumn{2}{p{8cm}}{$\sfrac{1}{12}$ de la masse d'un atome du nucléide \ce{^{12}C} au repos et à l'état fondamental.} \\%
+					& 					& 										& \dalton							& \SI{1,660538782e-27}{\kilo\gram} \\
+\addlinespace
+Longueur		& $L$			& unité astronomique			& \multicolumn{2}{p{8cm}}{Valeur conventionnelle approximativement égale à la valeur moyenne de la distance entre le Soleil et la Terre.} \\%
+					& 					& 										& \astronomicalunit			& \SI{1,49597870691e11}{\metre} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Mathématique}
+
+Les tableaux suivants sont extraits de l'ouvrage \citetitle{BourgeoisCogniel2005}, ils référencent les notations mathématiques utilisées en électrotechnique.
+
+\begin{table}[!h]
+\caption{Signes mathématiques\label{tab:signes_mathematiques}}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{j j X}
+\toprule
+\multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}}	\\
+\midrule
+=																& a=b																& $a$ égal $b$ \\	
+\neq															& a\neq b															& $a$ est différent de $b$	\\
+\triangleq													& a\triangleq b													& $a$ correspond à $b$	\\
+\simeq														& a\simeq b														& $a$ est approximativement égal à $b$	\\
+<																& a < b																& $a$ est strictement inférieur à $b$	\\
+>																& a > b																& $a$ est strictement supérieur à $b$		\\
+\leq															& a\leq b															& $a$ est inférieur ou égal à $b$	\\
+\geq															& a\geq b															& $a$ est supérieur ou égal à $b$	\\
+\ll																& a\ll b																& $a$ est très inférieur ou égal à $b$	\\
+\gg															& a\gg b															& $a$ est très supérieur ou égal à $b$	\\
+\addlinespace
+\infty															&																		& infini	\\
+\addlinespace
+\pm															& a\pm b															& $a$ plus ou moins $b$	\\
+\in																& x\in A																& $x$ appartient à $a$	\\
+\notin														& x\notin A 														& $x$ n'appartient pas à $a$	\\
+\bottomrule
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{j j X}
+\toprule
+\multicolumn{1}{c}{\thead{Signe}} 		& \multicolumn{1}{c}{\thead{Utilisation}}		& \multicolumn{1}{c}{\thead{\'Enoncé}}	\\
+\midrule
++					& a+b														& $a$ plus $b$ \\
+-					& a-b															& $a$ moins $b$ \\
+\addlinespace
+\times			& a\times b												& $a$ multiplié par $b$ \\
+\cdot				& a\cdot  b												& \\
+					& a\ b														& \\
+\addlinespace
+\frac\				& \frac{a}{b}											& $a$ divisé par $b$ \\
+/					& a/b															& \\
+\addlinespace
+\sum				& {\displaystyle\sum_{i=1}^{n} a_{i}} 	& $a_{1} + a_{2} + a_{3} \ldots a_{n}$ \\
+\addlinespace
+\prod				& {\displaystyle\prod_{i=1}^{n} a_{i}}	& $a_{1} \times a_{2} \times a_{3} \ldots a_{n}$ \\
+\addlinespace
+!					& n!															& $1 \times 2 \times 3 \ldots n$ \\
+					& a^{n}													& $a$ puissance $n$ \\
+					& \sqrt{a}													& racine carrée de $a$ \\
+\addlinespace
+					& \sqrt[n]{a}												& racine n\ieme de $a$ \\
+					& a^{1/n}													& \\
+\addlinespace
+\vert\ \vert\	& \vert a \vert											& valeur absolue de $a$	\\
+\bottomrule
+\end{tabularx}
+\end{minipage}
+\end{table}
+
+
+\captionof{table}{Classification des locaux}
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{i X}
+\toprule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
+f													& fonction ou application \\
+f(x)												&	valeur de la fonction $f$ respectivement en $x$ \\
+\left[ f(x) \right] ^{a} _{b}				& $f(b)-f(a)$ \\
+\addlinespace
+f(x)\ | ^{a} _{b} 							& 	\\
+\addlinespace
+\lim\limits_{x \rightarrow a} f(x)		& limite de $f(x)$ quand $x$ tend vers $a$ \\
+\addlinespace
+f\prime											& dérivée (première) de la fonction $f$ \\
+\addlinespace
+f^{(k)}(x)										& dérivée d'ordre $k$ de la fonction $f$ \\
+\addlinespace					
+\Delta f											& dérivée totale globale de la fonction $f$\supercite{Wiki:NDS} \\
+\frac{df}{dx}								& dérivée totale locale de la fonction $f$ par rapport à $x$ \\
+\frac{\partial f}{\partial x}				& dérivée partielle locale de la fonction $f$ par rapport à $x$ \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{i X}
+\toprule
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
+\frac{\delta f}{\delta x}					& variation élémentaire de la fonction $f$ par rapport à $x$ \\
+\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\
+\int_{a}^b f(x)dx							& intégrale définie de la fonction $f$ de $a$ à $b$ \\
+\addlinespace					
+\mathbb{N}									& ensemble des entiers naturels \\
+\mathbb{Z}									& ensemble des entiers \\
+\mathbb{Q}									& ensemble des nombres rationnels \\
+\mathbb{R}									& ensemble des entiers réels \\
+\mathbb{C}									& ensemble des nombres complexes \\
+\mathbb{P}									& ensemble des nombres premiers \\
+\cos x											&	cosinus de $x$ \\
+\sin x												&	sinus de $x$ \\
+\tan x											&	tangente de $x$ \\
+\cot x											&	cotangente de $x$ \\
+\end{tabularx}
+\end{minipage}
+
+\begin{minipage}[b]{0.49\linewidth}
+\begin{tabularx}{\textwidth}{R}
+\midrule
+\small\textit{Colonne suivante} \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+\begin{tabularx}{\textwidth}{R}
+\midrule
+\small\textit{Page suivante} \\
+\end{tabularx}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{i X}
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
+\arccos x										& réciproque du cosinus de $x$ \\
+\arcsin x										& inverse du sinus de $x$ \\
+\arctan x										& inverse de la tangente de $x$ \\
+e = 2,7182818								& base des logarithmes népériens \\
+\exp x											& exponentielle de base $e$ de $x$ \\
+\midrule
+\multicolumn{2}{r}{\small\textit{Colonne suivante}} \\
+\end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\begin{tabularx}{\textwidth}[t]{i X}
+\multicolumn{1}{c}{\thead{Symbole}} 		& \multicolumn{1}{c}{\thead{\'Enoncé}} \\
+\midrule
+\ln x												& logarithme népérien de $x$ \\
+\lg x 												& logarithme décimal de $x$ \\
+\mathrm{i\ ou\ j}							& unité imaginaire \\
+\arg 												& argument \\	
+\bottomrule				
+\end{tabularx}
+\end{minipage}
+
+
+\section{Espace \& temps}
+
+\subsection{Généralités}
+
+Les tableaux suivants détaillent les noms, les symboles et les définitions des unités et grandeurs utilisées pour décrire mathématiquement l'espace et le temps. Ces notations seront d'application pour le restant des cours.
+
+\begin{xltabular}{\textwidth}{l k l k X}
+\caption{Unités SI et grandeurs définissant l'espace et le temps\label{tab:unites_espace_temps}} \\
+\toprule
+\multicolumn{2}{c}{\thead{Grandeur}} & \multicolumn{2}{c}{\thead{Unité}} & \multirow{2}{*}{\thead[c]{Remarque}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4}
+\thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole usuel}} & \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole}} & \\
+\midrule %filet de milieu de tableau
+\endfirsthead %en-tête de la première page du tableau  
+\multicolumn{5}{l}{\small\textit{Page précédente}} \\
+\midrule %filet de milieu de tableau
+\multicolumn{2}{c}{\thead{Grandeurs}} & \multicolumn{2}{c}{\thead{Unités}} & \multirow{2}{*}{\thead[c]{Remarques}} \\
+\cmidrule(lr){1-2} \cmidrule(lr){3-4}
+\thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole usuel}} & \thead[l]{Nom} & \multicolumn{1}{r}{\thead[r]{Symbole}} & \\
+\midrule %filet de milieu de tableau
+\endhead %en-tête de la première page du tableau  
+\midrule %filet de milieu de tableau
+\multicolumn{5}{r}{\small\textit{Page suivante}} \\
+\endfoot %pied de page de toutes les pages du tableau
+\bottomrule
+\endlastfoot %pied de page de la dernièredu tableau
+Longueur 						& L, l					& Mètre				& \metre				& \\
+Largeur							& B, b				& 						&							& \\
+Hauteur							& H, h				&						&							& Le symbole $H$ est régulièrement utilisé pour désigner l'altitude. \\
+\'Epaisseur					& d, \delta			& 						&							& \\
+Rayon							& R, r				&						&							& \\
+Distance radiale				& r_{Q}, \rho		&						&							& \\
+Diamètre						& D, d				&						&							& \\
+Longueur curviligne		& s					&						&							& \\
+Distance						& d, r				& 						&							& \\
+Rayon (vecteur)				& \mathbf{r}		&						&							& \\
+\end{xltabular}
+
+%\end{document}

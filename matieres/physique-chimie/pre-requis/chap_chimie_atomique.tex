@@ -1,0 +1,377 @@
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+%--------------------------------------
+%chap_1_chimie_atomique
+%--------------------------------------
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Chimie atomique\label{chap:chimie_atomique}}
+\ChapFrame %appel du marqueur de chapitre
+
+\section{Nature de la matière}
+
+Comme explicité par la \superref{fig:decomposition_matiere}{} %appel du label pour les références internes
+, la matière peut être décomposée en corps purs, qui sont des substances dont les propriétés physiques et chimiques sont déterminées quels que soient l'origine et le procédé à partir desquels elles ont été obtenues. Ces corps purs désignent les atomes -- les \emph{corps simples} -- et les molécules -- les \emph{corps composés} -- qui consistent en un assemblage d'atomes.
+ 
+\begin{figure}[h!] %insertion d'une figure avec imposition de l'emplacement vertical (Here!)
+	\centering %centre la figure flottante dans l'environnement figure sans espace verticaux (contrairement à \begin{center}
+	
+	\begin{tikzpicture} %environnement de dessin avec repère cartésien aux origines au centre du schéma		
+		%\DrawGrid{(-8,-2)}{(8,2)} %grille d'aide pour le placement des objets
+		
+		\node[element]		%element bloc du schéma fléché défini dans le préambule
+		 		(A)				%label de l'élément
+		  		at (2,0)			%position sur le repère cartésien
+		   		{Atome}; 		%texte dans le bloc
+		\node[element, left=1cm] (Mo) 
+				at (A.west)		%bloc situé à 1cm du coté est du bloc labelisé A
+				{Molécule};
+		\node[element, left=1cm] (Ma) at (Mo.west) {Matière};
+		\node[element, right=1cm] (P) at (A.east) {Particules élementaires};
+
+		\draw[->,>=stealth, thick, rounded corners=4pt] (Ma) -- (Mo); %insertion de flèche reliant les blocs
+		\draw[->,>=stealth, thick, rounded corners=4pt] (Mo) -- (A);
+		\draw[->,>=stealth, thick, rounded corners=4pt] (A) -- (P);
+		\draw[->,>=stealth, thick, rounded corners=4pt] (-4,0) |- (-2,-0.5);
+		\draw[>=stealth, thick, rounded corners=4pt] (-3,-0.5) -| (0,0);
+		
+	\end{tikzpicture}
+	\caption{Décomposition de la matière} %insertion d'une légende référencée
+	\label{fig:decomposition_matiere} %insertion du label de la légende pour les liens internes
+\end{figure}
+
+\section{Description de la matière}
+
+\begin{definition}[Matière]
+		\begin{itemize} %environnement de liste à puce
+			\item Ce qui compose tout corps ayant une réalité tangible\,;
+			\item Mélange homogène (propriétés identiques en tout point) ou hétérogène (propriétés non identiques en tout point) de molécules en proportions diverses et variées\,;
+			\item Substance matérielle dont les caractéristiques fondamentales sont l'étendue et la masse\,;
+			\item La matière peut prendre au moins quatre états (solide, liquide, gazeux, plasma...).
+		\end{itemize}
+\end{definition}
+
+\begin{definition}[Molécule]
+		\begin{itemize}
+			\item Assemblage chimique (corps composé) d'au moins deux atomes (corps simple) représentant la plus petite quantité de matière conservant les propriétés caractéristiques de celle-ci\,;
+			\item Entité électriquement neutre\,;
+			\item Siège de liaisons chimiques lui conférant sa structure\,;
+			\item Plus grande entité de la matière susceptible de subir des réactions chimiques. 
+		\end{itemize}
+\end{definition}
+
+\begin{definition}[Atome]
+		\begin{itemize}
+			\item Plus petite entité de la matière pouvant se combinant chimiquement avec des corps purs\,;
+			\item Constituant élémentaire de toutes les substances sous tous leurs états\,;
+			\item Constitué d'un noyau dense de protons et neutrons entouré d'un nuage d'électrons\,;
+			\item Présent au nombre de 118 éléments chimiques.
+		\end{itemize}
+\end{definition}
+
+\begin{definition}[Proton]
+		\begin{itemize}
+			\item Particule élémentaire $p^+$ constituant une partie du noyau de l'atome\,;
+			\item Dénommé \emph{nucléon} car constituant une partie du noyau\,;
+			\item Lié aux neutrons par interactions fortes formant un noyau dense\,;
+			\item Quantité définissant l'élément chimique nommé \emph{numéro atomique Z} et identique à la quantité d'électron d'un même élément dans le cas d'un atome à l'état électriquement neutre\,; 
+			\item Particule porteuse d'une charge élémentaire positive $+e$ (ou $\oplus$) attirée par le charge élémentaire négative $-e$ (ou $\ominus$) de l'électron\,;
+			\item Charge élémentaire positive $+e=\SI{1,6022e-19}{\coulomb}$ d'une masse $m=\SI{1,6726e-27}{\kilogram}$.
+		\end{itemize}
+\end{definition}
+
+\begin{definition}[Neutron]
+		\begin{itemize}
+			\item Particule élémentaire $n^0$ constituant une partie du noyau de l'atome\,; %appel de l'environnement de programmation des formules mathématiques
+			\item Dénommé \emph{nucléon} car constituant une partie du noyau\,;
+			\item Lié aux protons par interactions fortes formant un noyau dense\,;
+			\item Quantité définie par \emph{l'isotope} de l'élément chimique\,; 
+			\item Particule électriquement neutre d'une masse $m=\SI{1,6726e-27}{\kilogram}$. %appel de l'environnement de programmation des unités et des listes de nombres
+		\end{itemize}
+\end{definition}
+
+\begin{definition}[\'Electron]
+		\begin{itemize}
+			\item Particule élémentaire $e^-$ gravitant autour du noyau atomique; %appel de l'environnement de programmation des formules mathématiques
+			\item Gravitation à une très grande distance relative autour du noyau, avec une répartition en \emph{couches électroniques} dont l'agencement est bien spécifique à chaque atome\,;
+			\item Vitesse de gravitation variable selon l'orbitale atomique ($v_{e^{-}_H}\approx\SI{2100}{\kilo\meter\per\second})$ avec une position aléatoire sur la couche électronique\,; %appel de l'environnement de programmation des unités et des listes de nombres
+			\item Quantité identique à celle de protons d'un même élément à l'état électriquement neutre\,; 
+			\item Particule porteuse d'une charge élémentaire négative $-e$ (ou $\ominus$) attirée par la charge élémentaire positive $+e$ (ou $\oplus$) du proton\,; %appel de l'environnement de programmation des formules mathématiques
+			\item Charge élémentaire négative $-e=\SI{-1,6022e-19}{\coulomb}$ d'une masse négligeable\\($m=\SI{9,1093897e-31}{\kilo\gram}$)\,; %appel de l'environnement de programmation des unités et des listes de nombres
+			\item Particule régissant la grande majorité des liaisons et interactions chimiques entre atomes et molécules, dont l'électricité.
+		\end{itemize}
+\end{definition}
+
+\section{Description de l'atome}
+
+\subsection{Caractéristiques des éléments périodiques}
+
+Chaque élément périodique présente une série de caractéristiques uniques que l'on retrouve sur le tableau périodique des éléments chimique (\superref{tab:tableau_periodique}) et qui vont déterminer leurs propriétés chimiques et physiques :
+\begin{description}
+	\item[Nom de l'élément]
+	\item[Symbole de l'élément \emph{X}]
+	\item[Famille] Groupement d'éléments qui présentent le même nombre d'électrons de valence.
+	\item[Numéro atomique \emph{Z}] Nombre de protons que présente le noyau de l'élément selon l'isotope le plus abondant.
+	\item[Nombre de neutrons \emph{N}] Nombre de neutrons que présente le noyau de l'élément.
+	\item[Nombre de masse A] nombre de nucléons (neutrons + protons) que présente le noyau de l'élément.
+	\item[Masse molaire] Masse d'une mole de l'élément selon la proportions des isotopes de cet élément.
+	\item[Configuration électronique] Répartition des électrons autour du noyau de l'élément donnant la formule quantique (détaillée dans le \superref{tab:distribution_electronique}).
+\end{description}
+
+\pagebreak
+
+Les éléments périodiques présentent d'autres caractéristiques qui ne sont pas annotées sur le tableau périodique (\superref{tab:tableau_periodique}) :
+\begin{description}
+	\item[\'Electronégativité] Capacité de l'élément à attirer les électrons lors de la formation d'une liaison chimique avec un autre élément.
+	\item[1\iere{} énergie d'ionisation en $\si{\kilo\joule\per\mol}$] \'Energie qu'il faut fournir à un atome neutre à l'état gazeux pour lui arracher un électron (le moins lié au noyau) et former un ion positif.
+	\item[Nombre d'oxydation] Nombre de charges électriques élémentaires réelles ou fictives que présente un atome au sein de l'élément. Il est utilisé pour le calcul \emph{d'oxydo-réduction} à l'\oe{}uvre dans les générateurs électrochimiques.
+\end{description}
+
+\subsection{Définitions utiles}
+
+\begin{definition}[Isotope]
+Les isotopes sont des \emph{déclinaisons atomiques} d'un élément donné qui diffèrent par le contenu en neutrons de leur noyaux mais avec un nombre de protons ou d'électrons identiques entre isotopes. La masse atomique de l'élément fait la moyenne des masses de chaque isotope selon leur abondance naturelle.
+\end{definition}
+
+\begin{definition}[Masse molaire]
+La masse molaire d'un élément est la masse que feront \num{6,0221e23} atomes de cet élément (nombre d'Avogadro).
+\end{definition}
+
+\begin{definition}[Configuration électronique]
+La configuration électronique d'un élément indique la répartition probable des couches d'électrons gravitant autour du noyau.
+\end{definition}
+
+\begin{definition}[Couche électronique de valence]
+La couche électronique de valence d'un atome comprend les électrons de valence correspondant aux
+niveaux d'énergie pour lesquels, dans la formule quantique, \emph{n} présente la valeur la plus grande.
+\end{definition}
+
+\begin{definition}[Valence d'un l'atome]
+La valence d'un atome est égale au nombre d'électrons célibataire situés sur cette couche de valence.
+\end{definition}
+
+\begin{definition}[\'Electron libre]
+Un électron libre est un électron de valence qui a été excité par une énergie suffisante et qui va permettre la conduction électrique par le transfert de sa charge électrique négative $\ominus$.
+\end{definition}
+
+\begin{definition}[Ion]
+Un ion est un atome ou une molécule dont un -- ou plusieurs -- électron(s) ont été arrachés ou captés. Il est porteur d'une charge électrique positive -- \emph{cation} -- ou négative -- \emph{anion} -- et la manifestation chimique de l'énergie électrique.
+\end{definition}
+
+\begin{definition}[Nucléide]
+Un nucléide est la dénomination d'un noyau atomique caractérisé par son nombre de protons et de neutrons.
+\end{definition}
+
+\begin{definition}[\'Etat fondamental]
+Notion de physique caractérisant l'état de plus basse énergie pour un électron, ou à l'état de plus grande neutralité électrique pour un atome.
+\end{definition}
+
+\subsection{Nombres quantiques}
+
+Les électrons gravitant autour d'un noyau sont répartis en couches électroniques (voir \superref{fig:aluminium_modelisation}) qui sont elles même divisées en sous-couches.\\Ceux-ci peuvent sauter d'une couche à l'autre avec absorption ou émission d'énergie. Chaque électron est défini par un nombre quantique unique pour un état donné, séparé en quatre parties.
+
+\begin{itemize}
+	\item Le nombre quantique d'un électron indique sa position probable dans l'espace électronique autour du noyau atomique\footnote{Des représentations des géométries orbitales se situent au \superref{tab:geometrie_orbitale}.} dénommé orbitale atomique\,;
+	\item L'état quantique est unique à chaque électron. Deux électrons ne peuvent pas se situer dans le même espace probable autour du noyau d'un atome.
+\end{itemize}
+
+\pagebreak
+\input{tab_description_nombres_quantiques}
+\pagebreak
+
+\input{tab_distribution_electronique}
+
+\subsection{\'Energie électronique}
+
+\subsubsection{Règle de Klechkowski et de stabilité}
+\begin{itemize}
+	\item L'énergie contenue dans les sous-couches électroniques augmente lorsque la somme des nombres quantiques principal et azimutal $n + \ell$ augmente. Si celle-ci est identique pour deux sous-couches, celle de plus basse énergie sera celle pour laquelle $n$ sera le plus petit.
+	\item Les électrons se répartissent de façon à obtenir la configuration présentant un minimum d'énergie. La répartition s'effectue par ordre croissant d'énergie en commençant par la sous-couche de plus basse énergie (valeurs de $n + \ell$ puis $n$ croissantes).
+\end{itemize}
+Un \emph{état de valence} est un état excité de l'atome, noté \og * \fg{}, de plus haute énergie. Cet état apparait quand l'atome participe à la formation d'une liaison, les électrons de valences se répartissant dès lors dans le nombre maximal de cases quantiques qu'ils peuvent occuper :
+
+\begin{table}[h!]
+\caption{Cases quantiques en état de valence}
+\begin{tabular}{l j c c l c c}
+Carbone C		& 2s^{2}2p^{2}		& 
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+     	\AO(0cm){s}{0}
+	\end{modiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+        \AO(0cm){s}{0;up}
+        \AO(0,7cm){s}{0;up}
+        \AO(1,4cm){s}{0;}
+	\end{modiagram}}
+& *C		&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+     	\AO(0cm){s}{0;up}
+	\end{modiagram}}
+&
+\adjustbox{valign=t}{ %alignement des figures avec le haut de la cellule
+	\begin{modiagram}[style=square]
+        \AO(0cm){s}{0;up}
+        \AO(0,7cm){s}{0;up}
+        \AO(1,4cm){s}{0;up}
+\end{modiagram}}
+
+\end{tabular}
+\end{table}
+
+
+Comme cité dans le \superref{tab:distribution_electronique}, toutes les sous-couches d'une période n'appartiennent pas nécessairement à la même couche électronique : à partir de la troisième période, des sous-couches appartenant à des couches différentes se remplissent à la même période.\\L'ordre précis des sous-couches électroniques est donné la la règle de Kleckowski, en \superref{fig:repartition_sous-couche}.\\
+Cela donne l'ordre de répartition suivant, applicable à plus de 80\% du tableau périodique : 
+\begin{itemize}
+	\item 1s; 2s; 2p; 3s; 4s; 3p; 4p; 5s; 4d; 5p; 6s; 4f; 5d; 6p; 7s; 5f; 6d; 7p; 7d.
+\end{itemize}
+
+\input{tab_repartition_sous-couche}
+
+Une vingtaine d'éléments ne respectent pas cette répartition électronique. Si l'on l'on respecte la \emph{règle de Hunt} -- plus le spin $S$ résultant des électrons d'une orbitale atomique est élevé, plus la configuration électronique sur cette orbitale est stable -- pour les éléments des blocs $d$ et $f$, il est moins énergétiquement moins favorable de respecter la règle de Klechkowski que de favoriser l'occupation impaire des sous-couches les plus externes lorsque la couche $d$ ou $f$ est vide, à moitié remplie ou entièrement remplie. Effectivement, l'écart d'énergie entre ces sous-couches est inférieur au gain d'énergie induit par la redistribution des électrons de telle sorte que leur nombre quantique magnétique de spin $m_S$ résultant soit le plus élevé.\\
+Ces \og exceptions \fg{} sont listées dans le \superref{tab:exception_hund}.
+
+\subsubsection{Principe d'exclusion de Pauli}
+
+ Dans le même atome, il ne peut y avoir deux électrons dont les quatre nombres quantiques sont identiques : \begin{description}
+	\item[Triplet] Un triplet $n, l, m$ donné décrit deux électrons dont le sens de rotation est précisé par le signe de $m_S$ et définit l'orbitale atomique de ceux-ci\,;
+	\item[Quadruplet]  Un quadruplet vaut donc soit $n, l, m, m_S=+\frac{1}{2}$, soit $n, l, m, m_S=-\frac{1}{2}$ et est unique pour chaque électron.
+	\begin{itemize}
+		\item 2 $e^-$ maximum sur une sous-couche $s$\,;
+		\item 6 $e^-$ maximum sur une sous-couche $p$\,;
+		\item 10 $e^-$ maximum sur une sous-couche $d$\,;
+		\item 14 $e^-$ maximum sur une sous-couche $f$.
+	\end{itemize}
+\end{description}
+ 
+\section{Description détaillée d'un atome d'aluminum}
+ 
+Dans cette section est détaillée la description complète du 13\up{ème} élément du tableau périodique situé en  \superref{tab:tableau_periodique}, l'aluminium.
+
+\input{fig_aluminium_element}
+ 
+\begin{description}
+	\item[Symbole :] Al
+	\item[Famille :] métaux de transitions
+	\item[Numéro atomique \emph{Z} :] 13 protons
+	\item[Nombre d'électrons :] 13 protons
+	\item[Nombre de neutrons \emph{N} :] 14 neutrons pour l'isotope le plus abondant
+	\item[Nombre de masse \emph{A} :] 27 nucléons
+	\item[Masse molaire \emph{M} :] $M=\SI{26.981386}{\gram\per\mole}$ %appel de l'environnement de programmation des unités et des listes de nombres
+	\item[Formule électronique/quantique :] $1s^{2}2s^{2}2p^{6}3s^{2}3p^{1}$ %appel de l'environnement de programmation des formules mathématiques
+\end{description}
+
+\pagebreak
+
+\subsection{Configuration électronique}
+
+\begin{figure}[h] %insertion d'une figure avec imposition de l'emplacement vertical (Here!) avec annotation et légende
+	\begin{annotate}
+		{\includegraphics[scale=1]{tab_aluminium_configuration_electronique.pdf}}{0.1} %appel de la figure à annoter avec l'échelle des flèches et la grille de repères
+		%\helpgrid[gray]  %grille d'aide pour le placement des objets (fonctionne aussi avec \DrawGrid{(-xmin,-ymin)}{(xmax,ymax)}
+
+		\callout{-15,-10}{\cstep\label{pas:1}}{-11,-4} %flèche avec numéro référencé
+		\callout{-6,-10}{\cstep\label{pas:2}}{-7.8,-2.6} %flèche avec numéro référencé
+		\callout{8,-10}{\cstep\label{pas:3}}{13,2}
+		\callout{3,-10}{\cstep\label{pas:4}}{3,-4}
+		\callout{30,-10}{\cstep\label{pas:5}}{37,0.5}
+		\draw [decorate,decoration={brace, raise=0.2cm}] (11.8,4.7) -- (30.1,4.7)
+			node[above=0.2cm,pos=0.5] {\cstep\label{pas:6}};
+		\draw [decorate,decoration={brace, raise=0.2cm}] (36.8,4.7) -- (66.2,4.7)
+			node[above=0.2cm,pos=0.5] {\cstep\label{pas:7}};
+	\end{annotate} 
+\end{figure}
+
+\begin{minipage}{\linewidth} %usage d'un environnement mini-page pour éviter les décalage au début de la première colonne quand l'élément n'est pas du texte simple
+	\begin{multicols}{2} %répartition du texte dans l'environnement en deux colonnes
+		\circref{pas:1}couche électronique $n=K$\\ %légende automatique
+		\circref{pas:2}nombre d'électrons présents dans la sous-couche électronique $\ell=s$ de la couche électronique $n=K$\\
+		\circref{pas:3}électron dans le sens de rotation du spin $m_{S}=-\frac{1}{2}$\\
+		\circref{pas:4}sous-couche électronique $\ell=s$ de la couche électronique $n=L$\\
+		\circref{pas:5}paire d'électrons de la sous-couche $\ell=s$ de la couche électronique électronique $n=M$ différenciés par le signe du nombre quantique du spin $S$
+		\columnbreak\\ %passage à la deuxième colonne
+		\circref{pas:6}cases quantiques désignant les nombres quantiques magnétiques du spin $M_S$ des électrons de la sous-couche $\ell=p$ de la couche électronique électronique $n=L$\\
+		\circref{pas:7}dernière couche électronique $n=M$ (couche de valence)
+	\end{multicols}
+\end{minipage}
+
+\subsection{Représentations graphiques}
+
+\begin{center}
+\begin{figure}[h] %insertion d'une figure avec imposition de l'emplacement vertical (Here!) avec annotation et légende
+\startcstep %remet les compteurs des légendes en pastille à zéro
+	\begin{minipage}{.69\linewidth}
+		\begin{annotate}
+			{\includegraphics[scale=.6]{fig_aluminium_modelisation.pdf}}{0.5} %appel de la figure à annoter avec l'échelle des flèches et la grille de repères
+			%\DrawGrid{(-12,-12)}{(12,12)} %grille d'aide pour le placement des objets
+
+			\callout{7,8}{\cstep\label{pas:1}}{6,5.45}
+			\callout{3,10}{\cstep\label{pas:2}}{1.9,9} %flèche avec numéro référencé
+			\callout{7,-5}{\cstep\label{pas:3}}{5.3,-4.5}
+			\callout{3,7}{\cstep\label{pas:4}}{3.5,4.5}
+			\callout{7,-1.5}{\cstep\label{pas:5}}{5,-1.5}
+			\callout{-7,-2.4}{\cstep\label{pas:6}}{-3.9,-2.4}
+			\callout{-7,8}{\cstep\label{pas:7}}{-1.3,0.7}
+			\callout{7,3}{\cstep\label{pas:8}}{0.6,0.6}
+		\end{annotate} 
+	\end{minipage}
+\hfill
+	\begin{minipage}{.28\linewidth}
+\circref{pas:1}couche électronique M\\sous-couche p (bande de conduction)\\
+\circref{pas:2}couche électronique M\\sous-couche s (valence) \\
+\circref{pas:3}électron libre\\
+\circref{pas:4}électron de valence\\
+\circref{pas:5}couche électronique K\\sous-couche p\\
+\circref{pas:6}couche électronique K\\sous-couche s\\
+\circref{pas:7}couche électronique L\\sous-couche s\\
+\circref{pas:8}noyau atomique
+	\end{minipage}
+	\caption{Modélisation détaillée (animation à la \superref{fig:aluminium_modelisation_animee})}
+	\label{fig:aluminium_modelisation}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[h] %insertion d'une figure avec imposition de l'emplacement vertical (Here!)
+	\begin{subfigure}[b]{.46\linewidth} %appel de l'environnement pour la première de deux figures côte-à-côte
+	\centering %figure centrée horizontalement
+	\Lewis{0.2.4.,Al}
+	\subcaption{Lewis}
+	\label{fig:aluminium_lewis}
+	\end{subfigure}
+\hfill %impose l'écartement entre les deux figures
+	\begin{subfigure}[b]{.46\linewidth} %appel de l'environnement pour la deuxième de deux figures côte-à-côte
+		\begin{tikzpicture}
+			\setbohr{distribution-method=quantum, insert-missing=true, } %représentation de Bohr
+			\bohr{}{Al}
+		\end{tikzpicture}
+		\subcaption[b]{Rutherford-Bohr}
+		\label{fig:aluminium_bohr}
+	\end{subfigure}
+	\caption{Représentation atomique de Lewis et de Bohr}
+\end{figure}
+\end{center}
+
+\`A l'état fondamental, l'atome d'aluminium possède trois électrons de valence sur sa dernière couche électronique $3s^{\Circled{2}}\overset{\overset{+}{~}}{~}3p^{\Circled{1}}$. %symbole + au-dessus
+
+
+%\end{document}
+

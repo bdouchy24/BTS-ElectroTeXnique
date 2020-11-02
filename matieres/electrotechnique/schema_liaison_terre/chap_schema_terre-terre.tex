@@ -1,0 +1,165 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Schéma Terre-Terre}
+\ChapFrame
+
+\section{Caractéristiques générales}
+
+\begin{definition}[Schéma TT]
+Schéma de liaison à la terre dans lequel :
+\begin{description}
+\item[Neutre :] relié à la terre\,;
+\item[Masse :] reliées à la terre.
+\end{description}
+\end{definition}
+
+Dans le SLT TT, le neutre du transformateur HT/BT (point commun) est relié à la terre via la \emph{prise de terre du neutre} \circrefseul{pas:1}. Cette liaison présente une certaine résistance, la \emph{résistance de la prise de terre du neutre} $R_B$ \circrefseul{pas:2}. Sa mise en \oe{}uvre est à charge du fournisseur d'électricité et sa résistance globale doit être inférieure ou égale à \SI{15}{\ohm} \footcite{NF:C13-100-2015}.\\
+Les masses sont quant à elles reliées à la terre via la \emph{prise de terre de l'installation électrique} \circrefseul{pas:3}, qui présente aussi une certaine résistance, la \emph{résistance de la prise de terre de l'installation électrique} $R_A$ \circrefseul{pas:4}. Sa mise en \oe{}uvre est à charge du propriétaire de l'installation (voir \superref{subsec:prise_terre_installation_electrique}).\\ 
+
+\section{Schémas de principe}
+
+\begin{figure}[h]
+\caption{Installation Terre-Terre}
+\begin{subfigure}[t]{0.49\linewidth}
+\subcaption{sans défaut d'isolement}
+\input{fig_schema_tt_sain}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\subcaption{avec défaut d'isolement}
+\input{fig_schema_tt_defaut}
+\end{subfigure}
+\end{figure}
+
+En cas de défaut d'isolement sur les masses métalliques, le courant de défaut $I_d$ dispose d'un chemin, via la terre, pour revenir au poste de transformateur HT/BT. Cela forme la \emph{boucle de défaut}.\\
+Dans les calculs, il faut tenir compte de la \emph{résistance de défaut} $R_d$ \circrefseul{pas:1} qui prend en compte la nature du défaut d'isolement (franc ou non-franc) et la résistance de la carcasse métallique.\\
+
+\pagebreak
+
+\input{fig_schema_tt_boucle_defaut}
+
+L'intensité de courant $I_d$ vaut alors :
+\begin{formule}[Courant de défaut $I_d$]
+\begin{align}
+		I_d &= \frac{V}{R_{B}+R_{A}+R_{d}}
+\end{align}
+\end{formule}
+
+\begin{textvariables}
+V								& tension							& volt			& \volt					& 	Différence de potentiel entre les masses métalliques et la terre 	\\
+R_{B}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre du neutre 	\\
+R_{A}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre de l'installation électrique 	\\
+R_{d}						& résistance						& ohm			& \ohm					& 	Résistance de défaut 	d'isolement \\
+\end{textvariables}
+
+Le courant de défaut $I_d$ fera alors apparaître une \emph{tension de défaut} $U_d$ entre la masse métallique et la terre. Pour satisfaire aux normes de sécurité de la NF C15-100, il est imposé (voir \superref{subsec:prise_terre_installation_electrique}) :
+
+\begin{formule}[Tension de défaut $U_d$]
+\begin{align}
+		U_d &= R_{A} \cdot I_{d} \\
+			   &< U_L
+\end{align}
+\end{formule}
+
+\begin{textvariables}
+R_{A}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre de l'installation électrique 	\\
+I_{d}							& intensité							& ampère		& \ampere				& 	Courant de défaut d'isolement \\
+U_{L}						& tension							& volt			& \volt					& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+\end{textvariables}
+
+Il est donc nécessaire de limiter $U_d$ à la valeur suivante (voir \superref{form:resistance_prise_terre}) :
+
+\begin{formule}[Calibre du DDR $I_{\Delta n}$]
+\begin{align}
+		I_{\Delta n} &< \frac{U_{L}}{R_{A}}
+\end{align}
+\end{formule}
+
+\begin{textvariables}
+U_{L}						& tension							& volt			& \volt					& 	Tension de sécurité du local avec :
+\begin{description}[nosep, leftmargin=*]
+\item[Local sec :] $U_{L}=\SI{50}{\volt}$
+\item[Local humide :] $U_{L}=\SI{25}{\volt}$
+\end{description} \\
+R_{A}						& résistance						& ohm			& \ohm					& 	Résistance de la prise de terre de l'installation électrique 	\\
+\end{textvariables}
+
+\begin{exemple}[Calcul du calibre du DDR $I_{\Delta n}$]
+Si on considère que le transformateur est un transformateur $\SI{20}{\kilo\volt}/\SI{400}{\volt}$, que $R_A=\SI{20}{\ohm}$, que $R_B=\SI{10}{\ohm}$ et que $R_d$ est négligée, on peut déduire que le courant de défaut $I_d$ vaut :
+\begin{align*}
+		I_d 	&= \frac{V}{R_{B}+R_{A}} \\
+				&=\frac{400}{20+10} \\
+				&= \SI{13,33}{\ampere} \\
+\end{align*}
+Si une personne touche une masse des récepteurs en défaut, elle sera soumise à une tension de défaut $U_d$ :
+\begin{align*}
+		U_d 	&= R_{A} \cdot I_{d} \\
+				&=20 \cdot 13,33 \\
+				&= \SI{266,6}{\volt}
+\end{align*}
+La tension de défaut $U_d$ est dangereuse quelle que soit la tension limite choisie :
+\begin{itemize}
+\item coupure la plus rapide possible\,;
+\item protection des personnes.
+\end{itemize}
+~\\
+\begin{minipage}[t]{0.5\linewidth}
+Dans le cas d'un local sec :
+\begin{align*}
+	I_{\Delta n} 	&< \frac{U_{L}}{R_{A}} \\
+						&< \frac{50}{20} \\
+						&< \SI{2,5}{\ampere}
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+Dans le cas d'un local humide :
+\begin{align*}
+	I_{\Delta n} 	&< \frac{U_{L}}{R_{A}} \\
+						&< \frac{25}{20} \\
+						&< \SI{1,25}{\ampere}
+\end{align*}
+\end{minipage}
+~\\
+D'après le tableau situé en \superref{tab:temps_coupure_DDR}, le DDR doit présenter un temps de coupure de moins de \SI{70}{\milli\second} avec une tension de défaut $U_d$ de \SI{266,6}{\volt} :
+
+\begin{table}[h]
+\begin{tabularx}{\linewidth}{X cccccccc}
+\toprule
+Tension nominale		& \multicolumn{2}{c}{$\SI{50}{\volt}<U_0\leq\SI{120}{\volt}$} 	& \multicolumn{2}{c}{$\SI{120}{\volt}<U_0\leq\SI{230}{\volt}$} & \multicolumn{2}{c}{$\SI{230}{\volt}<U_0\leq\SI{400}{\volt}$}		& \multicolumn{2}{c}{$U_0>\SI{400}{\volt}$}\\
+\midrule
+Type de courant		& alternatif	& continu	& alternatif	& continu	& alternatif	& continu	& alternatif	& continu \\
+\addlinespace
+Schéma TN/IT	& \SI{0,8}{\second}	&	\SI{5}{\second}	&	\SI{0,4}{\second}	&	\SI{5}{\second}	&	\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\SI{0,1}{\second}	&	\SI{0,1}{\second} \\	
+\addlinespace
+Schéma TT	& \SI{0,3}{\second}	&	\SI{5}{\second}	&	\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\cellcolor{green}\SI{0,07}{\second}	&	\SI{0,2}{\second}	&	\SI{0,04}{\second}	&	\SI{0,1}{\second} \\	
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{exemple}
+
+%\end{document}

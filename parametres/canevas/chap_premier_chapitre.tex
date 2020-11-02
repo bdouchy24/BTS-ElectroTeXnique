@@ -1,0 +1,37 @@
+%--------------------------------------
+%CANEVAS
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+	\chapter{Un premier chapitre au titre long pour tester}
+	\ChapFrame %appel du marqueur de chapitre
+	
+	\section{Une première section}
+	\lipsum[1]
+
+	\subsection{Une première sous-section}
+	\lipsum[1-3]
+
+	\subsubsection{Une première sous-sous-section}
+	\lipsum[1-2]
+
+%\end{document}
+

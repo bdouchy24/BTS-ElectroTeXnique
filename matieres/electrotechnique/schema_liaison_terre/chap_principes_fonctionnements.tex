@@ -1,0 +1,100 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Principes de fonctionnement}
+\ChapFrame
+ 
+\section{Généralités}
+
+La protection contre les contacts indirects dépend principalement des SLT (anciennement régime de neutre) qui sont fonction du branchement du neutre vis-à-vis de la terre et du branchement des masses conductrices vis-à-vis de la terre et du neutre.\\
+Il existe trois SLT :
+\begin{description}
+\item[SLT Terre-Terre (TT) :] distribution publique \,;
+\item[SLT Terre-Neutre (TN) :] généralement installé dans le secteur de l'industrie\,;
+\begin{itemize}
+\item SLT Terre-Neutre \emph{Séparé} (TN-S)\,;
+\item SLT Terre-Neutre \emph{Commun} (TN-C)\,;
+\item SLT Terre-Neutre \emph{Commun} et \emph{Séparé} (TN-C-S)\,;
+\end{itemize}
+\item[SLT Isolé/Impédant-Terre (IT) :] continuité de service en cas de défaut d'isolement.
+\end{description}
+
+\section{Définitions usuelles}
+
+\begin{definition}[Conducteur actif]
+Conducteur électrique participant au transport de l'énergie électrique.
+\end{definition}
+
+\begin{definition}[Neutre]
+Point central où sont reliés les trois bobines du secondaire du transformateur HT/BT dans le cas d'un couplage étoile ou zig-zag. Il est considéré comme un \emph{conducteur actif} et il doit pouvoir être sectionné et protégé selon les SLT.
+\end{definition}
+
+\begin{definition}[Terre]
+Masse conductrice de la terre, dont le potentiel électrique en chaque point est considéré comme égal à zéro. Sa résistivité est relativement élevée mais sa \og section \fg{} théoriquement infinie.
+\end{definition}
+
+\begin{definition*}[Masse]
+Partie conductrice d'un appareil électrique susceptible d'être touchée par une personne, qui n'est normalement pas sous tension, mais qui peut le devenir en cas de défaut d'isolement des parties actives de ce matériel (voir \superref{def:masse}).
+\end{definition*}
+
+\section{Désignations des différents SLT}
+
+\begin{itemize}
+\item la première lettre donne la position du neutre de l'installation électrique par rapport à la terre (dans le poste de distribution HT/BT)\;,
+\item la deuxième lettre donne la position des masses par rapport à la terre où au neutre.
+\end{itemize}
+
+\begin{table}[h]
+\caption{Désignation des différents schémas de liaisons à la terre}
+\begin{tabularx}{\linewidth}{XXX}
+\toprule
+\thead{Désignation}		& \thead{Branchement du neutre} 	& \thead{Branchement des masses} \\
+\midrule
+Régime TT						& Neutre relié à la Terre						& Masses reliées à la Terre \\
+Régime TN					& Neutre relié à la Terre						& Masses reliées au Neutre \\
+Régime IT						& Neutre Isolé/Impédant	& Masses reliées à la Terre \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Temps de coupure maximal\label{tab:temps_coupure_DDR}}
+
+Le temps de coupure (ou de détection pour le schéma IT) des DDR en cas de défaut doit être le plus court possible et diminue avec l'augmentation de la \emph{tension nominale} $U_0$ entre phase et neutre.
+
+\begin{table}[h]
+\caption{Temps de coupure maximal des circuits terminaux}
+\begin{tabularx}{\linewidth}{X cccccccc}
+\toprule
+Tension nominale		& \multicolumn{2}{c}{$\SI{50}{\volt}<U_0\leq\SI{120}{\volt}$} 	& \multicolumn{2}{c}{$\SI{120}{\volt}<U_0\leq\SI{230}{\volt}$} & \multicolumn{2}{c}{$\SI{230}{\volt}<U_0\leq\SI{400}{\volt}$}		& \multicolumn{2}{c}{$U_0>\SI{400}{\volt}$}\\
+\midrule
+Type de courant		& alternatif	& continu	& alternatif	& continu	& alternatif	& continu	& alternatif	& continu \\
+\addlinespace
+Schéma TN/IT	& \SI{0,8}{\second}	&	\SI{5}{\second}	&	\SI{0,4}{\second}	&	\SI{5}{\second}	&	\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\SI{0,1}{\second}	&	\SI{0,1}{\second} \\	
+\addlinespace
+Schéma TT	& \SI{0,3}{\second}	&	\SI{5}{\second}	&	\SI{0,2}{\second}	&	\SI{0,4}{\second}	&	\SI{0,07}{\second}	&	\SI{0,2}{\second}	&	\SI{0,04}{\second}	&	\SI{0,1}{\second} \\	
+\bottomrule
+\end{tabularx}
+\end{table}
+
+%\end{document}
+

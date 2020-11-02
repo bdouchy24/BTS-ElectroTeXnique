@@ -27,7 +27,9 @@
 
 \input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
 
-\addbibresource{../bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
+%\input{DocSettings}%à executer lorsqu'on souhaite un nouveau numéro de version du document
+
+\addbibresource{../bibliographies/bib_exemple.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
 
 %--------------------------------------
 %corps du document
@@ -64,16 +66,17 @@
 	{\hypersetup{linkcolor=black}\listoftables} %liste des tableaux en noir
 	\newpage
 	{\hypersetup{linkcolor=black}\listoffigures} %liste des figures en noir
-	{\hypersetup{linkcolor=black}\listtheoremname\listtheorems{Theorem}} %liste des équations en noir
-	{\hypersetup{linkcolor=black}\listdefinitionname\listtheorems{Definition}} %liste des définitions en noir
-		
+	{\hypersetup{linkcolor=black}\listtheoremname\listtheorems{formule}} %liste des équations en noir
+	{\hypersetup{linkcolor=black}\listdefinitionname\listtheorems{definition}} %liste des définitions en noir
+	{\hypersetup{linkcolor=black}\listexemplename\listtheorems{exemple}} %liste des définitions en noir
+
 	\openright %début de chapitre à "droite" mais comme demarrage de la numérotation inversé avec la page de titre, ça décale l'ouverture des chapitre à gauche
 
 	%--------------------------------------
 	%chapitre d'introduction
 	%--------------------------------------
 
-	\input{chap_0_preface}
+	\input{chap_preface}
 		
 %--------------------------------------
 %corps de texte, annexes
@@ -87,11 +90,11 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
-\input{chap_1_premier_chapitre}
+\input{chap_premier_chapitre}
 
-\input{chap_2_deuxieme_chapitre}
+\input{chap_deuxieme_chapitre}
 
-\input{chap_3_troisieme_chapitre}
+\input{chap_troisieme_chapitre}
 
 	%--------------------------------------
 	%style des annexes
@@ -105,9 +108,9 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
-	\input{chap_A_premiere_annexe}
+	\input{ann_premiere_annexe}
 	
-	\input{chap_B_deuxieme_annexe}
+	\input{ann_deuxieme_annexe}
 
 
 %--------------------------------------
@@ -126,7 +129,7 @@
 	%bibliographie
 	%--------------------------------------
 
-	\nocite{Coarer2003}
+	\nocite{AuteurAnnee, Site:abreviation}
 	
 	\printbibliography %ajout des références bibliographiques
 		

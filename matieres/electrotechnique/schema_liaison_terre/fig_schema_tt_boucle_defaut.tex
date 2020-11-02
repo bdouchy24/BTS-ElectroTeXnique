@@ -1,0 +1,80 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\begin{figure}[h]
+\caption{Boucle de défaut du courant $I_d$ sur L1}
+\begin{circuitikz}[circuit ee IEC relay]
+%\DrawGrid{(-1,-5)}{(9,3)} %grille d'aide pour le placement des objets
+
+%alimentation
+
+\node (D1) [make contact=point left, circuit breaker={point left}, tiny circuit symbols, activated] at (1,0.45) {};
+\node (T1) [oosourcetransshape, prim=delta,sec=wye] at (0,0) {};
+
+
+%neutre/terre
+
+\node (RN) [R, label=$R_B$, rotate=90, tiny circuit symbols] at (0,-2.7) {};
+\node (G1) [tlground] at (0,-3.9) {};
+\draw [green!, thick] (G1) to node {} (RN) ; 
+\draw [green!, thick] (RN) to (0,-0.5) to node {} (T1.sec4) ; 
+\draw [dashed, yellow!, thick] (G1) to node {} (RN) ;
+\draw [dashed, yellow!, thick] (RN) to (0,-0.5) to node {} (T1.sec4) ;
+
+\node (RT) [resistor, rotate=90, tiny circuit symbols, label=$R_A$] at (2.5,-2.7) {};
+\draw[-triangle 45, red] (2.8,-2) -- (2.8,-1) node[right,midway] {$U_d$};
+\node (G2) [tlground] at (2.5,-3.9) {};
+\draw [green!, thick] (RT) to (G2); 
+\draw [dashed, yellow!, thick] (RT) to (G2);
+\node (G2) [tlground] at (2.5,-3.9) {};
+\draw [green!, thick] (G1) to (0,-4.2) to (2.5,-4.2) to (G2);
+\draw [dashed, yellow!, thick] (G1) -- (0,-4.2) -- (2.5,-4.2) node [midway,below] {\color{black}$I_d$} -- (G2);
+\node (G1) [tlground] at (0,-3.9) {};
+\node (G2) [tlground] at (2.5,-3.9) {};
+
+%appareil 1
+
+\node (C2) [circ, scale=0.5] at (2.5,0.45) {};
+\node (RD) [resistor, label=$R_d$, rotate=90, tiny circuit symbols] at (2.5,-1.5) {};
+
+\draw [green!, thick] (RD) to (RT); 
+\draw [dashed, yellow!, thick] (RD) to (RT); 
+
+\draw [brown, thick] (T1.sec1) to (0.5,0.45) to (D1) to (C2) to (RD);
+\node (T1) [oosourcetransshape, prim=delta,sec=wye] at (0,0) {};
+
+%chemin courant
+
+\fill [yellow!, decoration=lightning bolt, decorate] (2.5,-1.2) -- ++ (0.5,0.8); %éclairs
+\path [postaction={on each segment={mid arrow=red}}]  (T1.sec1) -- (0.5,0.45) -- (D1) -- (C2) -- (RD) -- (RT) -- (G2) -- (2.5,-4.2) -- (1.666,-4.2) -- (0.88888,-4.2)  -- (0,-4.2) -- (G1) -- (RN) -- (0,-0.5) -- (T1.sec4); 
+
+\callout{1,-0.5}{\cstep\label{pas:1}}{2.4,-1.2};
+
+
+\end{circuitikz}
+\end{figure}
+
+
+
+%\end{document}
+

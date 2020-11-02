@@ -1,0 +1,50 @@
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+%--------------------------------------
+%chap_A_addendeum_chimie_atomique
+%--------------------------------------
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+\end{comment}
+
+\chapter{Addendum de chimie atomique}
+\label{ann:addendum_chimie_atomique}
+
+Cet annexe regroupe tous les tableaux et figures mentionnés dans le \superref{chap:chimie_atomique} qui contiennent un nombre importants de données. Il n'est pas nécessaire de les retenir par c\oe{}ur mais ces informations constituent un support appréciable pour toute précision concernant ce chapitre.
+
+\input{tab_exception_hund}
+
+\begin{landscape}
+	\begin{figure}
+	\caption{Tableau périodique des éléments chimiques}
+	\label{tab:tableau_periodique}
+		\begin{center}
+			\includegraphics[scale=1.15]{tab_tableau_periodique.pdf} 
+		\end{center}
+	\end{figure}
+\end{landscape}
+
+\input{tab_geometrie_orbitale}
+
+\begin{figure}[!h]
+		\centering
+		\animategraphics[autoplay, loop, scale=0.8]{10}{fig_aluminium_modelisation_anime}{}{}
+		\caption{Modélisation animée d'un atome d'aluminium avec ses différentes couches atomiques}
+		\label{fig:aluminium_modelisation_animee}
+\end{figure}
+
+%\end{document}

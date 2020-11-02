@@ -1,0 +1,62 @@
+%--------------------------------------
+%chap_2_chimie_conduction_electrique
+%--------------------------------------
+
+\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur}
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le fichier maître
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+	\Frametrue %défini la booléenne Frame comme vrai -> marqueurs de chapitre
+
+\end{comment}
+
+
+\chapter{Chimie de la conduction électrique}
+\ChapFrame %appel du marqueur de chapitre
+
+\section{Dernière couche électronique}
+
+\subsection{\'Electron-volt}
+
+Les couches électroniques $K, L, M\ldots$ répartissent les électrons autour du noyau atomique :
+\begin{itemize}
+\item Plus un électron est proche du noyau atomique, plus l'énergie nécessaire pour arracher l'électron du champ électrique du noyau sera grande\,;
+\item \'Energie quantifiée en \emph{électron-volt} \si{\electronvolt}.
+\end{itemize}
+Un \emph{électron-volt} est la mesure physique de l'énergie cinétique d'un électron accéléré sous l'action d'une \emph{différence de potentiel} d'$\SI{1}{\volt}$. Il est égal à : 
+
+\begin{formule}[Valeur expérimentale de l'\electronvolt\label{eq:valeur_experimentale_electronvolt}]
+	\begin{align} 
+		U &= \frac{W}{Q} \\
+		\electronvolt &= \sqrt{\frac{2h\alpha}{\mu\clight}}\frac{W}{Q} \\
+		&=\SI{1,602176634e-19}{\joule} \nonumber
+	\end{align}
+\end{formule}
+
+\begin{numvariables}
+U						& différence de potentiel					& volt						& \volt								& \volt  				& \si{\kilogram\square\meter\per\cubic\second\per\ampere} \\
+W						& énergie											& joule						& \joule								& \joule				& \si{kg.m^{2}/s^{2}} \\
+Q						& charge électrique							& coulomb					& \coulomb						& \coulomb		& \si{\ampere\second} \\
+\electronvolt 		& électron-volt 									& joule 						& \si\joule 							& \electronvolt	& \SI{1,602176634e-19}{\joule} \\
+h 						& constante de Planck 						& joule seconde 		& \si{\joule\second	}			& h					& \SI{6,62607015e-34}{\joule\second} \\
+\alpha				& constante de structure fine 				& sans dimension 		&										& \alpha			& \num{7,2973525564e-3} \\
+\mu					& perméabilité magnétique du vide	& henry par mètre		& \si{\henry\per\meter}		& \mu				& \SI{4\pi e-7}{\henry\per\meter} \\
+\clight				& vitesse de la lumière dans le vide	& mètre par seconde & \si{\meter\per\second}	& \clight			& \SI{2,99792458e8}{\meter\per\second}	
+\end{numvariables}
+
+
+
+%\end{document}
+

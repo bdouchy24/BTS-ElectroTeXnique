@@ -1,0 +1,122 @@
+%--------------------------------------
+%ELECTROTECHNIQUE - SCHEMA DE LIAISON A LA TERRE
+%--------------------------------------
+
+%utiliser les environnement \begin{comment} \end{comment} pour mettre en commentaire le préambule une fois la programmation appelée dans le document maître (!ne pas oublier de mettre en commentaire \end{document}!)
+
+%\begin{comment}
+
+\documentclass[a4paper, 11pt, twoside, fleqn]{memoir}
+
+\usepackage{AOCDTF}
+
+\input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
+
+%--------------------------------------
+%corps du document
+%--------------------------------------
+
+\begin{document} %corps du document
+	\openleft %début de chapitre à gauche
+
+%\end{comment}
+
+\begin{circuitikz}[circuit ee IEC relay]
+%\DrawGrid{(-1,-5)}{(9,3)} %grille d'aide pour le placement des objets
+
+%sol
+
+\fill [gray!50] (-1,-3.5) -- (5.5,-3.5) -- (5.5,-3.7) -- (-1,-3.7) -- cycle;
+\draw [thick] (-1,-3.5) -- (5.5,-3.5);
+
+%alimentation
+
+\node (T1) [oosourcetransshape,prim=delta,sec=wye] at (0,0) {};
+\node (D1) [make contact=point left, circuit breaker={point left}, activated, tiny circuit symbols] at (1,0.45) {};
+\node (D2) [make contact=point left, circuit breaker={point left}, activated, tiny circuit symbols] at (1,0.15) {};
+\node (D3) [make contact=point left, circuit breaker={point left}, activated, tiny circuit symbols] at (1,-0.15) {};
+\node (D4) [make contact=point left, circuit breaker={point left}, activated, tiny circuit symbols] at (1,-0.45) {};
+
+\draw [rounded corners=0.2cm] (1.4, 0.6) rectangle (1.8,-0.6);
+\draw [dashed, rounded corners, ultra thin]  (1, 0.45) to (1,-0.8) to (1.6,-0.8) to (1.6,-0.6);
+
+\draw [brown, ultra thin] (-1,0.3) to (-0.5,0.3) to node {} (T1.prim1);
+\draw [black, ultra thin] (-1,0) to (-0.5,0) to node {} (T1.prim2);
+\draw [gray, ultra thin] (-1,-0.3) to (-0.5,-0.3) to node {} (T1.prim3);
+
+\draw [brown, ultra thin] (5.5,0.45) to (D1) to (0.5,0.45) to node {} (T1.sec1);
+\draw [black, ultra thin] (5.5,0.15) to (D2) to (0.5,0.15) to node {} (T1.sec2);
+\draw [gray, ultra thin] (5.5,-0.15) to (D3) to (0.5,-0.15) to node {} (T1.sec3);
+\draw [blue, ultra thin] (5.5,-0.45) to (D4) to (0.5,-0.45) to node {} (T1.sec4);
+
+%neutre/terre
+
+\node (RN) [resistor, label=$R_B$, rotate=90, tiny circuit symbols] at (0,-2.7) {};
+\node (G1) [tlground] at (0,-3.9) {};
+\draw [green!, thick] (G1) to node {} (RN) ; 
+\draw [green!, thick] (RN) to (0,-0.5) to node {} (T1.sec4) ; 
+\draw [dashed, yellow!, thick] (G1) to node {} (RN) ;
+\draw [dashed, yellow!, thick] (RN) to (0,-0.5) to node {} (T1.sec4) ;
+
+\node (G1) [tlground] at (0,-3.9) {};
+\node (T1) [oosourcetransshape, prim=delta,sec=wye] at (0,0) {};
+
+\node (RT) [resistor, label=$R_A$, rotate=90, tiny circuit symbols] at (2.5,-2.7) {};
+\node (G2) [tlground] at (2.5,-3.9) {};
+\draw [green!, thick] (RT) to (G2); 
+\draw [dashed, yellow!, thick] (RT) to (G2);
+\node (G2) [tlground] at (2.5,-3.9) {};
+
+%appareil 1
+
+\node (C1) [circ, scale=0.5] at (2.5,-1.8) {};
+\node (C2) [circ, scale=0.5] at (2.4,0.45) {};
+\node (C3) [circ, scale=0.5] at (2,-0.45) {};
+\node (L) [bulb, info=1, rotate=270] at (2.4,-1.5) {};
+
+\draw [green!, thick] (C1) to node {} (RT); 
+\draw [dashed, yellow!, thick] (C1) to node {} (RT); 
+
+\draw [thick] (2.1,-1.2) rectangle (2.7,-1.8);
+\draw [brown, thick] (T1.sec1) to (0.5,0.45) to (D1) to (C2) to node {} (L);
+\draw [blue, ultra thin] (C3) to (2,-2) to (2.4,-2) to node {} (L);
+
+%appareil 2
+
+\node (C5) [circ, scale=0.5] at (3.7,-1.8) {};
+\node (C6) [circ, scale=0.5] at (3.6,0.45) {};
+\node (C7) [circ, scale=0.5] at (3.2,-0.45) {};
+\node (C8) [circ, scale=0.5] at (2.5,-2.1) {};
+\node (L) [bulb, info=2, rotate=270] at (3.6,-1.5) {};
+
+\draw [green!, ultra thin] (C8) -| (C5); 
+\draw [dashed, yellow!, ultra thin] (C8) -| (C5); 
+
+\draw (3.3,-1.2) rectangle (3.9,-1.8);
+\draw [brown, ultra thin] (C6) to node {} (L);
+\draw [blue, ultra thin] (C7) to (3.2,-2) to (3.6,-2) to node {} (L);
+
+%appareil 3
+
+\node (C9) [circ, scale=0.5] at (4.9,-1.8) {};
+\node (C10) [circ, scale=0.5] at (4.8,0.45) {};
+\node (C11) [circ, scale=0.5] at (4.4,-0.45) {};
+\node (C12) [circ, scale=0.5] at (2.5,-2.2) {};
+\node (L) [bulb, info=3, rotate=270] at (4.8,-1.5) {};
+
+\draw [green!, ultra thin] (C12) -| (C9); 
+\draw [dashed, yellow!, ultra thin] (C12) -| (C9); 
+
+\draw (4.5,-1.2) rectangle (5.1,-1.8);
+\draw [brown, ultra thin] (C10) to node {} (L);
+\draw [blue, ultra thin] (C11) to (4.4,-2) to (4.8,-2) to node {} (L);
+%chemin courant
+
+%\path [postaction={on each segment={mid arrow=red}}]  (3.8,-1.8) -- (RT) -- (G2) -- (3.8,-4.4) -- (1.9,-4.4) -- (0,-4.4) -- (G1) -- (RN) -- (0,-0.5) -- (T1.sec4); 
+
+\fill [yellow!, decoration=lightning bolt, decorate] (2.4,-1.2) -- ++ (0.5,0.8); %éclairs
+\path [postaction={on each segment={mid arrow=red}}] (2.4,-1.2) -- (2.7,-1.2) -- (2.7,-1.8) -- (C1) -- (RT) -- (G2) -- (2.5,-4.2) -- (1.666,-4.2) -- (0.88888,-4.2)  -- (0,-4.2) -- (G1) -- (RN) -- (0,-0.5) -- (T1.sec4); 
+\end{circuitikz}
+
+\end{document}
+

@@ -27,6 +27,8 @@
 
 \input{marqueur_chapitre_couleur} %à personnaliser selon le nombre de chapitre dans le cours
 
+%\input{DocSettings}%à executer lorsqu'on souhaite un nouveau numéro de version du document
+
 \addbibresource{../../../parametres/bibliographies/bib_chimie.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
 \addbibresource{../../../parametres/bibliographies/bib_sciences_naturelles.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
 \addbibresource{../../../parametres/bibliographies/bib_electrotechnique.bib} %à redéfinir une fois le cours entamé le chemin ne sera pas le même selon les cours !
@@ -66,15 +68,16 @@
 	{\hypersetup{linkcolor=black}\listoftables} %liste des tableaux en noir
 	\newpage
 	{\hypersetup{linkcolor=black}\listoffigures} %liste des figures en noir
-	{\hypersetup{linkcolor=black}\listofequations} %liste des équations en noir
-	
+	{\hypersetup{linkcolor=black}\listtheoremname\listtheorems{formule}} %liste des équations en noir
+	{\hypersetup{linkcolor=black}\listdefinitionname\listtheorems{definition}} %liste des définitions en noir
+		
 	\openright %début de chapitre à "droite" mais comme demarrage de la numérotation inversé avec la page de titre, ça décale l'ouverture des chapitre à gauche
 
 	%--------------------------------------
 	%inclusion du chapitre d'introduction
 	%--------------------------------------
 	
-	\input{chap_0_preface}
+	\input{chap_preface}
 	
 %--------------------------------------
 %corps de texte, annexes
@@ -88,8 +91,8 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
-	\include{chap_1_chimie_atomique}
-	\include{chap_2_chimie_conduction_electrique}
+	\include{chap_chimie_atomique}
+	\include{chap_chimie_conduction_electrique}
 
 	%--------------------------------------
 	%style des annexes
@@ -103,8 +106,8 @@
 	%inclusion des chapitres
 	%--------------------------------------
 
-	\include{chap_A_addendum_chimie_atomique}
-	\include{chap_B_unites_symboles}
+	\include{ann_addendum_chimie_atomique}
+	\include{ann_unites_symboles}
 	
 %--------------------------------------
 %conclusion, bibliographie
